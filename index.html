@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HCTECH — Business Plan 2025</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --green:  #1a7a4a;
+    --green2: #2ecc71;
+    --dark:   #0d1f17;
+    --grey:   #f4f7f5;
+    --text:   #1e2d26;
+    --accent: #f39c12;
+    --red:    #e74c3c;
+    --blue:   #2980b9;
+    --border: #d0e4d8;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--dark);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .75rem 2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,.4);
+  }
+  .nav-brand { color: var(--green2); font-weight: 700; font-size: 1.1rem; letter-spacing: .05em; }
+  .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .nav-links a { color: #cde8d6; text-decoration: none; font-size: .85rem; transition: color .2s; }
+  .nav-links a:hover { color: var(--green2); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--dark) 0%, #143d26 60%, #1a6636 100%);
+    color: #fff;
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232ecc71' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(46,204,113,.15);
+    border: 1px solid rgba(46,204,113,.3);
+    color: var(--green2);
+    font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    padding: .3rem .9rem; border-radius: 2rem; margin-bottom: 1.5rem;
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
+  .hero h1 span { color: var(--green2); }
+  .hero p { max-width: 650px; margin: 0 auto 2rem; color: #b0d4be; font-size: 1.1rem; }
+  .hero-kpis {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 3rem;
+  }
+  .kpi-box {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 1rem;
+    padding: 1.25rem 2rem;
+    min-width: 160px;
+    backdrop-filter: blur(8px);
+  }
+  .kpi-box .val { font-size: 1.9rem; font-weight: 800; color: var(--green2); }
+  .kpi-box .lbl { font-size: .78rem; color: #9ec8b0; margin-top: .2rem; }
+
+  /* ── SECTIONS ── */
+  section { padding: 4.5rem 1.5rem; }
+  section:nth-child(even) { background: var(--grey); }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--green); margin-bottom: .5rem;
+  }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--dark); margin-bottom: .5rem; }
+  h3 { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin: 2rem 0 .75rem; }
+  p  { margin-bottom: 1rem; color: #3a4f42; }
+
+  .lead {
+    font-size: 1.1rem; color: #2c4035; border-left: 4px solid var(--green2);
+    padding-left: 1.25rem; margin-bottom: 2rem;
+  }
+
+  /* ── COMMENT BOX ── */
+  .comment {
+    background: #fffbea;
+    border: 1px solid #f5e0a0;
+    border-left: 4px solid var(--accent);
+    border-radius: .5rem;
+    padding: .85rem 1.1rem;
+    font-size: .88rem; color: #5a4a1a;
+    margin: 1rem 0 1.5rem;
+  }
+  .comment::before { content: "💡 Pourquoi ce choix ? "; font-weight: 700; }
+
+  /* ── CARDS GRID ── */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .card {
+    background: #fff; border-radius: 1rem;
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(26,122,74,.1); }
+  .card-icon { font-size: 2rem; margin-bottom: .75rem; }
+  .card h4 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: .4rem; }
+  .card p { font-size: .9rem; color: #5a7060; margin: 0; }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: .75rem; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  thead th {
+    background: var(--dark); color: #fff;
+    padding: .85rem 1rem; text-align: left; font-weight: 600; font-size: .82rem;
+    letter-spacing: .04em; text-transform: uppercase;
+  }
+  tbody tr:nth-child(even) { background: var(--grey); }
+  tbody td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); }
+  tbody tr:last-child td { border-bottom: none; }
+  .tag-green { background: #d4f1e1; color: #0f6b3a; padding: .15rem .5rem; border-radius: .3rem; font-size: .78rem; font-weight: 700; }
+  .tag-red   { background: #fde8e8; color: #b91c1c; padding: .15rem .5rem; border-radius: .3rem; font-size: .78rem; font-weight: 700; }
+  .tag-blue  { background: #dbeafe; color: #1e40af; padding: .15rem .5rem; border-radius: .3rem; font-size: .78rem; font-weight: 700; }
+  .highlight-row td { background: #e8f7ef !important; font-weight: 700; color: var(--dark); }
+
+  /* ── CHARTS ── */
+  .chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 2rem; margin-top: 2rem; }
+  .chart-box {
+    background: #fff; border-radius: 1rem; border: 1px solid var(--border);
+    padding: 1.5rem;
+  }
+  .chart-box h4 { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: .3rem; }
+  .chart-box .chart-note { font-size: .78rem; color: #7a9280; margin-bottom: 1rem; }
+  canvas { max-height: 280px; }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: .5rem; margin: 2rem 0;
+  }
+  .flow-step {
+    background: var(--dark); color: #fff;
+    border-radius: .6rem; padding: .75rem 1.1rem;
+    font-size: .85rem; font-weight: 600; text-align: center;
+    min-width: 130px;
+  }
+  .flow-step span { display: block; font-size: 1.3rem; margin-bottom: .3rem; }
+  .flow-arrow { color: var(--green); font-size: 1.5rem; font-weight: 900; }
+
+  /* ── SPLIT BOX ── */
+  .split-box { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 2rem 0; }
+  .split-half {
+    flex: 1; min-width: 260px;
+    border-radius: 1rem; padding: 2rem;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  .split-half.hctech { background: linear-gradient(135deg, #143d26, #1a6636); color: #fff; }
+  .split-half.station { background: linear-gradient(135deg, #1a3a6a, #2563eb); color: #fff; }
+  .split-half .pct { font-size: 4rem; font-weight: 900; line-height: 1; }
+  .split-half .pct-label { font-size: .9rem; opacity: .8; margin-bottom: 1rem; }
+  .split-half .split-detail { font-size: .88rem; opacity: .85; line-height: 1.6; }
+  .split-half .amount { font-size: 1.6rem; font-weight: 800; margin: .5rem 0; color: var(--green2); }
+  .split-half.station .amount { color: #93c5fd; }
+
+  /* ── TEAM ── */
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .team-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 1rem;
+    padding: 1.5rem; text-align: center;
+  }
+  .team-avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; margin: 0 auto 1rem;
+    background: linear-gradient(135deg, var(--green), var(--green2));
+  }
+  .team-card h4 { font-size: .95rem; font-weight: 700; color: var(--dark); }
+  .team-card .role { font-size: .8rem; color: var(--green); font-weight: 600; margin-bottom: .5rem; }
+  .team-card p { font-size: .82rem; color: #6a8070; margin: 0; }
+
+  /* ── RISK TABLE ── */
+  .risk-low  { color: #15803d; font-weight: 700; }
+  .risk-mid  { color: #d97706; font-weight: 700; }
+  .risk-high { color: #dc2626; font-weight: 700; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 2rem; margin-top: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: .6rem; top: 0; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .tl-item { position: relative; margin-bottom: 2rem; }
+  .tl-dot {
+    position: absolute; left: -1.65rem; top: .3rem;
+    width: 1rem; height: 1rem; border-radius: 50%;
+    background: var(--green2); border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--green);
+  }
+  .tl-year { font-size: .78rem; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: .08em; }
+  .tl-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: .3rem; }
+  .tl-item p { font-size: .88rem; color: #5a7060; margin: 0; }
+
+  /* ── CTA FOOTER ── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--dark), #143d26);
+    color: #fff; text-align: center; padding: 5rem 2rem;
+  }
+  .cta-section h2 { color: #fff; font-size: 2rem; margin-bottom: 1rem; }
+  .cta-section p { color: #9ec8b0; max-width: 600px; margin: 0 auto 2rem; }
+  .btn {
+    display: inline-block;
+    background: var(--green2); color: var(--dark);
+    font-weight: 700; font-size: .95rem;
+    padding: .85rem 2rem; border-radius: .6rem; text-decoration: none;
+    transition: opacity .2s;
+  }
+  .btn:hover { opacity: .85; }
+
+  footer {
+    background: var(--dark); color: #5a8060;
+    text-align: center; padding: 1.5rem; font-size: .82rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width: 600px) {
+    nav { padding: .6rem 1rem; }
+    .nav-links { display: none; }
+    .hero { padding: 4rem 1rem 3rem; }
+    .chart-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <span class="nav-brand">⚡ HCTECH</span>
+  <div class="nav-links">
+    <a href="#probleme">Le Problème</a>
+    <a href="#solution">La Solution</a>
+    <a href="#modele">Modèle Éco.</a>
+    <a href="#marche">Marché</a>
+    <a href="#financier">Finances</a>
+    <a href="#equipe">Équipe</a>
+    <a href="#risques">Risques</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="hero-badge">Business Plan 2025 — Confidentiel</div>
+  <h1>Transformer la pollution<br>en <span>source de revenus</span></h1>
+  <p>HCTECH installe gratuitement des équipements de récupération de vapeurs d'essence dans les stations-service et partage les revenus générés. Zéro investissement pour la station. Revenu récurrent pour HCTECH.</p>
+
+  <div class="hero-kpis">
+    <div class="kpi-box">
+      <div class="val">~48 k DT</div>
+      <div class="lbl">Revenu brut/machine/an</div>
+    </div>
+    <div class="kpi-box">
+      <div class="val">1 200 DT</div>
+      <div class="lbl">Gain mensuel station (sans rien payer)</div>
+    </div>
+    <div class="kpi-box">
+      <div class="val">Y3</div>
+      <div class="lbl">Seuil de rentabilité</div>
+    </div>
+    <div class="kpi-box">
+      <div class="val">175</div>
+      <div class="lbl">Machines cibles à 5 ans</div>
+    </div>
+    <div class="kpi-box">
+      <div class="val">4,6 M DT</div>
+      <div class="lbl">CA HCTECH en Y5</div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ 1. LE PROBLÈME ══ -->
+<section id="probleme">
+  <div class="container">
+    <div class="section-tag">01 — La problématique</div>
+    <h2>Un problème industriel invisible… et coûteux</h2>
+    <p class="lead">Les carburants sans plomb sont extrêmement volatils. Une partie significative de l'essence en cuve se transforme spontanément en gaz — et s'échappe dans l'atmosphère. C'est à la fois une pollution majeure et une perte financière directe pour chaque station.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🌫️</div>
+        <h4>COV — Composés Organiques Volatils</h4>
+        <p>Les vapeurs d'essence contiennent des COV classés cancérogènes. Ils participent à la formation du smog et à la dégradation de la couche d'ozone. Chaque station-service en émet des tonnes par an.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💸</div>
+        <h4>Pertes financières réelles</h4>
+        <p>Entre <strong>3 et 7 litres</strong> sont perdus par volatilisation pour chaque 1 000 litres stockés. Pour une station vendant 12 000 L/jour, c'est <strong>36 à 84 litres perdus chaque jour</strong> — de l'essence qui s'évapore dans l'air.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚛</div>
+        <h4>Trois moments critiques</h4>
+        <p>Les émissions surviennent lors du déchargement des camions-citernes, tout au long du stockage (variations thermiques), et à chaque ravitaillement de véhicule. Le problème est continu, 24h/24.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h4>Vide réglementaire tunisien</h4>
+        <p>L'Europe impose des normes strictes (Phase I & II). En Tunisie et en Afrique, <strong>aucune réglementation</strong> n'existe aujourd'hui. Mais les directives arrivent — les stations qui anticipent seront déjà conformes.</p>
+      </div>
+    </div>
+
+    <div class="comment">
+      La double nature du problème — écologique ET financière — est notre force commerciale. Nous ne vendons pas de la conformité réglementaire (coût pour la station). Nous vendons un revenu supplémentaire. C'est un argument qui passe partout, quelle que soit la sensibilité environnementale de l'interlocuteur.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2. LA SOLUTION ══ -->
+<section id="solution">
+  <div class="container">
+    <div class="section-tag">02 — La solution</div>
+    <h2>L'ECO-RENTABLE — Un circuit fermé sans rejet</h2>
+    <p class="lead">Notre équipement s'installe directement sur les cuves souterraines de la station. Il aspire les vapeurs, les liquéfie par condensation frigorifique, et réinjecte l'essence récupérée dans la cuve. Zéro rejet. Zéro perte.</p>
+
+    <div class="flow">
+      <div class="flow-step"><span>📡</span>Capteurs de pression détectent le seuil</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span>⚡</span>Déclenchement automatique</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span>🌀</span>Aspiration des vapeurs</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span>❄️</span>Liquéfaction par condensation</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span>🔄</span>Réinjection dans la cuve</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><span>🛑</span>Arrêt automatique</div>
+    </div>
+
+    <div class="comment">
+      Le circuit fermé est la clé technologique. Contrairement aux systèmes européens (Phase I) qui aspirent les gaz lors du dépotage seulement, notre machine fonctionne en continu. Elle traite aussi les émissions diurnes dues aux variations de température et aux appels d'air lors du ravitaillement — soit la majorité des pertes.
+    </div>
+
+    <div class="cards" style="margin-top:2rem">
+      <div class="card">
+        <div class="card-icon">🏭</div>
+        <h4>Fabricant : GEKO (Corée du Sud)</h4>
+        <p>Usine certifiée ISO. Soutien de l'Université de Tongji et du laboratoire ENCONGLOBAL. Machines en acier inoxydable 304. Technologie brevetée.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔒</div>
+        <h4>Sécurité certifiée ATEX</h4>
+        <p>Certification anti-explosion obligatoire pour tout équipement en zone à risque d'inflammation. Extincteurs automatiques intégrés. Aucune pression dangereuse dans la cuve.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h4>Application connectée temps réel</h4>
+        <p>Le gérant, HCTECH et GEKO ont accès simultanément aux données : quantités récupérées, pression, températures, historique. Base transparente pour le partage des revenus.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⏱️</div>
+        <h4>Installation en 24h, sans fermeture</h4>
+        <p>Aucun arrêt de la station, aucun creusement. L'équipement est non-intrusif et se connecte aux évents existants. Durée de vie garantie ≥ 10 ans, consommation électrique : 4 kW.</p>
+      </div>
+    </div>
+
+    <h3>Preuve de concept validée — Station AGIL, Cité Olympique, 2019</h3>
+    <p>Un prototype a été installé et opéré en conditions réelles à Tunis. Les résultats ont été certifiés par un <strong>cabinet externe indépendant</strong> :</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Critère</th><th>Résultat</th><th>Statut</th></tr></thead>
+        <tbody>
+          <tr><td>Taux de récupération</td><td>Entre 3/1000 et 7/1000</td><td><span class="tag-green">Validé</span></td></tr>
+          <tr><td>Sécurité opérationnelle</td><td>Zéro incident sur toute la période</td><td><span class="tag-green">Validé</span></td></tr>
+          <tr><td>Fiabilité mécanique</td><td>Zéro panne enregistrée</td><td><span class="tag-green">Validé</span></td></tr>
+          <tr><td>Application connectée</td><td>Données app = mesures physiques station (cohérence 100 %)</td><td><span class="tag-green">Validé</span></td></tr>
+          <tr><td>Installation</td><td>Réalisée en 24h sans arrêt de la station</td><td><span class="tag-green">Validé</span></td></tr>
+          <tr><td>Décision SNDP</td><td>Commission interne : accord d'équipement + cofinancement 27 000 DT</td><td><span class="tag-green">Validé</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comment">
+      Ce proof of concept est l'actif le plus précieux d'HCTECH. Il transforme le discours commercial d'une promesse en une réalité démontrée sur le terrain tunisien, avec des conditions climatiques locales. La machine test est toujours installée et fonctionnelle — les prospects peuvent la visiter.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. MODÈLE ÉCONOMIQUE ══ -->
+<section id="modele">
+  <div class="container">
+    <div class="section-tag">03 — Le modèle économique</div>
+    <h2>Revenue Share — Le pivot stratégique</h2>
+    <p class="lead">Le Business Plan précédent prévoyait la <strong>vente directe</strong> des machines à ~100 000 DT. Ce modèle se heurtait à un frein majeur : la station devait investir une somme importante dans un équipement inconnu. Le nouveau modèle supprime ce frein.</p>
+
+    <h3>Avant vs Après</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Critère</th><th>Ancien modèle (Vente)</th><th>Nouveau modèle (Revenue Share)</th></tr></thead>
+        <tbody>
+          <tr><td>Investissement station</td><td>~100 000 DT</td><td><strong>0 DT</strong></td></tr>
+          <tr><td>Risque financier</td><td>Porté par la station</td><td>Porté par HCTECH</td></tr>
+          <tr><td>Frein commercial principal</td><td>Très élevé</td><td>Quasi nul</td></tr>
+          <tr><td>Cycle de vente estimé</td><td>12–18 mois</td><td>4–6 mois</td></tr>
+          <tr><td>Revenu HCTECH</td><td>One-shot (à la vente)</td><td><strong>Récurrent sur 7 ans</strong></td></tr>
+          <tr><td>Intérêt long terme station</td><td>Aucun après la vente</td><td>Partenaire actif (partage)</td></tr>
+          <tr><td>Scalabilité</td><td>Limitée par capacité d'achat des stations</td><td>Limitée par capacité de financement HCTECH</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comment">
+      Le modèle revenue share est analogue à ce qu'on appelle un modèle SaaS dans le monde du logiciel : HCTECH possède l'actif, le gère, et facture à l'usage. La station devient un partenaire, pas un client ponctuel. Cela crée de l'alignement d'intérêts : plus la machine produit, plus les deux parties gagnent.
+    </div>
+
+    <h3>Le partage des revenus — 70 % HCTECH / 30 % Station</h3>
+
+    <div class="split-box">
+      <div class="split-half hctech">
+        <div class="pct">70%</div>
+        <div class="pct-label">HCTECH</div>
+        <div class="amount">33 573 DT/an</div>
+        <div class="split-detail">
+          Couvre l'annuité d'emprunt (15 495 DT)<br>
+          + OPEX maintenance (2 300 DT)<br>
+          = <strong>Marge nette : +15 778 DT/machine/an</strong>
+        </div>
+      </div>
+      <div class="split-half station">
+        <div class="pct">30%</div>
+        <div class="pct-label">Station-service</div>
+        <div class="amount">14 388 DT/an</div>
+        <div class="split-detail">
+          soit <strong>~1 200 DT/mois</strong><br>
+          <br>
+          Pour un investissement de <strong>0 DT</strong><br>
+          et un risque de <strong>0 DT</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="comment">
+      Le split 70/30 est calibré pour que HCTECH reste positive même dans le scénario pessimiste (3/1000). À 3/1000, la marge HCTECH tombe à +2 349 DT/machine/an — faible mais positive. À 5/1000 (scénario retenu), elle est de +15 778 DT. Le split offre à la station 1 200 DT/mois pour un risque nul : c'est une proposition impossible à refuser rationnellement.
+    </div>
+
+    <h3>Économie détaillée par machine (scénario réaliste — 5/1000)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Paramètre</th><th>Calcul</th><th>Valeur</th></tr></thead>
+        <tbody>
+          <tr><td>Vente journalière de la station</td><td>Hypothèse station moyenne</td><td>12 000 L/jour</td></tr>
+          <tr><td>Taux de récupération retenu</td><td>Médian entre 3/1000 et 7/1000 (validé terrain)</td><td>5/1000</td></tr>
+          <tr><td>Essence récupérée / jour</td><td>12 000 × 5/1000</td><td>60 L/jour</td></tr>
+          <tr><td>Prix du litre (TTC Tunisie 2025)</td><td>Prix pompiste administré</td><td>2,19 DT</td></tr>
+          <tr><td><strong>Revenu brut / machine / an</strong></td><td>60 L × 2,19 DT × 365 j</td><td><strong>47 961 DT</strong></td></tr>
+          <tr class="highlight-row"><td>Part HCTECH (70 %)</td><td>47 961 × 0,70</td><td>33 573 DT/an</td></tr>
+          <tr class="highlight-row"><td>Part Station (30 %)</td><td>47 961 × 0,30</td><td>14 388 DT/an</td></tr>
+          <tr><td>Coût machine all-in</td><td>Achat GEKO + install + transport</td><td>75 435 DT</td></tr>
+          <tr><td>Annuité emprunt (7 ans @ 10 %)</td><td>Formule annuité constante</td><td>15 495 DT/an</td></tr>
+          <tr><td>OPEX annuel (maintenance + consommables)</td><td>Contrat maintenance + charbon actif + fluide</td><td>2 300 DT/an</td></tr>
+          <tr class="highlight-row"><td><strong>Marge nette HCTECH / machine / an</strong></td><td>33 573 − 15 495 − 2 300</td><td><strong>+15 778 DT</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Sensibilité aux scénarios de récupération</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scénario</th><th>Taux</th><th>Revenu brut/an</th><th>Part HCTECH</th><th>Marge nette HCTECH</th><th>Part Station/mois</th></tr></thead>
+        <tbody>
+          <tr><td>Pessimiste</td><td>3/1000</td><td>28 777 DT</td><td>20 144 DT</td><td><span class="tag-blue">+2 349 DT</span></td><td>719 DT</td></tr>
+          <tr class="highlight-row"><td><strong>Réaliste (retenu)</strong></td><td><strong>5/1000</strong></td><td><strong>47 961 DT</strong></td><td><strong>33 573 DT</strong></td><td><span class="tag-green">+15 778 DT</span></td><td><strong>1 199 DT</strong></td></tr>
+          <tr><td>Optimiste</td><td>7/1000</td><td>67 145 DT</td><td>47 001 DT</td><td><span class="tag-green">+29 206 DT</span></td><td>1 679 DT</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="comment">
+      Le scénario pessimiste (3/1000) est délibérément retenu comme base de discussion avec les investisseurs. Même dans ce cas, HCTECH reste positive. Le scénario réaliste (5/1000) correspond à la moyenne observée sur le prototype tunisien. L'optimiste (7/1000) est atteignable en été, quand la volatilité augmente avec la chaleur — conditions particulièrement favorables en Tunisie et en Afrique.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. MARCHÉ ══ -->
+<section id="marche">
+  <div class="container">
+    <div class="section-tag">04 — Le marché</div>
+    <h2>900 stations en Tunisie. Exclusivité Afrique.</h2>
+    <p class="lead">Le marché primaire est clair et circonscrit : les stations-service tunisiennes actives, sous 5 enseignes principales. L'exclusivité territoriale pour toute l'Afrique constitue un actif stratégique de premier plan pour la phase 2.</p>
+
+    <h3>Marché tunisien — Répartition du parc</h3>
+    <div class="chart-grid">
+      <div class="chart-box">
+        <h4>Répartition par enseigne (905 stations)</h4>
+        <div class="chart-note">Source : estimations marché 2024 — 5 enseignes principales</div>
+        <canvas id="chartEnseignes"></canvas>
+      </div>
+      <div class="chart-box">
+        <h4>Marché adressable vs Cible HCTECH</h4>
+        <div class="chart-note">Stations vendant ≥ 12 000 L/jour (~60 % du parc)</div>
+        <canvas id="chartAdressable"></canvas>
+      </div>
+    </div>
+
+    <div class="table-wrap" style="margin-top:2rem">
+      <table>
+        <thead><tr><th>Enseigne</th><th>Nb stations</th><th>Mode de décision</th><th>Statut HCTECH</th></tr></thead>
+        <tbody>
+          <tr><td><strong>AGIL (SNDP)</strong></td><td>280</td><td>Décision SNDP + kiosque/kiosque. SAGES (filiale, 20 stations) : décision directe</td><td><span class="tag-green">Accord SNDP existant</span></td></tr>
+          <tr><td><strong>Total Energies</strong></td><td>185</td><td>Décision centrale (head-quarters)</td><td><span class="tag-blue">80 % du processus effectué</span></td></tr>
+          <tr><td><strong>OLA Energy</strong></td><td>178</td><td>Décision centrale</td><td><span class="tag-blue">80 % du processus effectué</span></td></tr>
+          <tr><td><strong>Vivo Shell</strong></td><td>167</td><td>Décision centrale</td><td><span class="tag-blue">80 % du processus effectué</span></td></tr>
+          <tr><td><strong>Staroil</strong></td><td>95</td><td>Mixte</td><td><span class="tag-blue">À approcher</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comment">
+      Le modèle revenue share change la nature de la décision d'achat. Avec l'ancien modèle (vente à 100 000 DT), les directions centrales devaient valider une dépense capex significative. Avec le revenue share, elles valident un contrat de partenariat à revenu positif immédiat — le niveau de résistance décisionnel est radicalement différent.
+    </div>
+
+    <h3>Concurrence — Position HCTECH</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concurrent</th><th>Pays</th><th>Prix</th><th>Rendement</th><th>Modèle</th><th>Avantage HCTECH</th></tr></thead>
+        <tbody>
+          <tr><td>VR Refiner</td><td>Espagne</td><td>~107 k DT (départ usine)</td><td>max 2/1000</td><td>Vente</td><td>Prix compétitif, rendement 2,5× supérieur, modèle revenue share</td></tr>
+          <tr><td>MESSER / Cryosolv</td><td>Allemagne</td><td>≥ 167 k DT</td><td>N/A</td><td>Vente</td><td>Non dédié stations-service, prix prohibitif</td></tr>
+          <tr><td>OWP</td><td>Europe</td><td>N/A</td><td>N/A</td><td>Équipement camions</td><td>Produit différent — pas de récupération sur site</td></tr>
+          <tr class="highlight-row"><td><strong>HCTECH / GEKO</strong></td><td>Tunisie</td><td><strong>0 DT pour la station</strong></td><td><strong>3–7/1000</strong></td><td><strong>Revenue Share</strong></td><td>Seul acteur sur ce modèle en Tunisie et en Afrique</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. FINANCIER ══ -->
+<section id="financier">
+  <div class="container">
+    <div class="section-tag">05 — Projections financières</div>
+    <h2>Un modèle réaliste, calibré sur 5 ans</h2>
+    <p class="lead">Les projections sont construites sur le scénario <strong>réaliste central (5/1000)</strong>. Elles intègrent des pertes opérationnelles en Y1 et Y2 — ce qui est normal et anticipé dans un modèle de constitution de parc — et un retour à l'équilibre dès Y3.</p>
+
+    <h3>Plan de déploiement du parc</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Année</th><th>Nouvelles machines</th><th>Parc cumulé</th><th>Logique</th></tr></thead>
+        <tbody>
+          <tr><td>Y1</td><td>5</td><td>5</td><td>Pilotes (1 machine par enseigne cible). Déploiement progressif.</td></tr>
+          <tr><td>Y2</td><td>15</td><td>20</td><td>Premier accord-cadre SAGES (20 stations AGIL). Extension 2 enseignes.</td></tr>
+          <tr><td>Y3</td><td>30</td><td>50</td><td>Déploiement réseau. Recrutement 1 technicien supplémentaire.</td></tr>
+          <tr><td>Y4</td><td>50</td><td>100</td><td>Industrialisation Tunisie. Amorce pilote Afrique (Algérie ou CIV).</td></tr>
+          <tr><td>Y5</td><td>75</td><td>175</td><td>Saturation partielle Tunisie (~33 % du marché adressable). Golfe activé.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comment">
+      Le rythme est délibérément prudent. Nous avons choisi de ne pas projeter des volumes irréalistes. 175 machines sur 5 ans représente 33 % du marché adressable tunisien — ce qui reste un objectif ambitieux mais défendable compte tenu des contacts existants. Les nouvelles machines de chaque année sont comptées en demi-année (déploiement progressif sur l'exercice).
+    </div>
+
+    <h3>Compte de résultat prévisionnel</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Poste (en DT TND)</th><th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Parc total machines</strong></td><td>5</td><td>20</td><td>50</td><td>100</td><td>175</td></tr>
+          <tr><td>CA HCTECH (70 % des revenus bruts)</td><td>83 932</td><td>419 659</td><td>1 175 044</td><td>2 517 952</td><td>4 616 246</td></tr>
+          <tr><td>(−) OPEX machines</td><td>5 750</td><td>28 750</td><td>80 500</td><td>172 500</td><td>316 250</td></tr>
+          <tr><td>(−) Annuités emprunt machines</td><td>38 737</td><td>193 685</td><td>542 317</td><td>1 162 107</td><td>2 130 530</td></tr>
+          <tr class="highlight-row"><td><strong>Marge brute</strong></td><td>39 445</td><td>197 224</td><td>552 228</td><td>1 183 345</td><td>2 169 466</td></tr>
+          <tr><td>(−) Charges fixes (loyer, utilities…)</td><td>55 400</td><td>58 170</td><td>61 078</td><td>64 132</td><td>67 339</td></tr>
+          <tr><td>(−) Personnel (4 postes → 5 dès Y5)</td><td>224 774</td><td>258 490</td><td>332 264</td><td>382 103</td><td>489 419</td></tr>
+          <tr class="highlight-row"><td><strong>EBITDA</strong></td><td><span class="tag-red">−240 729</span></td><td><span class="tag-red">−119 436</span></td><td><span class="tag-green">+158 886</span></td><td><span class="tag-green">+737 110</span></td><td><span class="tag-green">+1 612 709</span></td></tr>
+          <tr><td>(−) Amortissements</td><td>3 733</td><td>3 733</td><td>3 733</td><td>400</td><td>400</td></tr>
+          <tr class="highlight-row"><td><strong>Résultat net estimé</strong></td><td><span class="tag-red">−244 462</span></td><td><span class="tag-red">−123 169</span></td><td><span class="tag-green">+155 153</span></td><td><span class="tag-green">+736 710</span></td><td><span class="tag-green">+1 612 309</span></td></tr>
+          <tr><td><em>Résultat net cumulé</em></td><td><em>−244 k</em></td><td><em>−368 k</em></td><td><em>−212 k</em></td><td><em>+525 k</em></td><td><em>+2 137 k</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comment">
+      Les pertes de Y1 et Y2 sont structurelles et non alarmantes. Elles proviennent du fait que les charges fixes et de personnel (nécessaires pour déployer et gérer le parc) sont supportées dès le premier jour, alors que les revenus montent progressivement avec le parc. C'est le modèle classique de toute entreprise à revenu récurrent : on investit avant de récolter. Le déficit cumulé maximal de −368 k DT en Y2 définit le besoin de financement à couvrir.
+    </div>
+
+    <h3>Visualisations financières</h3>
+    <div class="chart-grid">
+      <div class="chart-box">
+        <h4>CA & Résultat net sur 5 ans (DT)</h4>
+        <div class="chart-note">Le CA croît avec le parc. Le résultat bascule positif en Y3.</div>
+        <canvas id="chartPnL"></canvas>
+      </div>
+      <div class="chart-box">
+        <h4>Résultat net cumulé (DT)</h4>
+        <div class="chart-note">Retour à l'équilibre cumulé courant Y4.</div>
+        <canvas id="chartCumulatif"></canvas>
+      </div>
+      <div class="chart-box">
+        <h4>Croissance du parc de machines</h4>
+        <div class="chart-note">Montée progressive et défendable sur 5 ans.</div>
+        <canvas id="chartParc"></canvas>
+      </div>
+      <div class="chart-box">
+        <h4>Structure des revenus HCTECH (Y5)</h4>
+        <div class="chart-note">La marge brute progresse avec l'économie d'échelle sur les charges fixes.</div>
+        <canvas id="chartStructure"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6. FINANCEMENT ══ -->
+<section id="financement">
+  <div class="container">
+    <div class="section-tag">06 — Besoins en financement</div>
+    <h2>420 000 DT pour lancer la phase pilote</h2>
+    <p class="lead">Le modèle revenue share exige qu'HCTECH finance elle-même les machines. L'objectif de la levée Y1 est de couvrir les 5 machines pilotes et 24 mois de structure avant que les revenus récurrents assurent l'autofinancement.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🏗️</div>
+        <h4>5 machines pilotes — 377 175 DT</h4>
+        <p>5 machines × 75 435 DT (achat GEKO + installation + transport). Ce parc pilote génère des données de performance réelles et constitue la base commerciale pour les accords-cadres.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏢</div>
+        <h4>Structure initiale — 42 000 DT</h4>
+        <p>Frais d'établissement (5 000 DT), matériel bureau + informatique (7 000 DT), fonds de roulement pour 6 mois de charges fixes (30 000 DT).</p>
+      </div>
+    </div>
+
+    <h3>Structure de la levée proposée</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Source</th><th>Montant</th><th>%</th><th>Commentaire</th></tr></thead>
+        <tbody>
+          <tr><td>Fonds propres (associés)</td><td>84 000 DT</td><td>20 %</td><td>Apports des 4 associés + investisseurs déjà impliqués (Nazeh Ben Ammar, Nessim Mami)</td></tr>
+          <tr><td>Emprunt bancaire MLT (7 ans @ 10 %)</td><td>336 000 DT</td><td>80 %</td><td>Les contrats revenue share signés constituent une garantie de flux futurs. Annuité : ~70 k DT/an, couverte dès Y3.</td></tr>
+          <tr class="highlight-row"><td><strong>Total</strong></td><td><strong>420 000 DT</strong></td><td><strong>100 %</strong></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comment">
+      À partir de Y3, les revenus du parc existant (50 machines) couvrent les annuités de l'emprunt initial ET génèrent de la trésorerie pour financer les nouvelles tranches de machines. Le déploiement devient auto-finançant. Le levier bancaire est donc temporaire et structurellement remboursable dès Y3-Y4.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7. STRATÉGIE ══ -->
+<section id="strategie">
+  <div class="container">
+    <div class="section-tag">07 — Stratégie commerciale</div>
+    <h2>Une feuille de route en 3 phases</h2>
+    <p class="lead">HCTECH ne part pas de zéro. Les contacts sont établis, la machine test est opérationnelle, et la SNDP a formalisé son soutien. Le nouveau modèle revenue share permet de convertir l'intérêt existant en contrats signés.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Phase 0 — M1 à M3</div>
+        <h4>Pilotes & validation du modèle revenue share</h4>
+        <p>Relancer VIVO SHELL, OLA Energy et TOTAL (80 % du processus déjà effectué). Présenter le nouveau modèle zéro investissement. Signer 3 conventions de revenue share. Installer 5 machines. Signer avec SAGES (filiale AGIL, 20 stations, décision directe).</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Phase 1 — Y1 complet</div>
+        <h4>Opérationnalisation et données terrain</h4>
+        <p>Collecter 6+ mois de données réelles (quantités récupérées, revenus partagés). Produire un rapport de performance mensuel pour chaque station partenaire. Constituer le dossier pour les accords-cadres multi-stations.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Phase 2 — Y2 à Y3</div>
+        <h4>Montée en puissance — 50 machines</h4>
+        <p>Activer les accords-cadres avec les enseignes. 15 machines en Y2, 30 en Y3 (parc cumulé 50). Recruter 1 technicien maintenance supplémentaire. Produire le premier bilan carbone consolidé HCTECH (argument ESG pour les majors pétrolières).</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Phase 3 — Y4 à Y5</div>
+        <h4>Industrialisation & expansion africaine</h4>
+        <p>100 machines en Y4 (100 % Tunisie). Pilote Algérie ou Côte d'Ivoire en Y4. 175 machines en Y5 (Tunisie + début Afrique). Exploration partenariat Golfe. HCTECH devient l'opérateur de référence régional sur la récupération des COV en station-service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 8. ÉQUIPE ══ -->
+<section id="equipe">
+  <div class="container">
+    <div class="section-tag">08 — L'équipe</div>
+    <h2>Une équipe complémentaire avec un historique commun</h2>
+    <p class="lead">HCTECH associe une expertise technique pétrochimique, un réseau commercial établi en Tunisie et en Afrique, et une capacité stratégique. Chaque associé apporte une dimension irremplaçable.</p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">👷</div>
+        <h4>Ali Ben Hamoud</h4>
+        <div class="role">Co-gérant — Directeur Technique</div>
+        <p>Ingénieur pétrochimie formé en Chine. Initiateur du projet. Relation directe avec GEKO. Mandarin courant — interface avec le fabricant coréen.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">👔</div>
+        <h4>Mohamed Ali Belajouza</h4>
+        <div class="role">CEO & CDO</div>
+        <p>Gestion et développement commercial. Réseau pétrolier tunisien (SNDP, Total, OLA). Liens établis en Algérie et Afrique subsaharienne via l'écosystème startup.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">🤝</div>
+        <h4>Nazeh Ben Ammar</h4>
+        <div class="role">Investisseur — Relations stratégiques</div>
+        <p>Réseau institutionnel tunisien. Facilitation des accès aux décideurs des enseignes pétrolières et des partenaires financiers.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">🌍</div>
+        <h4>Nessim Mami</h4>
+        <div class="role">Investisseur — Développement international</div>
+        <p>Réseau Afrique et Golfe. Accélérateur du déploiement sur les marchés africains et dans les pays du Golfe (Oman, Qatar, EAU).</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">📊</div>
+        <h4>Mohamed Ridha Belajouza</h4>
+        <div class="role">Consultant — Conseil stratégique</div>
+        <p>Accompagnement stratégique et financier de l'équipe associés. Structuration du Business Plan, modélisation financière et positionnement investisseur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9. RISQUES ══ -->
+<section id="risques">
+  <div class="container">
+    <div class="section-tag">09 — Risques & mitigants</div>
+    <h2>Les risques identifiés et leur réponse</h2>
+    <p class="lead">Tout business plan crédible doit adresser les risques honnêtement. Voici les principaux scénarios défavorables et les mesures prévues pour les absorber.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Risque</th><th>Proba.</th><th>Impact</th><th>Mitigant</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Taux de récupération &lt; 3/1000</strong></td>
+            <td><span class="risk-low">Faible</span></td>
+            <td><span class="risk-high">Élevé</span></td>
+            <td>Prototype validé entre 3 et 7/1000 en conditions tunisiennes. Les contrats indexent le partage sur les mesures réelles (application). Si &lt;3/1000 durablement : renégociation du split.</td>
+          </tr>
+          <tr>
+            <td><strong>Défaillance de GEKO (fournisseur unique)</strong></td>
+            <td><span class="risk-mid">Moyenne</span></td>
+            <td><span class="risk-high">Très élevé</span></td>
+            <td>Risque déjà matérialisé (COVID 2020). Mitigants : stock tampon de 2-3 machines dès Y2, contrat d'exclusivité avec pénalités, exploration d'un second fournisseur dès Y3.</td>
+          </tr>
+          <tr>
+            <td><strong>Cycle de vente plus long que prévu</strong></td>
+            <td><span class="risk-mid">Moyenne</span></td>
+            <td><span class="risk-low">Faible</span></td>
+            <td>Y1 projette seulement 5 machines — un objectif atteint avec 3 enseignes intéressées à 80 %. Le budget couvre 24 mois de charges sans revenus significatifs.</td>
+          </tr>
+          <tr>
+            <td><strong>Hausse du taux d'intérêt bancaire</strong></td>
+            <td><span class="risk-low">Faible</span></td>
+            <td><span class="risk-mid">Moyen</span></td>
+            <td>Verrouiller le taux à la signature. Alternative : leasing à taux fixe. Marge de +15 778 DT/machine absorbe une hausse de taux de +3 à 4 points.</td>
+          </tr>
+          <tr>
+            <td><strong>Chute du prix du carburant</strong></td>
+            <td><span class="risk-low">Très faible</span></td>
+            <td><span class="risk-high">Élevé</span></td>
+            <td>En Tunisie, les prix des carburants sont administrés et en hausse tendancielle. Clause d'indexation dans les contrats station pour ajuster le partage si le prix varie de &gt;15 %.</td>
+          </tr>
+          <tr>
+            <td><strong>Panne machine ou litige station</strong></td>
+            <td><span class="risk-low">Faible</span></td>
+            <td><span class="risk-mid">Moyen</span></td>
+            <td>Contrat de maintenance annuel inclus. Stock pièces de rechange. Télémaintenance GEKO depuis la Corée. Clause SLA dans le contrat station (délai max intervention 48h).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comment">
+      Le risque fournisseur (GEKO) est le seul risque structurel non entièrement maîtrisable à court terme. C'est aussi le risque qui s'est déjà matérialisé (COVID 2020). La priorité dès Y2 est de ne jamais se retrouver sans stock tampon et d'initier des discussions avec des alternatives technologiques comparables.
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <h2>Un projet concret, un timing unique</h2>
+  <p>La technologie est validée. Les contacts sont établis. Le modèle économique est révisé pour maximiser l'adoption. HCTECH cherche ses partenaires financiers pour constituer le parc pilote de 5 machines et démontrer la viabilité à l'échelle.</p>
+  <a href="mailto:mr.belajouza@gmail.com?subject=HCTECH — Prise de contact" class="btn">📩 Contacter l'équipe</a>
+</section>
+
+<footer>
+  HCTECH — Business Plan 2025 — Document confidentiel réservé aux associés et investisseurs identifiés.<br>
+  Préparé par <strong>Mohamed Ridha Belajouza</strong>, consultant et conseiller stratégique.
+</footer>
+
+<!-- ══ CHARTS JS ══ -->
+<script>
+const GREEN  = '#1a7a4a';
+const GREEN2 = '#2ecc71';
+const RED    = '#e74c3c';
+const BLUE   = '#2980b9';
+const AMBER  = '#f39c12';
+const GREY   = '#b0c4ba';
+const DARK   = '#0d1f17';
+
+// 1. Enseignes
+new Chart(document.getElementById('chartEnseignes'), {
+  type: 'doughnut',
+  data: {
+    labels: ['AGIL (SNDP)', 'Total Energies', 'OLA Energy', 'Vivo Shell', 'Staroil'],
+    datasets: [{ data: [280, 185, 178, 167, 95],
+      backgroundColor: [GREEN, GREEN2, BLUE, AMBER, '#9b59b6'],
+      borderWidth: 2, borderColor: '#fff' }]
+  },
+  options: { plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } } }
+});
+
+// 2. Marché adressable
+new Chart(document.getElementById('chartAdressable'), {
+  type: 'bar',
+  data: {
+    labels: ['Parc total', 'Marché adressable\n(≥12 000 L/j)', 'Cible HCTECH\n(Y5 — 175 machines)'],
+    datasets: [{
+      label: 'Stations',
+      data: [905, 540, 175],
+      backgroundColor: [GREY, BLUE, GREEN2],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, grid: { color: '#e8f0ea' } } }
+  }
+});
+
+// 3. P&L
+const years = ['Y1', 'Y2', 'Y3', 'Y4', 'Y5'];
+const ca    = [83932, 419659, 1175044, 2517952, 4616246];
+const rn    = [-244462, -123169, 155153, 736710, 1612309];
+
+new Chart(document.getElementById('chartPnL'), {
+  type: 'bar',
+  data: {
+    labels: years,
+    datasets: [
+      { label: 'CA HCTECH', data: ca, backgroundColor: GREEN2, borderRadius: 5 },
+      { label: 'Résultat net', data: rn,
+        backgroundColor: rn.map(v => v >= 0 ? GREEN : RED), borderRadius: 5 }
+    ]
+  },
+  options: {
+    plugins: { legend: { position: 'bottom' } },
+    scales: {
+      y: { grid: { color: '#e8f0ea' }, ticks: { callback: v => (v/1000).toFixed(0) + ' k' } }
+    }
+  }
+});
+
+// 4. Cumulatif
+const cumul = [-244462, -367631, -212478, 524232, 2136541];
+new Chart(document.getElementById('chartCumulatif'), {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [{
+      label: 'Résultat net cumulé',
+      data: cumul,
+      borderColor: GREEN,
+      backgroundColor: 'rgba(26,122,74,.08)',
+      pointBackgroundColor: cumul.map(v => v >= 0 ? GREEN2 : RED),
+      pointRadius: 6,
+      fill: true,
+      tension: 0.35
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false },
+      annotation: {
+        annotations: { zero: { type: 'line', yMin: 0, yMax: 0, borderColor: AMBER, borderWidth: 1.5, borderDash: [5,5] } }
+      }
+    },
+    scales: {
+      y: { grid: { color: '#e8f0ea' }, ticks: { callback: v => (v/1000).toFixed(0) + ' k' } }
+    }
+  }
+});
+
+// 5. Parc
+const parc = [5, 20, 50, 100, 175];
+new Chart(document.getElementById('chartParc'), {
+  type: 'bar',
+  data: {
+    labels: years,
+    datasets: [
+      { label: 'Nouvelles machines', data: [5,15,30,50,75], backgroundColor: GREEN2, borderRadius: 5 },
+      { label: 'Parc antérieur', data: [0,5,20,50,100], backgroundColor: GREEN, borderRadius: 5 }
+    ]
+  },
+  options: {
+    plugins: { legend: { position: 'bottom' } },
+    scales: { x: { stacked: true }, y: { stacked: true, grid: { color: '#e8f0ea' } } }
+  }
+});
+
+// 6. Structure Y5
+new Chart(document.getElementById('chartStructure'), {
+  type: 'doughnut',
+  data: {
+    labels: ['OPEX machines', 'Annuités emprunt', 'Charges fixes', 'Personnel', 'Résultat net'],
+    datasets: [{
+      data: [316250, 2130530, 67339, 489419, 1612309],
+      backgroundColor: [AMBER, BLUE, GREY, '#9b59b6', GREEN2],
+      borderWidth: 2, borderColor: '#fff'
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 10 } } },
+      tooltip: {
+        callbacks: { label: ctx => ' ' + ctx.label + ' : ' + Math.round(ctx.raw/1000) + ' k DT (' + Math.round(ctx.raw/4616246*100) + ' %)' }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
