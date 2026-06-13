@@ -5,250 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HCTECH — Business Plan 2025</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<style>
-  :root {
-    --green:  #1a7a4a;
-    --green2: #2ecc71;
-    --dark:   #0d1f17;
-    --grey:   #f4f7f5;
-    --text:   #1e2d26;
-    --accent: #f39c12;
-    --red:    #e74c3c;
-    --blue:   #2980b9;
-    --border: #d0e4d8;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    color: var(--text);
-    background: #fff;
-    line-height: 1.7;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--dark);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: .75rem 2rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,.4);
-  }
-  .nav-brand { color: var(--green2); font-weight: 700; font-size: 1.1rem; letter-spacing: .05em; }
-  .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-  .nav-links a { color: #cde8d6; text-decoration: none; font-size: .85rem; transition: color .2s; }
-  .nav-links a:hover { color: var(--green2); }
-
-  /* ── HERO ── */
-  .hero {
-    background: linear-gradient(135deg, var(--dark) 0%, #143d26 60%, #1a6636 100%);
-    color: #fff;
-    padding: 6rem 2rem 5rem;
-    text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232ecc71' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  .hero-badge {
-    display: inline-block;
-    background: rgba(46,204,113,.15);
-    border: 1px solid rgba(46,204,113,.3);
-    color: var(--green2);
-    font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-    padding: .3rem .9rem; border-radius: 2rem; margin-bottom: 1.5rem;
-  }
-  .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
-  .hero h1 span { color: var(--green2); }
-  .hero p { max-width: 650px; margin: 0 auto 2rem; color: #b0d4be; font-size: 1.1rem; }
-  .hero-kpis {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 3rem;
-  }
-  .kpi-box {
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 1rem;
-    padding: 1.25rem 2rem;
-    min-width: 160px;
-    backdrop-filter: blur(8px);
-  }
-  .kpi-box .val { font-size: 1.9rem; font-weight: 800; color: var(--green2); }
-  .kpi-box .lbl { font-size: .78rem; color: #9ec8b0; margin-top: .2rem; }
-
-  /* ── SECTIONS ── */
-  section { padding: 4.5rem 1.5rem; }
-  section:nth-child(even) { background: var(--grey); }
-  .container { max-width: 1100px; margin: 0 auto; }
-
-  .section-tag {
-    font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--green); margin-bottom: .5rem;
-  }
-  h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--dark); margin-bottom: .5rem; }
-  h3 { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin: 2rem 0 .75rem; }
-  p  { margin-bottom: 1rem; color: #3a4f42; }
-
-  .lead {
-    font-size: 1.1rem; color: #2c4035; border-left: 4px solid var(--green2);
-    padding-left: 1.25rem; margin-bottom: 2rem;
-  }
-
-  /* ── COMMENT BOX ── */
-  .comment {
-    background: #fffbea;
-    border: 1px solid #f5e0a0;
-    border-left: 4px solid var(--accent);
-    border-radius: .5rem;
-    padding: .85rem 1.1rem;
-    font-size: .88rem; color: #5a4a1a;
-    margin: 1rem 0 1.5rem;
-  }
-  .comment::before { content: "💡 Pourquoi ce choix ? "; font-weight: 700; }
-
-  /* ── CARDS GRID ── */
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-  .card {
-    background: #fff; border-radius: 1rem;
-    border: 1px solid var(--border);
-    padding: 1.75rem;
-    transition: transform .2s, box-shadow .2s;
-  }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(26,122,74,.1); }
-  .card-icon { font-size: 2rem; margin-bottom: .75rem; }
-  .card h4 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: .4rem; }
-  .card p { font-size: .9rem; color: #5a7060; margin: 0; }
-
-  /* ── TABLES ── */
-  .table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: .75rem; border: 1px solid var(--border); }
-  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
-  thead th {
-    background: var(--dark); color: #fff;
-    padding: .85rem 1rem; text-align: left; font-weight: 600; font-size: .82rem;
-    letter-spacing: .04em; text-transform: uppercase;
-  }
-  tbody tr:nth-child(even) { background: var(--grey); }
-  tbody td { padding: .75rem 1rem; border-bottom: 1px solid var(--border); }
-  tbody tr:last-child td { border-bottom: none; }
-  .tag-green { background: #d4f1e1; color: #0f6b3a; padding: .15rem .5rem; border-radius: .3rem; font-size: .78rem; font-weight: 700; }
-  .tag-red   { background: #fde8e8; color: #b91c1c; padding: .15rem .5rem; border-radius: .3rem; font-size: .78rem; font-weight: 700; }
-  .tag-blue  { background: #dbeafe; color: #1e40af; padding: .15rem .5rem; border-radius: .3rem; font-size: .78rem; font-weight: 700; }
-  .highlight-row td { background: #e8f7ef !important; font-weight: 700; color: var(--dark); }
-
-  /* ── CHARTS ── */
-  .chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 2rem; margin-top: 2rem; }
-  .chart-box {
-    background: #fff; border-radius: 1rem; border: 1px solid var(--border);
-    padding: 1.5rem;
-  }
-  .chart-box h4 { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: .3rem; }
-  .chart-box .chart-note { font-size: .78rem; color: #7a9280; margin-bottom: 1rem; }
-  canvas { max-height: 280px; }
-
-  /* ── FLOW DIAGRAM ── */
-  .flow {
-    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-    gap: .5rem; margin: 2rem 0;
-  }
-  .flow-step {
-    background: var(--dark); color: #fff;
-    border-radius: .6rem; padding: .75rem 1.1rem;
-    font-size: .85rem; font-weight: 600; text-align: center;
-    min-width: 130px;
-  }
-  .flow-step span { display: block; font-size: 1.3rem; margin-bottom: .3rem; }
-  .flow-arrow { color: var(--green); font-size: 1.5rem; font-weight: 900; }
-
-  /* ── SPLIT BOX ── */
-  .split-box { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 2rem 0; }
-  .split-half {
-    flex: 1; min-width: 260px;
-    border-radius: 1rem; padding: 2rem;
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-  }
-  .split-half.hctech { background: linear-gradient(135deg, #143d26, #1a6636); color: #fff; }
-  .split-half.station { background: linear-gradient(135deg, #1a3a6a, #2563eb); color: #fff; }
-  .split-half .pct { font-size: 4rem; font-weight: 900; line-height: 1; }
-  .split-half .pct-label { font-size: .9rem; opacity: .8; margin-bottom: 1rem; }
-  .split-half .split-detail { font-size: .88rem; opacity: .85; line-height: 1.6; }
-  .split-half .amount { font-size: 1.6rem; font-weight: 800; margin: .5rem 0; color: var(--green2); }
-  .split-half.station .amount { color: #93c5fd; }
-
-  /* ── TEAM ── */
-  .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-  .team-card {
-    background: #fff; border: 1px solid var(--border); border-radius: 1rem;
-    padding: 1.5rem; text-align: center;
-  }
-  .team-avatar {
-    width: 64px; height: 64px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem; margin: 0 auto 1rem;
-    background: linear-gradient(135deg, var(--green), var(--green2));
-  }
-  .team-card h4 { font-size: .95rem; font-weight: 700; color: var(--dark); }
-  .team-card .role { font-size: .8rem; color: var(--green); font-weight: 600; margin-bottom: .5rem; }
-  .team-card p { font-size: .82rem; color: #6a8070; margin: 0; }
-
-  /* ── RISK TABLE ── */
-  .risk-low  { color: #15803d; font-weight: 700; }
-  .risk-mid  { color: #d97706; font-weight: 700; }
-  .risk-high { color: #dc2626; font-weight: 700; }
-
-  /* ── TIMELINE ── */
-  .timeline { position: relative; padding-left: 2rem; margin-top: 2rem; }
-  .timeline::before {
-    content: ''; position: absolute; left: .6rem; top: 0; bottom: 0;
-    width: 2px; background: var(--border);
-  }
-  .tl-item { position: relative; margin-bottom: 2rem; }
-  .tl-dot {
-    position: absolute; left: -1.65rem; top: .3rem;
-    width: 1rem; height: 1rem; border-radius: 50%;
-    background: var(--green2); border: 3px solid #fff;
-    box-shadow: 0 0 0 2px var(--green);
-  }
-  .tl-year { font-size: .78rem; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: .08em; }
-  .tl-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: .3rem; }
-  .tl-item p { font-size: .88rem; color: #5a7060; margin: 0; }
-
-  /* ── CTA FOOTER ── */
-  .cta-section {
-    background: linear-gradient(135deg, var(--dark), #143d26);
-    color: #fff; text-align: center; padding: 5rem 2rem;
-  }
-  .cta-section h2 { color: #fff; font-size: 2rem; margin-bottom: 1rem; }
-  .cta-section p { color: #9ec8b0; max-width: 600px; margin: 0 auto 2rem; }
-  .btn {
-    display: inline-block;
-    background: var(--green2); color: var(--dark);
-    font-weight: 700; font-size: .95rem;
-    padding: .85rem 2rem; border-radius: .6rem; text-decoration: none;
-    transition: opacity .2s;
-  }
-  .btn:hover { opacity: .85; }
-
-  footer {
-    background: var(--dark); color: #5a8060;
-    text-align: center; padding: 1.5rem; font-size: .82rem;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media(max-width: 600px) {
-    nav { padding: .6rem 1rem; }
-    .nav-links { display: none; }
-    .hero { padding: 4rem 1rem 3rem; }
-    .chart-grid { grid-template-columns: 1fr; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- ══ NAV ══ -->
 <nav>
-  <span class="nav-brand">⚡ HCTECH</span>
+  <a href="index.html" class="nav-brand">⚡ HCTECH</a>
   <div class="nav-links">
     <a href="#probleme">Le Problème</a>
     <a href="#solution">La Solution</a>
@@ -257,6 +20,7 @@
     <a href="#financier">Finances</a>
     <a href="#equipe">Équipe</a>
     <a href="#risques">Risques</a>
+    <a href="concurrence.html" class="nav-cta">🥊 Concurrence</a>
   </div>
 </nav>
 
@@ -529,99 +293,34 @@
       Le modèle revenue share change la nature de la décision d'achat. Avec l'ancien modèle (vente à 100 000 DT), les directions centrales devaient valider une dépense capex significative. Avec le revenue share, elles valident un contrat de partenariat à revenu positif immédiat — le niveau de résistance décisionnel est radicalement différent.
     </div>
 
-    <h3>Concurrence — Position HCTECH</h3>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Concurrent</th><th>Pays</th><th>Prix</th><th>Rendement</th><th>Modèle</th><th>Avantage HCTECH</th></tr></thead>
-        <tbody>
-          <tr><td>VR Refiner</td><td>Espagne</td><td>~107 k DT (départ usine)</td><td>max 2/1000</td><td>Vente</td><td>Prix compétitif, rendement 2,5× supérieur, modèle revenue share</td></tr>
-          <tr><td>MESSER / Cryosolv</td><td>Allemagne</td><td>≥ 167 k DT</td><td>N/A</td><td>Vente</td><td>Non dédié stations-service, prix prohibitif</td></tr>
-          <tr><td>OWP</td><td>Europe</td><td>N/A</td><td>N/A</td><td>Équipement camions</td><td>Produit différent — pas de récupération sur site</td></tr>
-          <tr><td>Zeeco, John Zink, BORSIG</td><td>USA, UK, Allemagne</td><td>100–250 k DT</td><td>1–8/1000</td><td>Vente</td><td>Segmentés raffineries/terminaux. Trop chers stations-service.</td></tr>
-          <tr class="highlight-row"><td><strong>HCTECH / GEKO</strong></td><td>Tunisie</td><td><strong>0 DT pour la station</strong></td><td><strong>3–7/1000</strong></td><td><strong>Revenue Share</strong></td><td><strong>Seul acteur sur ce modèle en Tunisie et en Afrique</strong></td></tr>
-        </tbody>
-      </table>
-    </div>
+    <!-- ── TEASER CONCURRENCE ── -->
+    <h3>Et la concurrence ?</h3>
+    <p>Une analyse mondiale approfondie a été menée sur <strong>12+ fabricants</strong> (Europe, USA, Chine). Verdict : <strong>aucun concurrent direct en Tunisie/Afrique sur le modèle revenue share</strong>, et un rendement GEKO supérieur à la plupart des acteurs comparables.</p>
 
-    <h3>Positionnement mondial — HCTECH vs 10+ concurrents</h3>
-
-    <div class="chart-grid">
-      <div class="chart-box">
-        <h4>Matrice Compétitive : Rendement vs Prix</h4>
-        <div class="chart-note">Plus haut-gauche = meilleur (performance élevée, prix bas)</div>
-        <canvas id="chartCompMatrix"></canvas>
+    <div class="stat-strip">
+      <div class="stat-pill">
+        <div class="stat-val">12+</div>
+        <div class="stat-lbl">Concurrents analysés mondialement</div>
       </div>
-      <div class="chart-box">
-        <h4>Menace vs Impact — Probabilité & Gravité</h4>
-        <div class="chart-note">Bulles proportionnelles à la menace réelle. Quadrant supérieur-droit = priorité</div>
-        <canvas id="chartThreatMatrix"></canvas>
+      <div class="stat-pill">
+        <div class="stat-val">0</div>
+        <div class="stat-lbl">Concurrent direct en Afrique (revenue share)</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-val">2,5×</div>
+        <div class="stat-lbl">Rendement vs VR Refiner (seul rival prix)</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-val">3–5 ans</div>
+        <div class="stat-lbl">Fenêtre d'avance concurrentielle</div>
       </div>
     </div>
 
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="concurrence.html" class="btn">🥊 Voir l'analyse concurrentielle complète →</a>
+    </div>
     <div class="comment">
-      Une analyse concurrentielle approfondie (recherche mondiale sur 12+ acteurs) a été réalisée. Résultat : aucun concurrent direct avec modèle revenue share en Tunisie/Afrique. VR Refiner est le seul compétiteur prix-comparable, mais rendement 2.5× inférieur et sans revenue share. HCTECH bénéficie d'une fenêtre de 3–5 ans avant que la concurrence s'organise. Voir <a href="./ANALYSE_COMPETITEURS.md" style="font-weight:700; text-decoration:underline">l'analyse complète des concurrents</a>.
-    </div>
-
-    <h3>Les 10+ concurrents mondiaux identifiés</h3>
-
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Concurrent</th><th>Pays</th><th>Technologie</th><th>Rendement</th><th>Prix</th><th>Segment</th><th>Modèle</th><th>Verdict HCTECH</th></tr></thead>
-        <tbody>
-          <tr class="highlight-row"><td><strong>GEKO / HCTECH</strong></td><td>Corée / Tunisie</td><td>Condensation frigorifique simple</td><td>5–7/1000 L</td><td><strong>0 DT (station)</strong></td><td>Stations-service</td><td><strong>Revenue share 70/30</strong></td><td>✅ NOUS</td></tr>
-          <tr><td><strong>VR Refiner</strong></td><td>Espagne</td><td>Condensation passive</td><td>2/1000 L</td><td>107 k DT</td><td>Stations-service</td><td>Vente directe</td><td>⚠️ Concurrent direct</td></tr>
-          <tr><td>MESSER Cryosolv</td><td>Allemagne</td><td>Cryo-LIN (-196°C)</td><td>8–12/1000 L</td><td>165–250 k DT</td><td>Raffineries/Industrie</td><td>Vente directe</td><td>🟢 Non-concurrent (trop cher)</td></tr>
-          <tr><td>BORSIG</td><td>Allemagne</td><td>Membrane + absorption</td><td>5–8/1000 L</td><td>150–250 k DT</td><td>Raffineries majeures</td><td>Vente directe</td><td>🟢 Gamme supérieure</td></tr>
-          <tr><td>Zeeco</td><td>USA</td><td>Charbon actif</td><td>1–2/1000 L</td><td>100–120 k DT</td><td>Terminaux pétroliers</td><td>Vente directe</td><td>🟢 Autre segment</td></tr>
-          <tr><td>John Zink</td><td>USA</td><td>Charbon actif</td><td>1–3/1000 L</td><td>100–150 k DT</td><td>Terminaux</td><td>Vente directe</td><td>🟢 Autre segment</td></tr>
-          <tr><td>Kilburn Engineering</td><td>UK</td><td>Charbon actif</td><td>1–3/1000 L</td><td>100–150 k DT</td><td>Terminaux</td><td>Vente directe</td><td>🟢 Autre segment</td></tr>
-          <tr><td>OWP Fueling</td><td>USA</td><td>Truck-mounted (Phase I)</td><td>Dépotage only</td><td>N/A</td><td>Transport fuel</td><td>Équipement</td><td>🟢 Indirect (camions)</td></tr>
-          <tr><td>Flogistix</td><td>USA</td><td>Compression + absorption</td><td>2–4/1000 L</td><td>N/A</td><td>Oil & Gas upstream</td><td>Vente/location</td><td>🟢 Indirect (production)</td></tr>
-          <tr><td>Cimarron Energy</td><td>USA</td><td>Compression + absorption</td><td>2–4/1000 L</td><td>N/A</td><td>Oil & Gas</td><td>Vente directe</td><td>🟢 Indirect</td></tr>
-          <tr><td>Fabricants chinois</td><td>Chine (13–20 par zone)</td><td>Adsorption + condensation</td><td>2–4/1000 L</td><td>15–30 k DT</td><td>Marché local Asie</td><td>Vente directe</td><td>🟠 Menace future (Y3–Y4)</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>Benchmark détaillé — Station type (12 000 L/jour)</h3>
-
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Paramètre</th><th>GEKO/HCTECH</th><th>VR Refiner</th><th>MESSER</th><th>BORSIG</th><th>Zeeco</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Essence récupérée / jour</strong></td><td><strong>60–84 L</strong></td><td>24 L</td><td>96–144 L</td><td>60–96 L</td><td>12–24 L</td></tr>
-          <tr><td><strong>Revenu brut station / an</strong></td><td><strong>47–67 k DT</strong></td><td>19–30 k DT</td><td>77–116 k DT</td><td>48–77 k DT</td><td>9–19 k DT</td></tr>
-          <tr><td><strong>Coût acquisition</strong></td><td><strong>75 k DT</strong></td><td>107 k DT</td><td>165–250 k DT</td><td>150–250 k DT</td><td>100 k DT</td></tr>
-          <tr><td><strong>Coût maintenance / an</strong></td><td><strong>2,3 k DT</strong></td><td>2 k DT</td><td>5–10 k DT</td><td>4–8 k DT</td><td>3–5 k DT</td></tr>
-          <tr><td><strong>Payback (sans financement)</strong></td><td><strong>1,2 ans</strong></td><td>2,3 ans</td><td>Négatif</td><td>Négatif</td><td>4–5 ans</td></tr>
-          <tr><td><strong>Payback (avec emprunt 7a @ 10%)</strong></td><td><strong>3,6 ans</strong></td><td>5–6 ans</td><td>N/A</td><td>N/A</td><td>7–8 ans</td></tr>
-          <tr><td><strong>Gain mensuel station</strong></td><td><strong>1 200 DT (0 investissement)</strong></td><td>500 DT</td><td>Négatif</td><td>Négatif</td><td>300–400 DT</td></tr>
-          <tr class="highlight-row"><td><strong>Viabilité station</strong></td><td><strong>✅ Excellent</strong></td><td>⚠️ Bon</td><td>❌ Non</td><td>❌ Non</td><td>⚠️ Juste</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>Fenêtre concurrentielle — Timeline de menace</h3>
-
-    <div class="timeline" style="margin-top: 2rem;">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Y1–Y2</div>
-        <h4>Zone sûre ✅</h4>
-        <p><strong>Menace :</strong> Nulle identifiée<br><strong>Action :</strong> Déployer 5–20 machines, établir réputation<br><strong>Fenêtre :</strong> 18 mois d'avance</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot" style="background: #f39c12; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #f39c12;"></div>
-        <div class="tl-year">Y3–Y4</div>
-        <h4>Zone critique ⚠️</h4>
-        <p><strong>Menace :</strong> VR Refiner arrive (30 % prob) + Chinois (60 % prob)<br><strong>Action :</strong> 50–100 machines en place, marque établie<br><strong>Fenêtre :</strong> Se réduit</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot" style="background: #2980b9; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2980b9;"></div>
-        <div class="tl-year">Y5+</div>
-        <h4>Zone équilibrée ⚖️</h4>
-        <p><strong>Menace :</strong> Paysage compétitif stabilisé<br><strong>Action :</strong> Expansion Afrique, diversification<br><strong>Position :</strong> Leader établi, switching costs élevés</p>
-      </div>
+      L'analyse concurrentielle dispose désormais de sa <strong>page dédiée</strong> : matrice comparative des 12+ acteurs, graphiques de positionnement (rendement vs prix), matrice des menaces, benchmark station type et fenêtre concurrentielle. C'est un volet stratégique à part entière, isolé pour faciliter la lecture investisseur.
     </div>
   </div>
 </section>
@@ -873,7 +572,7 @@
     </div>
 
     <div class="comment">
-      Le risque fournisseur (GEKO) est le seul risque structurel non entièrement maîtrisable à court terme. C'est aussi le risque qui s'est déjà matérialisé (COVID 2020). La priorité dès Y2 est de ne jamais se retrouver sans stock tampon et d'initier des discussions avec des alternatives technologiques comparables.
+      Le risque fournisseur (GEKO) est le seul risque structurel non entièrement maîtrisable à court terme. C'est aussi le risque qui s'est déjà matérialisé (COVID 2020). La priorité dès Y2 est de ne jamais se retrouver sans stock tampon et d'initier des discussions avec des alternatives technologiques comparables. Pour le détail de la menace concurrentielle, voir la <a href="concurrence.html" style="font-weight:700; text-decoration:underline">page Concurrence</a>.
     </div>
   </div>
 </section>
@@ -883,6 +582,7 @@
   <h2>Un projet concret, un timing unique</h2>
   <p>La technologie est validée. Les contacts sont établis. Le modèle économique est révisé pour maximiser l'adoption. HCTECH cherche ses partenaires financiers pour constituer le parc pilote de 5 machines et démontrer la viabilité à l'échelle.</p>
   <a href="mailto:mr.belajouza@gmail.com?subject=HCTECH — Prise de contact" class="btn">📩 Contacter l'équipe</a>
+  <a href="concurrence.html" class="btn-ghost">🥊 Analyse concurrentielle</a>
 </section>
 
 <footer>
@@ -1015,137 +715,6 @@ new Chart(document.getElementById('chartStructure'), {
       legend: { position: 'bottom', labels: { font: { size: 10 } } },
       tooltip: {
         callbacks: { label: ctx => ' ' + ctx.label + ' : ' + Math.round(ctx.raw/1000) + ' k DT (' + Math.round(ctx.raw/4616246*100) + ' %)' }
-      }
-    }
-  }
-});
-
-// 7. Matrice compétitive : Rendement vs Prix
-new Chart(document.getElementById('chartCompMatrix'), {
-  type: 'bubble',
-  data: {
-    datasets: [
-      {
-        label: 'HCTECH/GEKO',
-        data: [{x: 75, y: 6, r: 25}],
-        backgroundColor: GREEN2,
-        borderColor: GREEN,
-        borderWidth: 2
-      },
-      {
-        label: 'VR Refiner',
-        data: [{x: 107, y: 2, r: 18}],
-        backgroundColor: AMBER,
-        borderColor: '#d97706',
-        borderWidth: 2
-      },
-      {
-        label: 'MESSER',
-        data: [{x: 207, y: 10, r: 20}],
-        backgroundColor: BLUE,
-        borderColor: '#1e40af',
-        borderWidth: 2
-      },
-      {
-        label: 'BORSIG',
-        data: [{x: 200, y: 6.5, r: 20}],
-        backgroundColor: '#9b59b6',
-        borderColor: '#6b21a8',
-        borderWidth: 2
-      },
-      {
-        label: 'Zeeco',
-        data: [{x: 110, y: 1.5, r: 16}],
-        backgroundColor: RED,
-        borderColor: '#991b1b',
-        borderWidth: 2
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { position: 'bottom', labels: { font: { size: 11 } } },
-      tooltip: {
-        callbacks: {
-          label: ctx => ctx.dataset.label + ' : Prix ' + ctx.raw.x + ' k DT, Rendement ' + ctx.raw.y.toFixed(1) + '/1000'
-        }
-      }
-    },
-    scales: {
-      x: {
-        title: { display: true, text: 'Prix machine (k DT)', font: { weight: 'bold' } },
-        min: 50, max: 250,
-        grid: { color: '#e8f0ea' }
-      },
-      y: {
-        title: { display: true, text: 'Rendement (L / 1000 L)', font: { weight: 'bold' } },
-        min: 0, max: 12,
-        grid: { color: '#e8f0ea' }
-      }
-    }
-  }
-});
-
-// 8. Matrice menace : Probabilité vs Impact
-new Chart(document.getElementById('chartThreatMatrix'), {
-  type: 'bubble',
-  data: {
-    datasets: [
-      {
-        label: 'VR Refiner arrive',
-        data: [{x: 30, y: 60, r: 22}],
-        backgroundColor: AMBER,
-        borderColor: '#d97706',
-        borderWidth: 2
-      },
-      {
-        label: 'Chinois génériques',
-        data: [{x: 60, y: 75, r: 26}],
-        backgroundColor: RED,
-        borderColor: '#991b1b',
-        borderWidth: 2
-      },
-      {
-        label: 'GEKO s\'arrête',
-        data: [{x: 20, y: 90, r: 24}],
-        backgroundColor: '#e74c3c',
-        borderColor: '#c0392b',
-        borderWidth: 2
-      },
-      {
-        label: 'Régulation Tunisie',
-        data: [{x: 40, y: -50, r: 18}],
-        backgroundColor: GREEN2,
-        borderColor: GREEN,
-        borderWidth: 2
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { position: 'bottom', labels: { font: { size: 11 } } },
-      tooltip: {
-        callbacks: {
-          label: ctx => {
-            const impact = ctx.raw.y;
-            const type = impact > 0 ? '(Menace)' : '(Opportunité)';
-            return ctx.dataset.label + ' : ' + Math.abs(ctx.raw.x) + '% prob, ' + Math.abs(impact) + '% impact ' + type;
-          }
-        }
-      }
-    },
-    scales: {
-      x: {
-        title: { display: true, text: 'Probabilité (%)', font: { weight: 'bold' } },
-        min: 0, max: 100,
-        grid: { color: '#e8f0ea' }
-      },
-      y: {
-        title: { display: true, text: 'Impact (% — haut = menace, bas = opportunité)', font: { weight: 'bold' } },
-        min: -80, max: 100,
-        grid: { color: '#e8f0ea' }
       }
     }
   }

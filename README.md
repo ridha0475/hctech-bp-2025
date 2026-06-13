@@ -42,10 +42,11 @@
    - Tableaux commentés détaillés
    - Synthèse exécutive chaque section
    - Navigation sticky et encadrés "💡 Pourquoi ce choix ?"
+   - **Onglet [Concurrence](concurrence.html) dédié** — matrice comparative 12+ acteurs, graphiques de positionnement, benchmark station type, fenêtre concurrentielle
 
    **Pour :** Présentation aux partenaires, communication externe, clarté visuelle.
 
-   **Accès :** https://ridha0475.github.io/hctech-bp-2025/
+   **Accès :** https://ridha0475.github.io/hctech-bp-2025/ — Concurrence : https://ridha0475.github.io/hctech-bp-2025/concurrence.html
 
 ### 5. **[RESUME_HCTECH.md](RESUME_HCTECH.md)** — Résumé initial (legacy)
    - Vue d'ensemble du projet original
