@@ -543,8 +543,85 @@
       </table>
     </div>
 
+    <h3>Positionnement mondial — HCTECH vs 10+ concurrents</h3>
+
+    <div class="chart-grid">
+      <div class="chart-box">
+        <h4>Matrice Compétitive : Rendement vs Prix</h4>
+        <div class="chart-note">Plus haut-gauche = meilleur (performance élevée, prix bas)</div>
+        <canvas id="chartCompMatrix"></canvas>
+      </div>
+      <div class="chart-box">
+        <h4>Menace vs Impact — Probabilité & Gravité</h4>
+        <div class="chart-note">Bulles proportionnelles à la menace réelle. Quadrant supérieur-droit = priorité</div>
+        <canvas id="chartThreatMatrix"></canvas>
+      </div>
+    </div>
+
     <div class="comment">
-      Une analyse concurrentielle approfondie (recherche mondiale sur 12+ acteurs) a été réalisée. Résultat : aucun concurrent direct avec modèle revenue share en Tunisie/Afrique. VR Refiner est le plus proche, mais avec rendement inférieur et sans revenue share. HCTECH bénéficie d'une fenêtre de 3–5 ans avant que la concurrence s'organise. Voir <a href="./ANALYSE_COMPETITEURS.md" style="font-weight:700; text-decoration:underline">l'analyse complète des concurrents</a>.
+      Une analyse concurrentielle approfondie (recherche mondiale sur 12+ acteurs) a été réalisée. Résultat : aucun concurrent direct avec modèle revenue share en Tunisie/Afrique. VR Refiner est le seul compétiteur prix-comparable, mais rendement 2.5× inférieur et sans revenue share. HCTECH bénéficie d'une fenêtre de 3–5 ans avant que la concurrence s'organise. Voir <a href="./ANALYSE_COMPETITEURS.md" style="font-weight:700; text-decoration:underline">l'analyse complète des concurrents</a>.
+    </div>
+
+    <h3>Les 10+ concurrents mondiaux identifiés</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concurrent</th><th>Pays</th><th>Technologie</th><th>Rendement</th><th>Prix</th><th>Segment</th><th>Modèle</th><th>Verdict HCTECH</th></tr></thead>
+        <tbody>
+          <tr class="highlight-row"><td><strong>GEKO / HCTECH</strong></td><td>Corée / Tunisie</td><td>Condensation frigorifique simple</td><td>5–7/1000 L</td><td><strong>0 DT (station)</strong></td><td>Stations-service</td><td><strong>Revenue share 70/30</strong></td><td>✅ NOUS</td></tr>
+          <tr><td><strong>VR Refiner</strong></td><td>Espagne</td><td>Condensation passive</td><td>2/1000 L</td><td>107 k DT</td><td>Stations-service</td><td>Vente directe</td><td>⚠️ Concurrent direct</td></tr>
+          <tr><td>MESSER Cryosolv</td><td>Allemagne</td><td>Cryo-LIN (-196°C)</td><td>8–12/1000 L</td><td>165–250 k DT</td><td>Raffineries/Industrie</td><td>Vente directe</td><td>🟢 Non-concurrent (trop cher)</td></tr>
+          <tr><td>BORSIG</td><td>Allemagne</td><td>Membrane + absorption</td><td>5–8/1000 L</td><td>150–250 k DT</td><td>Raffineries majeures</td><td>Vente directe</td><td>🟢 Gamme supérieure</td></tr>
+          <tr><td>Zeeco</td><td>USA</td><td>Charbon actif</td><td>1–2/1000 L</td><td>100–120 k DT</td><td>Terminaux pétroliers</td><td>Vente directe</td><td>🟢 Autre segment</td></tr>
+          <tr><td>John Zink</td><td>USA</td><td>Charbon actif</td><td>1–3/1000 L</td><td>100–150 k DT</td><td>Terminaux</td><td>Vente directe</td><td>🟢 Autre segment</td></tr>
+          <tr><td>Kilburn Engineering</td><td>UK</td><td>Charbon actif</td><td>1–3/1000 L</td><td>100–150 k DT</td><td>Terminaux</td><td>Vente directe</td><td>🟢 Autre segment</td></tr>
+          <tr><td>OWP Fueling</td><td>USA</td><td>Truck-mounted (Phase I)</td><td>Dépotage only</td><td>N/A</td><td>Transport fuel</td><td>Équipement</td><td>🟢 Indirect (camions)</td></tr>
+          <tr><td>Flogistix</td><td>USA</td><td>Compression + absorption</td><td>2–4/1000 L</td><td>N/A</td><td>Oil & Gas upstream</td><td>Vente/location</td><td>🟢 Indirect (production)</td></tr>
+          <tr><td>Cimarron Energy</td><td>USA</td><td>Compression + absorption</td><td>2–4/1000 L</td><td>N/A</td><td>Oil & Gas</td><td>Vente directe</td><td>🟢 Indirect</td></tr>
+          <tr><td>Fabricants chinois</td><td>Chine (13–20 par zone)</td><td>Adsorption + condensation</td><td>2–4/1000 L</td><td>15–30 k DT</td><td>Marché local Asie</td><td>Vente directe</td><td>🟠 Menace future (Y3–Y4)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Benchmark détaillé — Station type (12 000 L/jour)</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Paramètre</th><th>GEKO/HCTECH</th><th>VR Refiner</th><th>MESSER</th><th>BORSIG</th><th>Zeeco</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Essence récupérée / jour</strong></td><td><strong>60–84 L</strong></td><td>24 L</td><td>96–144 L</td><td>60–96 L</td><td>12–24 L</td></tr>
+          <tr><td><strong>Revenu brut station / an</strong></td><td><strong>47–67 k DT</strong></td><td>19–30 k DT</td><td>77–116 k DT</td><td>48–77 k DT</td><td>9–19 k DT</td></tr>
+          <tr><td><strong>Coût acquisition</strong></td><td><strong>75 k DT</strong></td><td>107 k DT</td><td>165–250 k DT</td><td>150–250 k DT</td><td>100 k DT</td></tr>
+          <tr><td><strong>Coût maintenance / an</strong></td><td><strong>2,3 k DT</strong></td><td>2 k DT</td><td>5–10 k DT</td><td>4–8 k DT</td><td>3–5 k DT</td></tr>
+          <tr><td><strong>Payback (sans financement)</strong></td><td><strong>1,2 ans</strong></td><td>2,3 ans</td><td>Négatif</td><td>Négatif</td><td>4–5 ans</td></tr>
+          <tr><td><strong>Payback (avec emprunt 7a @ 10%)</strong></td><td><strong>3,6 ans</strong></td><td>5–6 ans</td><td>N/A</td><td>N/A</td><td>7–8 ans</td></tr>
+          <tr><td><strong>Gain mensuel station</strong></td><td><strong>1 200 DT (0 investissement)</strong></td><td>500 DT</td><td>Négatif</td><td>Négatif</td><td>300–400 DT</td></tr>
+          <tr class="highlight-row"><td><strong>Viabilité station</strong></td><td><strong>✅ Excellent</strong></td><td>⚠️ Bon</td><td>❌ Non</td><td>❌ Non</td><td>⚠️ Juste</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Fenêtre concurrentielle — Timeline de menace</h3>
+
+    <div class="timeline" style="margin-top: 2rem;">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Y1–Y2</div>
+        <h4>Zone sûre ✅</h4>
+        <p><strong>Menace :</strong> Nulle identifiée<br><strong>Action :</strong> Déployer 5–20 machines, établir réputation<br><strong>Fenêtre :</strong> 18 mois d'avance</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background: #f39c12; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #f39c12;"></div>
+        <div class="tl-year">Y3–Y4</div>
+        <h4>Zone critique ⚠️</h4>
+        <p><strong>Menace :</strong> VR Refiner arrive (30 % prob) + Chinois (60 % prob)<br><strong>Action :</strong> 50–100 machines en place, marque établie<br><strong>Fenêtre :</strong> Se réduit</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background: #2980b9; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2980b9;"></div>
+        <div class="tl-year">Y5+</div>
+        <h4>Zone équilibrée ⚖️</h4>
+        <p><strong>Menace :</strong> Paysage compétitif stabilisé<br><strong>Action :</strong> Expansion Afrique, diversification<br><strong>Position :</strong> Leader établi, switching costs élevés</p>
+      </div>
     </div>
   </div>
 </section>
@@ -938,6 +1015,137 @@ new Chart(document.getElementById('chartStructure'), {
       legend: { position: 'bottom', labels: { font: { size: 10 } } },
       tooltip: {
         callbacks: { label: ctx => ' ' + ctx.label + ' : ' + Math.round(ctx.raw/1000) + ' k DT (' + Math.round(ctx.raw/4616246*100) + ' %)' }
+      }
+    }
+  }
+});
+
+// 7. Matrice compétitive : Rendement vs Prix
+new Chart(document.getElementById('chartCompMatrix'), {
+  type: 'bubble',
+  data: {
+    datasets: [
+      {
+        label: 'HCTECH/GEKO',
+        data: [{x: 75, y: 6, r: 25}],
+        backgroundColor: GREEN2,
+        borderColor: GREEN,
+        borderWidth: 2
+      },
+      {
+        label: 'VR Refiner',
+        data: [{x: 107, y: 2, r: 18}],
+        backgroundColor: AMBER,
+        borderColor: '#d97706',
+        borderWidth: 2
+      },
+      {
+        label: 'MESSER',
+        data: [{x: 207, y: 10, r: 20}],
+        backgroundColor: BLUE,
+        borderColor: '#1e40af',
+        borderWidth: 2
+      },
+      {
+        label: 'BORSIG',
+        data: [{x: 200, y: 6.5, r: 20}],
+        backgroundColor: '#9b59b6',
+        borderColor: '#6b21a8',
+        borderWidth: 2
+      },
+      {
+        label: 'Zeeco',
+        data: [{x: 110, y: 1.5, r: 16}],
+        backgroundColor: RED,
+        borderColor: '#991b1b',
+        borderWidth: 2
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 11 } } },
+      tooltip: {
+        callbacks: {
+          label: ctx => ctx.dataset.label + ' : Prix ' + ctx.raw.x + ' k DT, Rendement ' + ctx.raw.y.toFixed(1) + '/1000'
+        }
+      }
+    },
+    scales: {
+      x: {
+        title: { display: true, text: 'Prix machine (k DT)', font: { weight: 'bold' } },
+        min: 50, max: 250,
+        grid: { color: '#e8f0ea' }
+      },
+      y: {
+        title: { display: true, text: 'Rendement (L / 1000 L)', font: { weight: 'bold' } },
+        min: 0, max: 12,
+        grid: { color: '#e8f0ea' }
+      }
+    }
+  }
+});
+
+// 8. Matrice menace : Probabilité vs Impact
+new Chart(document.getElementById('chartThreatMatrix'), {
+  type: 'bubble',
+  data: {
+    datasets: [
+      {
+        label: 'VR Refiner arrive',
+        data: [{x: 30, y: 60, r: 22}],
+        backgroundColor: AMBER,
+        borderColor: '#d97706',
+        borderWidth: 2
+      },
+      {
+        label: 'Chinois génériques',
+        data: [{x: 60, y: 75, r: 26}],
+        backgroundColor: RED,
+        borderColor: '#991b1b',
+        borderWidth: 2
+      },
+      {
+        label: 'GEKO s\'arrête',
+        data: [{x: 20, y: 90, r: 24}],
+        backgroundColor: '#e74c3c',
+        borderColor: '#c0392b',
+        borderWidth: 2
+      },
+      {
+        label: 'Régulation Tunisie',
+        data: [{x: 40, y: -50, r: 18}],
+        backgroundColor: GREEN2,
+        borderColor: GREEN,
+        borderWidth: 2
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 11 } } },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            const impact = ctx.raw.y;
+            const type = impact > 0 ? '(Menace)' : '(Opportunité)';
+            return ctx.dataset.label + ' : ' + Math.abs(ctx.raw.x) + '% prob, ' + Math.abs(impact) + '% impact ' + type;
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        title: { display: true, text: 'Probabilité (%)', font: { weight: 'bold' } },
+        min: 0, max: 100,
+        grid: { color: '#e8f0ea' }
+      },
+      y: {
+        title: { display: true, text: 'Impact (% — haut = menace, bas = opportunité)', font: { weight: 'bold' } },
+        min: -80, max: 100,
+        grid: { color: '#e8f0ea' }
       }
     }
   }
