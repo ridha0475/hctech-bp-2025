@@ -1,10 +1,12 @@
-# Business Plan HCTECH 2025
-## Modèle Revenue Share — Système ECO-RENTABLE
+# Business Plan HCTECH — Modèle Revenue Share 60/40
+## Système ECO-RENTABLE — Horizon 7 ans · Machines en leasing
 
-> **Société :** HCTECH  
-> **Contact :** Mohamed Lamine Belajouza — mr.belajouza@gmail.com  
-> **Date :** Juin 2025  
+> **Société :** HCTECH
+> **Contact :** Mohamed Lamine Belajouza — mr.belajouza@gmail.com
+> **Date :** Juin 2026
 > **Confidentiel**
+>
+> *Les chiffres financiers de référence sont calculés dans le modèle [BP_HCTECH_7ans.xlsx](BP_HCTECH_7ans.xlsx) (simulation mensuelle sur 84 mois) et visualisés sur le [site interactif](https://ridha0475.github.io/hctech-bp-2025/).*
 
 ---
 
@@ -13,34 +15,38 @@
 1. [Executive Summary](#1-executive-summary)
 2. [Le Projet et l'Équipe](#2-le-projet-et-léquipe)
 3. [Le Produit](#3-le-produit)
-4. [Le Nouveau Modèle Économique](#4-le-nouveau-modèle-économique)
+4. [Le Modèle Économique — Revenue Share 60/40 + Leasing](#4-le-modèle-économique)
 5. [Le Marché](#5-le-marché)
 6. [Stratégie Commerciale](#6-stratégie-commerciale)
-7. [Projections Financières](#7-projections-financières)
-8. [Financement et Besoins](#8-financement-et-besoins)
+7. [Projections Financières (7 ans)](#7-projections-financières)
+8. [Financement, Actionnariat et Dividendes](#8-financement-actionnariat-et-dividendes)
 9. [Risques et Mitigants](#9-risques-et-mitigants)
 
 ---
 
 ## 1. Executive Summary
 
-HCTECH commercialise le système **ECO-RENTABLE** — un équipement qui récupère et liquéfie les vapeurs d'essence perdues par volatilisation dans les stations-service, transformant une source de pollution en une source de revenus.
+HCTECH déploie le système **ECO-RENTABLE** — un équipement qui récupère et liquéfie les vapeurs d'essence perdues par volatilisation dans les stations-service, transformant une source de pollution en une source de revenus.
 
-**Le pivot stratégique de ce BP :** HCTECH abandonne la vente directe des machines au profit d'un **modèle de location avec partage des revenus**. La station-service n'investit rien. HCTECH finance, installe et maintient la machine, puis perçoit **70 % des revenus générés**, dont 30 % sont reversés à la station.
+**Les deux piliers du modèle :**
+1. **Revenue Share 60/40** — HCTECH finance, installe et maintient la machine, perçoit **60 % des revenus** générés et reverse **40 % à la station**, qui n'investit rien.
+2. **Leasing des machines** — chaque machine est financée à 100 % par leasing (≈ 12 %/7 ans). Sa part de 60 % couvre largement le loyer et la maintenance : **chaque machine s'autofinance dès le premier mois**. Le capital social ne sert qu'au fonds de roulement.
 
-Ce modèle résout le principal frein à l'adoption (le coût d'achat de ~100 000 DT) et crée un **revenu récurrent prévisible** pour HCTECH, analogue à un modèle SaaS industriel.
+Ce double choix supprime à la fois le frein d'adoption côté station (zéro investissement) et le frein de financement côté HCTECH (pas besoin d'immobiliser le capital pour acheter le parc). La société est **rentable dès l'An 1**.
 
 **Chiffres clés :**
 
 | Indicateur | Valeur |
 |---|---|
-| Revenu brut par machine / an (scénario réaliste) | ~47 960 DT |
-| Revenu net HCTECH par machine / an (après financement + OPEX) | ~15 780 DT |
-| Gain mensuel de la station (sans investissement) | ~1 200 DT |
-| Parc cible à 5 ans | 175 machines |
-| CA HCTECH à 5 ans | ~4,6 M DT |
-| Résultat net Y5 | ~1,6 M DT |
-| Seuil de rentabilité opérationnel | Y3 (parc ≥ 50 machines) |
+| Valeur brute récupérée / machine / an (réaliste 5/1000) | ~55 300 DT |
+| Marge nette HCTECH / machine / an (après leasing + maintenance) | ~19 470 DT |
+| Gain mensuel de la station (sans investissement) | ~1 843 DT |
+| Parc cible à 7 ans | 196 machines |
+| CA HCTECH An 7 | ~7,96 M DT |
+| Résultat net cumulé sur 7 ans | ~11,9 M DT |
+| Rentabilité | Dès l'An 1 (+133 k DT) |
+| Capital social requis | 300 000 DT (zéro emprunt bancaire) |
+| Trésorerie minimale sur 84 mois | +278 k DT (jamais à découvert) |
 
 ---
 
@@ -52,14 +58,17 @@ Le projet démarre en 2019 quand **Ali Ben Hamoud**, après des études de pétr
 
 Le COVID-19 interrompt le développement. Le partenaire technologique se restructure en créant **GEKO** (Corée du Sud), avec des installations améliorées et un laboratoire de R&D certifié. HCTECH conserve l'exclusivité Tunisie + Afrique.
 
-### L'équipe
+### L'équipe et l'actionnariat
 
-| Nom | Rôle | Profil |
-|---|---|---|
-| **Ali Ben Hamoud** | Co-gérant, Directeur Technique | Ingénieur pétrochimie, mandarin courant, relation GEKO |
-| **Mohamed Ali Belajouza** | CEO & CDO | Gestion, réseau pétrolier tunisien et africain |
-| **Nazeh Ben Ammar** | Investisseur, Relations stratégiques | Réseau institutionnel tunisien |
-| **Nessim Mami** | Investisseur, Développement international | Réseau Afrique & Golfe |
+| Nom | Rôle | Parts | Profil |
+|---|---|---|---|
+| **Ali Ben Hamoud** | Co-gérant, Directeur Technique | 25 % | Ingénieur pétrochimie, mandarin courant, relation GEKO |
+| **Mohamed Lamine Belajouza** | CEO & CDO | 25 % | Gestion, réseau pétrolier tunisien et africain |
+| **Nessim Mami** | Investisseur — apporte 100 % du capital | 40 % | Réseau Afrique & Golfe |
+| **Nazeh Ben Ammar** | Investisseur, Relations stratégiques | 10 % | Réseau institutionnel tunisien |
+| **Mohamed Ridha Belajouza** | Consultant — Conseil stratégique | — | Structuration BP, modélisation financière, positionnement |
+
+> **Nessim Mami** apporte la totalité du capital social (300 000 DT) en numéraire pour 40 % des parts. Les 60 % restants rémunèrent les apports en industrie des autres associés (exclusivité GEKO, réseau pétrolier, gestion), valorisés ~450 k DT pre-money — à formaliser dans le pacte d'actionnaires.
 
 ### Partenaire technologique
 
@@ -122,60 +131,48 @@ Cuve → Capteurs de pression → Aspiration des vapeurs
 
 ---
 
-## 4. Le Nouveau Modèle Économique
+## 4. Le Modèle Économique
 
-### Pourquoi changer de modèle
+### Le partage des revenus — 60 % HCTECH / 40 % Station
 
-Le BP initial prévoyait la **vente directe** des machines à ~100 000 DT. Ce modèle se heurtait à deux obstacles :
-1. **Frein psychologique et financier** : le gérant de station supporte seul le risque et l'investissement
-2. **Cycle de vente long** : décision d'achat d'un équipement inconnu à 6 chiffres → résistance naturelle
-
-### Le modèle Revenue Share
-
-**Principe :** HCTECH finance, installe et maintient les machines. En échange, elle perçoit 70 % des revenus générés par la récupération d'essence. La station reçoit 30 % **sans avoir investi un dinar**.
+**Principe :** HCTECH finance (en leasing), installe et maintient les machines. Elle perçoit 60 % des revenus générés par la récupération d'essence ; la station reçoit 40 % **sans avoir investi un dinar**.
 
 ```
 Revenu brut = Litres récupérés × Prix du litre
      ↓
-HCTECH 70% | Station 30%
+HCTECH 60%  |  Station 40%
 ```
 
-### Justification du split 70/30
+### Le leasing : chaque machine s'autofinance
 
-| Paramètre | Valeur |
+Au lieu d'immobiliser ~58 000 DT par machine, HCTECH la finance par leasing (≈ 12 %/7 ans). Le loyer est couvert dès le premier mois par la part de 60 %.
+
+| Paramètre (par machine, an 1) | Valeur |
 |---|---|
-| Coût total machine (achat + install + transport) | 75 435 DT |
-| Annuité emprunt (7 ans @ 10 %) | 15 495 DT/an |
-| OPEX annuel (maintenance + consommables) | 2 300 DT/an |
-| **Charges totales HCTECH / machine / an** | **17 795 DT/an** |
-| Revenu brut / machine (scénario réaliste 5/1000) | 47 961 DT/an |
-| Part HCTECH @ 70 % | 33 573 DT/an |
-| **Marge nette HCTECH / machine / an** | **15 778 DT/an** |
-| Part station @ 30 % | 14 388 DT/an (**1 199 DT/mois**) |
+| Coût machine all-in HT (18 000 $ × 2,95 + import 2,5 % + install. 3 500) | 57 928 DT |
+| Leasing machine (12 %/7 ans) | 12 271 DT/an |
+| Maintenance + internet (120 DT/mois) | 1 440 DT/an |
+| **Charges totales HCTECH / machine / an** | **13 711 DT/an** |
+| Valeur brute récupérée / machine (réaliste 5/1000) | 55 297 DT/an |
+| Part HCTECH @ 60 % | 33 178 DT/an |
+| **Marge nette HCTECH / machine / an** | **+19 468 DT/an** |
+| Part station @ 40 % | 22 119 DT/an (**1 843 DT/mois**) |
 
-> Le split 70/30 assure à HCTECH une marge positive même dans le scénario pessimiste (3/1000), tout en offrant à la station un gain mensuel réel et immédiat sans aucune mise de fonds.
+> La part HCTECH (33 178 DT) couvre **1,6 fois** le loyer de leasing : le dossier de financement est solvable, et chaque machine est bénéficiaire immédiatement.
 
-### Ce que gagne la station (sans investissement)
+### Sensibilité aux scénarios de récupération
 
-| Scénario | Revenus station / an | Revenus station / mois |
-|---|---|---|
-| Pessimiste (3/1000) | 8 633 DT | 719 DT |
-| **Réaliste (5/1000)** | **14 388 DT** | **1 199 DT** |
-| Optimiste (7/1000) | 20 144 DT | 1 679 DT |
+| Scénario | Taux | Part HCTECH (60 %) | Marge nette HCTECH | Part station / mois |
+|---|---|---|---|---|
+| Pessimiste | 3/1000 | 19 907 DT | **+6 196 DT/an** | 1 106 DT |
+| **Réaliste (retenu)** | **5/1000** | **33 178 DT** | **+19 468 DT/an** | **1 843 DT** |
+| Optimiste | 7/1000 | 46 450 DT | **+32 739 DT/an** | 2 581 DT |
 
-### Ce que gagne HCTECH par machine
-
-| Scénario | Revenu HCTECH | Charges | **Marge nette** |
-|---|---|---|---|
-| Pessimiste (3/1000) | 20 144 DT | 17 795 DT | **+2 349 DT/an** |
-| **Réaliste (5/1000)** | **33 573 DT** | **17 795 DT** | **+15 778 DT/an** |
-| Optimiste (7/1000) | 47 001 DT | 17 795 DT | **+29 206 DT/an** |
-
-> **Même dans le pire scénario, HCTECH reste rentable par machine.** La marge de sécurité est suffisante pour absorber des variations de prix du carburant ou une sous-performance temporaire.
+> **Même dans le pire scénario (3/1000), chaque machine reste positive** (+6 196 DT après leasing et maintenance). Le prix de l'essence augmente par ailleurs d'environ +4,6 %/an en moyenne (tendance 10 ans), ce qui amplifie mécaniquement les revenus chaque année.
 
 ### Contrat type avec la station
 
-- **Durée :** 7 ans (alignée sur l'amortissement de la machine)
+- **Durée :** 7 ans (alignée sur le leasing de la machine)
 - **Engagement station :** accès à la cuve, consommation électrique (4 kW), signalement des anomalies
 - **Engagement HCTECH :** installation, maintenance, remplacement en cas de panne, rapport mensuel des quantités récupérées
 - **Partage :** basé sur les données de l'application connectée (traçabilité totale)
@@ -198,84 +195,69 @@ HCTECH 70% | Station 30%
 | Staroil | 95 | Mixte |
 | **Total** | **905** | |
 
-**Cible prioritaire :** stations vendant ≥ 12 000 L/jour d'essence sans plomb (stations moyennes à actives). Cette sélection représente environ **60 % du parc**, soit ~540 stations potentielles.
+**Cible prioritaire :** stations vendant ≥ 12 000 L/jour d'essence sans plomb. Cette sélection représente environ **60 % du parc**, soit ~540 stations potentielles. Le plan déploie **196 machines en 7 ans, soit ~36 % de ce marché adressable**.
 
 **Marché adressable en valeur (TAM) :**
-- 540 stations × 14 388 DT de revenus/an pour la station = proposition de valeur totale de **7,7 M DT/an** pour les stations
-- Part HCTECH (70 %) sur parc complet : **~17 M DT/an**
+- 540 stations × 22 119 DT de revenus/an pour la station = proposition de valeur totale de **~11,9 M DT/an** pour les stations
+- Part HCTECH (60 %) sur parc complet : **~17,9 M DT/an** de CA potentiel
 
-### Marché secondaire — Afrique & Golfe
+### Marché secondaire — Afrique & Golfe (phase 2)
 
-HCTECH détient l'exclusivité de distribution pour l'ensemble du continent africain et dispose de contacts établis dans :
-- **Algérie** (réseau direct de Mohamed Ali Belajouza)
-- **Côte d'Ivoire et Sénégal** (Afrique subsaharienne)
-- **Golfe** : Oman, Qatar, Émirats Arabes Unis
-
-Ce marché ne sera activé qu'après consolidation du parc tunisien (Y3+).
+HCTECH détient l'exclusivité de distribution pour l'ensemble du continent africain et dispose de contacts établis en Algérie, Côte d'Ivoire, Sénégal et dans le Golfe (Oman, Qatar, EAU). **Ce marché n'est pas inclus dans les projections** et ne sera activé qu'après consolidation du parc tunisien (An 6+).
 
 ### Tendances de marché favorables
 
-1. **Réglementation en durcissement** : la Tunisie suivra les directives européennes (Phase I, Phase II) à moyen terme. Notre équipement anticipe cette obligation réglementaire et positionne les stations dans la conformité.
-2. **Prix du carburant en hausse** : toute augmentation du prix du litre amplifie mécaniquement les revenus du partage.
-3. **Pression ESG sur les majors pétrolières** : Total, Vivo Shell, OLA ont des objectifs carbone globaux. Un déploiement massif leur permet une communication environnementale mesurable.
-4. **Contexte africain vierge** : aucun concurrent n'est positionné en Afrique sub-saharienne sur ce segment.
+1. **Réglementation en durcissement** : la Tunisie suivra les directives européennes (Phase I, Phase II) à moyen terme. Notre équipement anticipe cette obligation.
+2. **Prix du carburant en hausse** : +4,6 %/an en moyenne sur 10 ans (SNDP) — toute hausse amplifie les revenus du partage.
+3. **Pression ESG sur les majors pétrolières** : Total, Vivo Shell, OLA ont des objectifs carbone globaux.
+4. **Contexte africain vierge** : aucun concurrent positionné en Afrique sub-saharienne sur ce segment.
 
 ### Concurrence
 
-| Concurrent | Pays | Modèle | Avantages HCTECH |
-|---|---|---|---|
-| VR Refiner | Espagne | Vente directe (~32 000 € départ usine) | Prix compétitif + revenue share (zéro investissement station) + rendement supérieur (5-7/1000 vs 2/1000) |
-| MESSER / Cryosolv | Allemagne | Vente directe (≥50 000 $) | Non dédié stations-service, prix prohibitif |
-| OWP | Europe | Équipement camions-citernes | Différent : ne récupère pas sur place |
-
-**Aucun concurrent ne propose de modèle revenue share en Tunisie et en Afrique.**
+Analyse mondiale détaillée dans [ANALYSE_COMPETITEURS.md](ANALYSE_COMPETITEURS.md) et [COMPETITIVE_EDGE.md](COMPETITIVE_EDGE.md) (12+ acteurs). En résumé : **aucun concurrent ne propose de modèle revenue share en Tunisie et en Afrique.** VR Refiner (Espagne) est le seul rival prix-comparable, avec un rendement 2,5× inférieur (2/1000 vs 5-7/1000) et un modèle de vente directe (107 k DT à investir pour la station).
 
 ---
 
 ## 6. Stratégie Commerciale
 
-### Phase 0 — Validation du nouveau modèle (M1-M3)
+### Rythme de déploiement
 
-Objectif : signer **3 conventions de revenue share** avec des stations pilotes issues de 3 enseignes différentes.
+**14 machines à partir du mois 3** (délai d'acheminement depuis la Corée), puis **+14 tous les 6 mois** — soit **28 machines/an**, jusqu'à 196 machines en An 7.
+
+### Phase 0 — Validation & première vague (M1-M3)
 
 - Relancer les contacts établis avec VIVO SHELL, OLA Energy et TOTAL (80 % du processus déjà effectué)
-- Présenter le nouveau modèle (zéro investissement station) → frein principal levé
-- Installer **5 machines** sur la base du parc pilote
+- Mettre en place les contrats de leasing
+- Signer les premières conventions de revenue share et installer la **1ère vague de 14 machines** dès le mois 3
 
-Levier clé : **la machine test installée en 2019 est toujours en place et fonctionnelle** — c'est le meilleur argument commercial.
+Levier clé : **la machine test installée en 2019 est toujours en place et fonctionnelle** — meilleur argument commercial.
 
-### Phase 1 — Déploiement initial (M4-M12 / Y1)
+### Phase 1 — Montée en charge (An 1-An 2, 56 machines)
 
-- Opérationnaliser les 5 premières machines et collecter les données de performance réelles
-- Préparer les dossiers de proof of concept pour les directions centrales des enseignes
-- Signer un premier accord-cadre avec SAGES (filiale AGIL, 20 stations sous gestion directe)
+- +14 machines tous les 6 mois ; collecte des données de performance réelles (rapports mensuels par station)
+- Signature d'un accord-cadre avec SAGES (filiale AGIL, 20 stations)
+- **Remboursement intégral du capital de Nessim dès l'An 2**
 
-### Phase 2 — Montée en puissance (Y2-Y3)
+### Phase 2 — Industrialisation (An 3-An 5, 140 machines)
 
-- Déploiement de **15 machines en Y2**, **30 en Y3** (parc cumulé : 50 machines)
-- Recruter un technicien maintenance supplémentaire dès Y3
+- Activation des accords-cadres avec les enseignes
+- Recrutement de techniciens (1 pour 48 machines)
 - Premier bilan carbone consolidé HCTECH (argument ESG pour les majors)
 
-### Phase 3 — Industrialisation (Y4-Y5)
+### Phase 3 — Leadership national (An 6-An 7, 196 machines)
 
-- Parc de **100 puis 175 machines** en Tunisie
-- Lancement du premier pilote Algérie ou Côte d'Ivoire (Y4)
-- Exploration d'un partenariat local dans le Golfe
+- ~36 % du marché adressable tunisien équipé
+- Préparation de l'expansion africaine (phase 2)
 
 ### Cycle de vente type (B2B enseigne)
 
 ```
-Prise de contact responsable réseau (déjà effectué pour 3 enseignes)
-       ↓ 2-4 semaines
-Réunion technique + visite machine test Cité Olympique
-       ↓ 2-4 semaines
-Présentation du modèle revenue share (zéro investissement)
-       ↓ 1-2 semaines
-Signature convention pilote + mémorandum de collaboration
-       ↓ Installation 24h
-Proof of concept 2-3 mois (données réelles sur la station)
-       ↓
-Accord-cadre multi-stations
+Prise de contact (déjà effectué pour 3 enseignes)
+   ↓ Réunion technique + visite machine test Cité Olympique
+   ↓ Présentation modèle revenue share (zéro investissement)
+   ↓ Signature convention pilote
+   ↓ Installation 24h → Proof of concept 2-3 mois
+   ↓ Accord-cadre multi-stations
 ```
 
 **Durée totale estimée par enseigne : 4 à 6 mois** (vs 12-18 mois pour un achat direct).
@@ -284,126 +266,105 @@ Accord-cadre multi-stations
 
 ## 7. Projections Financières
 
-### Hypothèses de base
+### Hypothèses de base (sourcées juin 2026)
 
-| Paramètre | Valeur |
-|---|---|
-| Taux de récupération retenu | 5/1000 (scénario réaliste central) |
-| Vente journalière station type | 12 000 L/jour |
-| Prix du litre d'essence | 2,19 DT (prix actuel TTC) |
-| **Revenu brut / machine / an** | **47 961 DT** |
-| Split HCTECH / Station | 70 % / 30 % |
-| Coût machine all-in (achat + install + transport) | 75 435 DT |
-| Financement : emprunt bancaire | 7 ans @ 10 % |
-| Annuité / machine | 15 495 DT/an |
-| OPEX / machine / an | 2 300 DT |
-| Rythme déploiement | Progressif (voir tableau) |
-
-*Note sur les hypothèses : le taux de 5/1000 est conservateur. Le prototype tunisien a démontré des taux entre 3/1000 et 7/1000. Le scénario pessimiste (3/1000) est également modélisé et reste positif pour HCTECH.*
+| Paramètre | Valeur | Source |
+|---|---|---|
+| Taux de récupération retenu | 5/1000 | Prototype 2019 (3-7/1000) |
+| Vente journalière station type | 12 000 L/jour | Station cible |
+| Prix du litre d'essence | 2,525 DT (+4,5 %/an) | SNDP ; CAGR réel 2016-2026 ≈ +4,6 % |
+| Split HCTECH / Station | 60 % / 40 % | — |
+| Taux de change USD/DT | 2,95 | BCT juin 2026 |
+| Coût machine all-in HT | 57 928 DT | 18 000 $ + import 2,5 % + install. 3 500 |
+| Leasing machine | 12 %/7 ans (12 271 DT/an) | Marché tunisien |
+| Charges patronales | 21 % | CNSS 17,07 + TFP 2 + FOPROLOS 1 + acc. |
+| IS + CSS | 25 % + 3 % | LF 2025/2026 (services) |
 
 ### Plan de déploiement du parc
 
-| Année | Nouvelles machines | Parc cumulé | Commentaire |
-|---|---|---|---|
-| Y1 | 5 | 5 | Pilotes (3 enseignes) |
-| Y2 | 15 | 20 | Accord-cadre SAGES + 2 enseignes |
-| Y3 | 30 | 50 | Extension réseau, 1er recrutement tech |
-| Y4 | 50 | 100 | Industrialisation Tunisie |
-| Y5 | 75 | 175 | Saturation Tunisie + amorce Afrique |
+| Année | Nouvelles machines | Parc cumulé |
+|---|---|---|
+| An 1 | 28 | 28 |
+| An 2 | 28 | 56 |
+| An 3 | 28 | 84 |
+| An 4 | 28 | 112 |
+| An 5 | 28 | 140 |
+| An 6 | 28 | 168 |
+| An 7 | 28 | 196 |
 
-*Les nouvelles machines de chaque année sont comptabilisées en demi-année (déploiement progressif sur l'exercice).*
+### Compte de résultat prévisionnel (DT — scénario réaliste 5/1000)
 
-### Compte de résultat prévisionnel
+|  | An 1 | An 2 | An 3 | An 4 | An 5 | An 6 | An 7 |
+|---|---|---|---|---|---|---|---|
+| **Parc machines** | 28 | 56 | 84 | 112 | 140 | 168 | 196 |
+| CA HCTECH (60 %) | 541 916 | 1 537 105 | 2 620 763 | 3 798 839 | 5 077 634 | 6 463 828 | 7 964 497 |
+| (−) Leasing machines | 200 425 | 544 012 | 887 598 | 1 231 185 | 1 574 771 | 1 918 358 | 2 261 944 |
+| (−) OPEX machines | 23 520 | 63 840 | 104 160 | 144 480 | 184 800 | 225 120 | 265 440 |
+| (−) Masse salariale | 75 504 | 111 978 | 170 577 | 234 718 | 242 758 | 267 919 | 287 551 |
+| (−) Loyer + frais généraux | 38 400 | 40 704 | 43 146 | 45 735 | 48 479 | 51 387 | 54 471 |
+| (−) Leasing véhicule | 18 685 | 18 685 | 18 685 | 18 685 | 18 685 | 0 | 0 |
+| **Résultat d'exploitation** | **185 381** | **757 885** | **1 396 596** | **2 124 036** | **3 008 140** | **4 001 043** | **5 095 091** |
+| (−) Impôt (IS 25 % + CSS 3 %) | 51 907 | 212 208 | 391 047 | 594 730 | 842 279 | 1 120 292 | 1 426 625 |
+| **Résultat net** | **+133 474** | **+545 677** | **+1 005 549** | **+1 529 306** | **+2 165 861** | **+2 880 751** | **+3 668 465** |
+| *Résultat net cumulé* | *133 k* | *679 k* | *1 685 k* | *3 214 k* | *5 380 k* | *8 261 k* | *11 929 k* |
 
-*(En DT TND — scénario réaliste 5/1000)*
+> **Pas de phase de pertes.** Le leasing transforme un modèle capitalistique en modèle à marge récurrente : la croissance ne consomme pas de trésorerie, elle en produit.
 
-|  | Y1 | Y2 | Y3 | Y4 | Y5 |
-|---|---|---|---|---|---|
-| **Parc total machines** | **5** | **20** | **50** | **100** | **175** |
-| CA HCTECH (70 % du revenu brut) | 83 932 | 419 659 | 1 175 044 | 2 517 952 | 4 616 246 |
-| (−) OPEX machines | 5 750 | 28 750 | 80 500 | 172 500 | 316 250 |
-| (−) Annuités emprunt machines | 38 737 | 193 685 | 542 317 | 1 162 107 | 2 130 530 |
-| **Marge brute** | **39 445** | **197 224** | **552 228** | **1 183 345** | **2 169 466** |
-| (−) Charges fixes | 55 400 | 58 170 | 61 078 | 64 132 | 67 339 |
-| (−) Personnel | 224 774 | 258 490 | 332 264 | 382 103 | 489 419 |
-| **EBITDA** | **−240 729** | **−119 436** | **+158 886** | **+737 110** | **+1 612 709** |
-| (−) Amortissements | 3 733 | 3 733 | 3 733 | 400 | 400 |
-| **Résultat net** | **−244 462** | **−123 169** | **+155 153** | **+736 710** | **+1 612 309** |
+### Trésorerie prévisionnelle (avant distribution de dividendes)
 
-**Lecture :** Les pertes Y1 et Y2 sont structurelles et anticipées — elles reflètent le coût de constitution du parc machines avant que les revenus récurrents atteignent leur vitesse de croisière. Le seuil de rentabilité opérationnel est atteint en **Y3 avec un parc de 50 machines**.
+|  | An 1 | An 2 | An 3 | An 4 | An 5 | An 6 | An 7 |
+|---|---|---|---|---|---|---|---|
+| Trésorerie fin d'année | 485 381 | 1 191 359 | 2 375 747 | 4 108 736 | 6 522 147 | 9 680 911 | 13 655 709 |
 
-### Revenus cumulés par scénario (Résultat net cumulé)
-
-| | Y1 | Y2 | Y3 | Y4 | Y5 |
-|---|---|---|---|---|---|
-| **Pessimiste (3/1000)** | −278 k | −220 k | −65 k | +306 k | +975 k |
-| **Réaliste (5/1000)** | −244 k | −367 k | −212 k | +525 k | +2 137 k |
-| **Optimiste (7/1000)** | −211 k | −281 k | +106 k | +947 k | +3 300 k |
-
-*Note : dans le scénario réaliste, le résultat net cumulé repasse positif courant Y4.*
-
-### Trésorerie prévisionnelle (scénario réaliste)
-
-| | Y1 | Y2 | Y3 | Y4 | Y5 |
-|---|---|---|---|---|---|
-| Solde d'exploitation | −244 462 | −123 169 | +155 153 | +736 710 | +1 612 309 |
-| Solde cumulé | −244 462 | −367 631 | −212 478 | +524 232 | +2 136 541 |
-
-*Le déficit de trésorerie cumulé maximal est de −367 631 DT en fin Y2. C'est le besoin de financement à couvrir par la levée initiale.*
-
-### Charge par machine et valeur à terme
-
-| Indicateur | Valeur |
-|---|---|
-| Coût machine all-in | 75 435 DT |
-| Revenu généré sur 7 ans (scénario réaliste) | 235 832 DT (brut) → 164 882 DT pour HCTECH |
-| Charges totales sur 7 ans (annuités + OPEX) | 124 465 DT |
-| **Profit net HCTECH sur la durée de vie du contrat** | **~40 000 DT / machine** |
-| Valeur du parc de 175 machines à terme | ~7 M DT de profits cumulés |
+*La trésorerie minimale sur les 84 mois est de **+278 k DT** : le capital de 300 k suffit, sans aucune dette bancaire.*
 
 ---
 
-## 8. Financement et Besoins
+## 8. Financement, Actionnariat et Dividendes
 
-### Structure de la levée
+### Structure de financement
 
-Le modèle revenue share exige que **HCTECH porte le financement des machines**. Cela nécessite une levée initiale pour :
-1. Financer les 5 machines pilotes de Y1
-2. Couvrir les charges de structure pendant les 2 années de montée en puissance
-3. Constituer un fonds de roulement pour les déploiements suivants
+```
+Capital social : 300 000 DT — apporté 100 % par Nessim Mami (40 % des parts)
+  └─ Fonds de roulement uniquement (trésorerie min +278 k sur 84 mois)
 
-### Besoins en financement Y1
+Machines : LEASING 100 % (~12 %/7 ans, ≈ 12 271 DT/an/machine)
+  └─ Autofinancé : la part de 60 % (33 178 DT/an) couvre 1,6× le loyer
 
-| Poste | Montant |
-|---|---|
-| 5 machines pilotes (75 435 × 5) | 377 175 DT |
-| Frais de structure (bureau, informatique, frais création) | 12 000 DT |
-| Fonds de roulement (trésorerie 12 mois) | 30 000 DT |
-| **Total levée Y1** | **~420 000 DT** |
+Véhicule utilitaire : leasing 70 000 DT (12 %/5 ans, ~18 685 DT/an)
 
-### Structure de financement proposée
+>> Zéro emprunt bancaire.
+```
 
-| Source | Montant | % |
+> **Pourquoi pas l'autofinancement pur (cash sans leasing) ?** La simulation montre qu'il plafonne à ~3 machines : les coûts fixes (salaires, loyer, véhicule) dépassent les revenus d'un parc aussi petit, et le solde fournisseur à 120 jours bloque tout déploiement supplémentaire. Le leasing résout ce piège — chaque machine s'autofinance, et le plan complet de 196 machines devient réalisable avec seulement 300 k DT de capital.
+
+### Politique de dividendes — priorité Nessim (Option 1)
+
+Nessim portant 100 % du capital, il est remboursé en priorité absolue :
+
+1. **Phase prioritaire** : 100 % des dividendes vont à Nessim jusqu'à ce qu'il récupère son **capital + une prime de risque de 20 %** (360 k DT), atteint **dès la fin de l'An 2**.
+2. **Phase pro-rata** : ensuite, distribution au pro-rata des parts (40/10/25/25).
+3. **Payout** : 70 % du résultat net distribué, 30 % conservé en réserve (fonds propres solides pour le leasing).
+
+| Actionnaire | Part | Dividendes cumulés 7 ans |
 |---|---|---|
-| Fonds propres (apports associés + investisseurs) | 84 000 DT | 20 % |
-| Emprunt bancaire MLT (7 ans @ 10 %) | 336 000 DT | 80 % |
-| **Total** | **420 000 DT** | **100 %** |
+| **Nessim Mami** | 40 % | **3,56 M DT** (11,9× son capital, TRI ~82 %) |
+| **Ali Ben Hamoud** | 25 % | 2,00 M DT |
+| **Mohamed Lamine Belajouza** | 25 % | 2,00 M DT |
+| **Nazeh Ben Ammar** | 10 % | 0,80 M DT |
+| **Total distribué** | | **8,35 M DT** |
 
-### Financement des déploiements suivants (Y2-Y5)
-
-Le déploiement de chaque nouvelle tranche de machines sera **autofinancé par les revenus du parc existant** à partir de Y3. Pour Y2 (15 machines supplémentaires), un second emprunt de ~1,1 M DT sera sollicité, dont le service sera couvert par les revenus croissants.
-
-**Levier possible :** négocier avec les banques un **financement adossé aux contrats signés** (les conventions de revenue share constituent une garantie de flux futurs).
+*Trésorerie conservée après distributions en An 7 : ~7,9 M DT.*
 
 ### Indicateurs de viabilité
 
 | Indicateur | Valeur |
 |---|---|
-| Marge nette / machine (scénario réaliste) | +15 778 DT/an |
-| Couverture annuité / revenu HCTECH | 46 % (i.e. 54 % de marge résiduelle) |
-| Seuil de rentabilité opérationnel | Y3, 50 machines |
-| Retour à l'équilibre cumulé | Courant Y4 |
-| Marge de sécurité (résiste si taux = 3/1000) | Oui — marginalement positif |
+| Marge nette / machine (réaliste) | +19 468 DT/an |
+| Couverture du leasing par la part HCTECH | 1,6× |
+| Rentabilité | Dès l'An 1 |
+| Capital Nessim remboursé | Fin An 2 |
+| Marge de sécurité (résiste si taux = 3/1000) | Oui — chaque machine reste positive |
 
 ---
 
@@ -411,27 +372,24 @@ Le déploiement de chaque nouvelle tranche de machines sera **autofinancé par l
 
 | Risque | Probabilité | Impact | Mitigant |
 |---|---|---|---|
-| **Taux de récupération inférieur à 3/1000** | Faible | Élevé | Prototype validé à 3-7/1000 en conditions réelles tunisiennes. Contrat indexé sur mesures réelles (application). |
-| **Dépendance à GEKO (fournisseur unique)** | Moyenne | Très élevé | Anticiper un stock tampon de 2-3 machines. Explorer la fabrication locale ou un second fournisseur dès Y3. |
-| **Résistance commerciale des enseignes** | Moyenne | Moyen | Le modèle revenue share supprime le frein principal (investissement). Les contacts sont déjà établis à 80 %. |
-| **Hausse du taux d'intérêt bancaire** | Faible | Moyen | Verrouiller les taux à la signature. Explorer le leasing. |
-| **Chute du prix du carburant** | Très faible | Élevé | Improbable en Tunisie (prix administrés en hausse tendancielle). Clause d'indexation dans les contrats. |
-| **Réglementation défavorable** | Très faible | Élevé | La tendance réglementaire mondiale est inverse. En cas de norme d'obligation, c'est un accélérateur. |
-| **Panne machine ou litige station** | Faible | Moyen | Contrat de maintenance. Stock de pièces de rechange. Télémaintenance GEKO à distance. |
-| **Délai de cycle de vente plus long** | Élevée | Faible | Modélisé : les 5 machines pilotes Y1 sont atteignables avec les contacts existants. Le BP ne projette pas d'explosion en Y1. |
+| **Taux de récupération < 3/1000** | Faible | Moyen | Prototype validé 3-7/1000. Même à 3/1000, marge positive (+6 196 DT/machine). Contrat indexé sur mesures réelles. |
+| **Dépendance à GEKO (fournisseur unique)** | Moyenne | Très élevé | Stock tampon 2-3 machines. Contrat d'exclusivité avec pénalités. Second fournisseur exploré dès An 3. |
+| **Refus de financement leasing** | Faible | Moyen | Chaque machine couvre 1,6× son loyer — dossier solvable. Contrats revenue share = garantie de flux. 30 % des bénéfices en réserve. |
+| **Hausse du taux de leasing** | Moyenne | Faible | Taux verrouillé à la signature de chaque contrat. La marge de +19 468 DT/machine absorbe plusieurs points. |
+| **Chute du prix du carburant** | Très faible | Moyen | Prix administrés en hausse tendancielle (+4,6 %/an). Clause d'indexation dans les contrats. |
+| **Résistance commerciale des enseignes** | Moyenne | Moyen | Le revenue share supprime le frein principal. Contacts établis à 80 %. |
+| **Réglementation défavorable** | Très faible | Moyen | La tendance mondiale est inverse. Une norme d'obligation serait un accélérateur. |
 
 ---
 
 ## Conclusion
 
-HCTECH dispose d'un **produit validé, d'un marché identifié, de contacts établis et d'une exclusivité territoriale**. Le pivot vers le modèle revenue share est la décision stratégique qui transforme un produit difficile à vendre en un **service à revenu récurrent et prévisible**, sans friction commerciale pour les stations.
+HCTECH dispose d'un **produit validé, d'un marché identifié, de contacts établis et d'une exclusivité territoriale**. Le couple **revenue share 60/40 + leasing** transforme un produit difficile à vendre en un **service à revenu récurrent, autofinancé et rentable dès la première année**, sans friction commerciale pour les stations ni mobilisation lourde de capital pour HCTECH.
 
-Le modèle est conservateur : les projections reposent sur le scénario médian (5/1000), la durée de contrat la plus courte techniquement justifiable (7 ans), et un rythme de déploiement délibérément prudent. La viabilité est maintenue même dans le scénario pessimiste (3/1000).
+Le modèle reste conservateur : projections sur le scénario médian (5/1000), prix du carburant prudent (+4,5 %/an), expansion africaine non incluse. La viabilité est maintenue même dans le scénario pessimiste (3/1000), où chaque machine demeure positive.
 
-Les deux années de pertes (Y1-Y2) sont le prix de la constitution d'un actif récurrent. À partir de Y3, HCTECH génère des flux positifs stables, avec un potentiel d'accélération en Afrique qui n'est pas inclus dans ces projections.
-
-**Ce BP est fait pour être soumis à des investisseurs (equity ou dette) en quête d'un projet vert, rentable et ancré dans des réalités industrielles concrètes.**
+Avec un capital de seulement 300 000 DT, le plan génère **~11,9 M DT de résultat net cumulé sur 7 ans**, rembourse l'investisseur principal dès l'An 2 (TRI ~82 %), et installe HCTECH comme leader incontesté de la récupération des COV en station-service en Tunisie, avant toute concurrence.
 
 ---
 
-*Annexes disponibles sur demande : rapport du cabinet externe (test 2019), décision SNDP, fiches techniques GEKO, contrat-type revenue share.*
+*Annexes disponibles sur demande : modèle Excel complet ([BP_HCTECH_7ans.xlsx](BP_HCTECH_7ans.xlsx)), rapport du cabinet externe (test 2019), décision SNDP, fiches techniques GEKO, contrat-type revenue share.*
