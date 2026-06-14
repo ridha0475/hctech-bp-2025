@@ -1,12 +1,16 @@
 # Résumé — Business Plan HCTECH 2025
 
-> **Auteur :** Lamine Belajouza — mlbelajouza@gmail.com / Tél. 50 329 252
+> **Auteur :** Mohamed Lamine Belajouza — mlbelajouza@gmail.com / Tél. 50 329 252
+
+---
+
+> ⚠️ **DOCUMENT OBSOLÈTE (legacy).** Ce résumé décrit l'ancien modèle de **vente directe** des machines. Le modèle actuel est le **revenue share 60/40 avec leasing sur 7 ans** — voir [BP_HCTECH_2025_RevenueShare.md](BP_HCTECH_2025_RevenueShare.md), [BP_HCTECH_7ans.xlsx](BP_HCTECH_7ans.xlsx) et le [site interactif](https://ridha0475.github.io/hctech-bp-2025/). Conservé pour référence historique uniquement.
 
 ---
 
 ## 1. Présentation de l'entreprise
 
-**HCTECH** est une startup tunisienne fondée par **Ali Ben Hamoud** (directeur technique, arabophone/sinophones) et **Mohamed Ali Belajouza** (CEO & CDO), avec deux investisseurs stratégiques : Nazeh Ben Ammar et Nessim Mami.
+**HCTECH** est une startup tunisienne fondée par **Ali Ben Hamoud** (directeur technique, arabophone/sinophones) et **Mohamed Lamine Belajouza** (CEO & CDO), avec deux investisseurs stratégiques : Nazeh Ben Ammar et Nessim Mami.
 
 L'entreprise détient l'**exclusivité de distribution en Tunisie et en Afrique** d'un équipement industriel fabriqué par la société coréenne **GEKO** (née d'un partenariat sino-coréen post-COVID).
 
