@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HCTECH — Simulateur Financier 7 ans</title>
+<link rel="icon" href="assets/logo-hctech-nav.png">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ─── Simulator extras ─── */
+.sim-hero { padding: 3.5rem 2rem 3rem; }
+.sim-hero h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); }
+
+/* Preset bar */
+.preset-bar {
+  background: var(--dark);
+  padding: .65rem 2rem;
+  display: flex; align-items: center; gap: .65rem; flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.preset-label { color: #9ec8b0; font-size: .82rem; font-weight: 600; white-space: nowrap; }
+.preset-btn {
+  border: 1px solid rgba(255,255,255,.2); background: transparent;
+  color: #cde8d6; padding: .28rem .8rem; border-radius: 2rem;
+  font-size: .8rem; cursor: pointer; transition: all .18s; font-family: inherit;
+}
+.preset-btn:hover { background: rgba(46,204,113,.15); border-color: var(--green2); }
+.preset-btn.active { background: var(--green2); color: var(--dark); border-color: var(--green2); font-weight: 700; }
+.preset-btn.reset-btn { color: #9ec8b0; border-color: rgba(255,255,255,.12); }
+.download-link {
+  margin-left: auto; color: var(--green2); font-size: .8rem;
+  text-decoration: none; padding: .28rem .8rem;
+  border: 1px solid rgba(46,204,113,.35); border-radius: 2rem; white-space: nowrap;
+}
+.download-link:hover { background: rgba(46,204,113,.1); }
+
+/* Sliders section */
+.sliders-section { padding: 1.5rem 1.5rem; background: var(--grey); }
+.sliders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1rem; max-width: 1100px; margin: 0 auto;
+}
+.slider-item {
+  background: #fff; border-radius: .65rem;
+  padding: .9rem 1.1rem; border: 1px solid var(--border);
+}
+.slider-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .4rem; }
+.slider-label { font-size: .82rem; font-weight: 600; color: var(--dark); }
+.slider-value { font-size: .88rem; font-weight: 700; color: var(--green); white-space: nowrap; margin-left: .5rem; }
+input[type=range] { width: 100%; accent-color: var(--green); cursor: pointer; margin: 0; }
+.slider-ends { display: flex; justify-content: space-between; font-size: .7rem; color: #94a3a0; margin-top: .15rem; }
+
+/* KPIs */
+.sim-kpis-section { padding: 1.5rem; background: #fff; }
+.sim-kpis {
+  display: flex; flex-wrap: wrap; gap: .85rem;
+  justify-content: center; max-width: 1100px; margin: 0 auto;
+}
+.sim-kpi {
+  background: var(--grey); border: 1px solid var(--border);
+  border-radius: .65rem; padding: .9rem 1.35rem;
+  min-width: 155px; text-align: center; flex: 1 1 155px;
+}
+.sim-kpi .sk-val { font-size: 1.5rem; font-weight: 800; color: var(--green); }
+.sim-kpi .sk-lbl { font-size: .72rem; color: #6a8a76; margin-top: .15rem; line-height: 1.3; }
+.sim-kpi.highlight { background: var(--dark); border-color: var(--green); }
+.sim-kpi.highlight .sk-val { color: var(--green2); }
+.sim-kpi.highlight .sk-lbl { color: #9ec8b0; }
+
+/* Charts */
+.charts-section { padding: 1.5rem; background: var(--grey); }
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+  gap: 1.25rem; max-width: 1100px; margin: 0 auto;
+}
+.chart-card {
+  background: #fff; border-radius: .65rem;
+  padding: 1.1rem 1.25rem; border: 1px solid var(--border);
+}
+.chart-card h4 { font-size: .85rem; color: var(--dark); margin-bottom: .75rem; font-weight: 700; }
+
+/* Table section */
+.table-section { padding: 1.5rem; background: #fff; }
+.table-section .table-inner { max-width: 1100px; margin: 0 auto; }
+.table-section h3 { font-size: 1rem; color: var(--dark); margin: 0 0 .75rem; }
+.td-num { text-align: right; font-variant-numeric: tabular-nums; }
+.tr-bold td { font-weight: 700; background: #edf7f1 !important; }
+.tr-highlight td { font-weight: 700; background: #e8f7ef !important; color: var(--green); }
+.tr-blue td { font-weight: 700; color: var(--blue); }
+
+/* Responsive */
+@media (max-width: 620px) {
+  .charts-grid { grid-template-columns: 1fr; }
+  .preset-bar { gap: .4rem; }
+  .download-link { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="index.html" class="nav-brand"><img src="assets/logo-hctech-nav.png" alt="HC TECH"></a>
+  <div class="nav-links">
+    <a href="index.html">← Business Plan</a>
+    <a href="concurrence.html">🥊 Concurrence</a>
+    <a href="simulateur.html" class="active">📊 Simulateur</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<header class="hero sim-hero">
+  <div class="hero-badge">Simulateur Interactif — Modèle 7 ans</div>
+  <h1>Ajustez les hypothèses,<br>voyez l'impact <span>en temps réel</span></h1>
+  <p>Le modèle financier complet recalculé instantanément — glissez un curseur, tous les KPIs et graphiques s'adaptent.</p>
+</header>
+
+<!-- ══ PRESET BAR ══ -->
+<div class="preset-bar">
+  <span class="preset-label">Scénario :</span>
+  <button class="preset-btn" id="btn-pessimiste" onclick="applyPreset('pessimiste')">📉 Pessimiste</button>
+  <button class="preset-btn active" id="btn-realiste" onclick="applyPreset('realiste')">📊 Réaliste (défaut)</button>
+  <button class="preset-btn" id="btn-optimiste" onclick="applyPreset('optimiste')">📈 Optimiste</button>
+  <button class="preset-btn reset-btn" onclick="applyPreset('realiste')">↺ Réinitialiser</button>
+  <a href="BP_HCTECH_7ans.xlsx" class="download-link" download>⬇ Télécharger l'Excel</a>
+</div>
+
+<!-- ══ SLIDERS ══ -->
+<div class="sliders-section">
+  <div class="sliders-grid" id="slidersGrid"></div>
+</div>
+
+<!-- ══ KPIs ══ -->
+<div class="sim-kpis-section">
+  <div class="sim-kpis" id="simKpis"></div>
+</div>
+
+<!-- ══ CHARTS ══ -->
+<div class="charts-section">
+  <div class="charts-grid">
+    <div class="chart-card">
+      <h4>CA HCTECH vs Résultat net — par année (DT)</h4>
+      <canvas id="chartPnL" height="190"></canvas>
+    </div>
+    <div class="chart-card">
+      <h4>Résultat net cumulé (DT)</h4>
+      <canvas id="chartCumul" height="190"></canvas>
+    </div>
+    <div class="chart-card">
+      <h4>Trésorerie après distribution des dividendes (DT)</h4>
+      <canvas id="chartTreso" height="190"></canvas>
+    </div>
+    <div class="chart-card">
+      <h4>Dividendes totaux 7 ans — par actionnaire (DT)</h4>
+      <canvas id="chartDiv" height="190"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TABLE ══ -->
+<div class="table-section">
+  <div class="table-inner">
+    <h3>Compte de résultat prévisionnel (en DT)</h3>
+    <div class="table-wrap">
+      <table id="simTable"></table>
+    </div>
+  </div>
+</div>
+
+<footer>
+  HCTECH — Simulateur financier interactif — Modèle 7 ans · Revenue Share 60/40 · Machines en leasing<br>
+  Préparé par <strong>Mohamed Ridha Belajouza</strong>, consultant et conseiller stratégique.
+</footer>
+
+<script>
+// ══════════════════════════════════════════════
+//  CONSTANTES FIXES (hors curseurs)
+// ══════════════════════════════════════════════
+const USD_TND = 2.95;
+const MACHINE_USD = 18000;
+const INSTALL = 3500;
+const OPEX_M = 120;           // DT/machine/mois
+const EMP_CHG = 0.21;         // charges patronales
+const SAL_F0 = 2000;          // salaire fondateur An1
+const SAL_F_G = 0.50;         // croissance salaire fondateur
+const SAL_T0 = 1200;          // salaire technicien An1
+const SAL_T_G = 0.07;         // croissance salaire technicien
+const MPT = 48;               // machines par technicien
+const RENT0 = 1200;
+const RENT_G = 0.06;
+const OVH0 = 2000;
+const OVH_G = 0.06;
+const VEH_PRICE = 70000;
+const VEH_RATE = 0.12;
+const VEH_MO = 60;
+const TAX_RATE = 0.28;        // IS 25 % + CSS 3 %
+const MIN_TAX = 0.001;
+const CAPITAL = 300000;
+const PREF_TARGET = 360000;   // priorité Nessim : capital + prime 20 %
+const STA_L_DAY = 12000;      // litres/jour station cible
+
+// Véhicule leasing (fixe)
+const _vr = VEH_RATE / 12;
+const VEH_PMT = VEH_PRICE * _vr / (1 - Math.pow(1 + _vr, -VEH_MO));
+
+// Déploiement : mois 3, 9, 15, …, 81
+const DEPLOY_MONTHS = [];
+for (let m = 3; m <= 84; m += 6) DEPLOY_MONTHS.push(m);
+
+// ══════════════════════════════════════════════
+//  PARAMÈTRES DES CURSEURS
+// ══════════════════════════════════════════════
+const DEFAULT = {
+  recovery:    5,      // /1000
+  fuelP0:      2.525,  // DT/L
+  fuelGrowth:  4.5,    // %/an
+  hctechShare: 60,     // %
+  leaseRate:   12,     // %/an
+  batchSize:   14,     // machines/vague
+  founderCap:  6000,   // DT/mois
+  payout:      70,     // % du résultat net
+};
+
+const PRESETS = {
+  pessimiste: { recovery:3,  fuelP0:2.3,   fuelGrowth:2,   hctechShare:55, leaseRate:14, batchSize:10, founderCap:6000, payout:60 },
+  realiste:   { ...DEFAULT },
+  optimiste:  { recovery:7,  fuelP0:2.7,   fuelGrowth:6,   hctechShare:65, leaseRate:10, batchSize:18, founderCap:6000, payout:75 },
+};
+
+const SLIDER_DEFS = [
+  { id:'recovery',    label:'Taux de récupération',
+    min:3,    max:7,     step:0.5,  minL:'3 /1000', maxL:'7 /1000',
+    fmt: v => `${v}/1000` },
+  { id:'fuelP0',      label:'Prix essence An 1',
+    min:2.0,  max:3.5,   step:0.025, minL:'2,000 DT', maxL:'3,500 DT',
+    fmt: v => `${parseFloat(v).toFixed(3)} DT/L` },
+  { id:'fuelGrowth',  label:'Hausse prix essence /an',
+    min:0,    max:8,     step:0.5,  minL:'0 %', maxL:'8 %',
+    fmt: v => `${v} %/an` },
+  { id:'hctechShare', label:'Part HCTECH → station = reste',
+    min:50,   max:70,    step:5,    minL:'50 % (50/50)', maxL:'70 % (70/30)',
+    fmt: v => `${v} % / ${100 - v} %` },
+  { id:'leaseRate',   label:'Taux leasing machines',
+    min:8,    max:16,    step:0.5,  minL:'8 %', maxL:'16 %',
+    fmt: v => `${v} %/an` },
+  { id:'batchSize',   label:'Machines par vague (tous les 6 mois)',
+    min:7,    max:21,    step:1,    minL:'7 mach.', maxL:'21 mach.',
+    fmt: v => `${v} machines` },
+  { id:'founderCap',  label:'Plafond salaire fondateur',
+    min:4000, max:10000, step:500,  minL:'4 000 DT', maxL:'10 000 DT',
+    fmt: v => `${Number(v).toLocaleString('fr-FR')} DT/mois` },
+  { id:'payout',      label:'Payout dividendes (% résultat net)',
+    min:50,   max:90,    step:5,    minL:'50 %', maxL:'90 %',
+    fmt: v => `${v} %` },
+];
+
+// ══════════════════════════════════════════════
+//  SIMULATION — portage exact du build_model.py
+// ══════════════════════════════════════════════
+function runModel(p) {
+  const rec    = p.recovery / 1000;
+  const fP0    = parseFloat(p.fuelP0);
+  const fG     = parseFloat(p.fuelGrowth) / 100;
+  const htS    = parseFloat(p.hctechShare) / 100;
+  const staS   = 1 - htS;
+  const lR     = parseFloat(p.leaseRate) / 100;
+  const batch  = parseInt(p.batchSize);
+  const fCap   = parseFloat(p.founderCap);
+  const py     = parseFloat(p.payout) / 100;
+
+  const LD     = STA_L_DAY * rec;                     // L récupérés/jour/machine
+  const MDT    = MACHINE_USD * USD_TND;
+  const MHT    = MDT + MDT * 0.025 + INSTALL;         // machine tout compris HT
+
+  const LN     = 84;                                  // 7 × 12 mois leasing
+  const lr     = lR / 12;
+  const MLEA_M = MHT * lr / (1 - Math.pow(1 + lr, -LN));  // mensualité leasing machine
+  const MLEA_Y = MLEA_M * 12;
+
+  function misAt(mo)     { return DEPLOY_MONTHS.filter(d => d <= mo).length * batch; }
+  function yearOf(m)     { return Math.floor((m - 1) / 12) + 1; }
+  function fuelY(y)      { return fP0 * Math.pow(1 + fG, y - 1); }
+  function founderY(y)   { return Math.min(SAL_F0 * Math.pow(1 + SAL_F_G, y - 1), fCap); }
+  function techY(y)      { return SAL_T0 * Math.pow(1 + SAL_T_G, y - 1); }
+  function rentY(y)      { return RENT0 * Math.pow(1 + RENT_G, y - 1); }
+  function ovhY(y)       { return OVH0  * Math.pow(1 + OVH_G,  y - 1); }
+  function revM(y)       { return LD * (365 / 12) * fuelY(y) * htS; }
+
+  let cash = 0, taxNext = 0, minCash = Infinity;
+  const ya = {};
+  for (let y = 1; y <= 7; y++)
+    ya[y] = { rev:0, opex:0, payroll:0, rent:0, ovh:0, veh:0, lea:0, techs:1,
+              new_m:0, parc:0, ebitda:0, tax:0, net:0 };
+  const cEOY = {};
+
+  for (let m = 1; m <= 84; m++) {
+    const y = yearOf(m);
+    if (m === 1) cash += CAPITAL;
+
+    const mis  = misAt(m);
+    const tch  = Math.max(1, Math.ceil(mis / MPT));
+    const rev  = mis * revM(y);
+    const opex = mis * OPEX_M;
+    const pay  = (2 * founderY(y) + tch * techY(y)) * (1 + EMP_CHG);
+    const veh  = m <= VEH_MO ? VEH_PMT : 0;
+    const lea  = mis * MLEA_M;
+    const rent = rentY(y);
+    const ovh  = ovhY(y);
+
+    let taxCash = 0;
+    if (m % 12 === 6) { taxCash = taxNext; taxNext = 0; }
+
+    cash += rev - opex - pay - veh - lea - rent - ovh - taxCash;
+    minCash = Math.min(minCash, cash);
+
+    ya[y].rev  += rev;  ya[y].opex += opex; ya[y].payroll += pay;
+    ya[y].rent += rent; ya[y].ovh  += ovh;  ya[y].veh     += veh;
+    ya[y].lea  += lea;  ya[y].techs = tch;
+
+    if (m % 12 === 0) {
+      const a = ya[y];
+      const ebitda = a.rev - a.opex - a.payroll - a.rent - a.ovh - a.veh - a.lea;
+      const tax    = ebitda > 0 ? ebitda * TAX_RATE : MIN_TAX * a.rev;
+      taxNext    = tax;
+      a.ebitda   = ebitda;
+      a.tax      = tax;
+      a.net      = ebitda - tax;
+      a.new_m    = DEPLOY_MONTHS.filter(d => yearOf(d) === y).length * batch;
+      a.parc     = misAt(m);
+      cEOY[y]    = cash;
+    }
+  }
+
+  // ── Dividendes (Option 1 : Nessim prioritaire jusqu'à 360 k, puis pro-rata) ──
+  const SH = { nessim:0.40, ali:0.25, lamine:0.25, nazeh:0.10 };
+  const DIV = {}, divTot = {};
+  let rec_pref = 0;
+  for (let y = 1; y <= 7; y++) {
+    DIV[y] = { nessim:0, ali:0, lamine:0, nazeh:0 };
+    let pool = py * ya[y].net;
+    if (rec_pref < PREF_TARGET) {
+      const pay = Math.min(pool, PREF_TARGET - rec_pref);
+      DIV[y].nessim += pay; rec_pref += pay; pool -= pay;
+    }
+    DIV[y].nessim  += pool * SH.nessim;
+    DIV[y].ali     += pool * SH.ali;
+    DIV[y].lamine  += pool * SH.lamine;
+    DIV[y].nazeh   += pool * SH.nazeh;
+    divTot[y] = DIV[y].nessim + DIV[y].ali + DIV[y].lamine + DIV[y].nazeh;
+  }
+
+  // Trésorerie après distribution (dividende de l'exercice N versé en N+1)
+  const cAfter = {};
+  let cumPaid = 0;
+  for (let y = 1; y <= 7; y++) {
+    cAfter[y] = cEOY[y] - cumPaid;
+    cumPaid   += divTot[y];
+  }
+
+  // TRI Nessim
+  const nFlows = [-CAPITAL, ...Array.from({length:7}, (_,i) => DIV[i+1].nessim)];
+  let lo = -0.99, hi = 10;
+  for (let i = 0; i < 200; i++) {
+    const mid = (lo + hi) / 2;
+    const npv = nFlows.reduce((s, c, t) => s + c / Math.pow(1 + mid, t), 0);
+    if (npv > 0) lo = mid; else hi = mid;
+  }
+  const nIRR = (lo + hi) / 2;
+
+  // Payback Nessim
+  let cumN = 0, nPB = 7;
+  for (let y = 1; y <= 7; y++) {
+    cumN += DIV[y].nessim;
+    if (cumN >= CAPITAL) { nPB = y; break; }
+  }
+
+  // Cumul net
+  const cumNet = [];
+  let cum = 0;
+  for (let y = 1; y <= 7; y++) { cum += ya[y].net; cumNet.push(cum); }
+
+  // KPIs unitaires
+  const stGain   = LD * (365 / 12) * fP0 * staS;
+  const mchMgn   = LD * (365 / 12) * fP0 * htS * 12 - MLEA_Y - OPEX_M * 12;
+  const nTotal   = Array.from({length:7}, (_,i) => DIV[i+1].nessim).reduce((a,b)=>a+b,0);
+
+  return { ya, cEOY, cAfter, minCash, DIV, divTot, cumNet,
+           nIRR, nPB, nTotal, stGain, mchMgn, MHT, MLEA_Y };
+}
+
+// ══════════════════════════════════════════════
+//  UTILS
+// ══════════════════════════════════════════════
+const G  = '#1a7a4a', G2 = '#2ecc71', BL = '#2980b9', AM = '#f39c12', PU = '#9b59b6';
+const YEARS = ['An1','An2','An3','An4','An5','An6','An7'];
+
+function fmtDT(v) {
+  return new Intl.NumberFormat('fr-FR', { maximumFractionDigits:0 }).format(Math.round(v)) + ' DT';
+}
+function fmtAxis(v) {
+  if (Math.abs(v) >= 1e6) return (v/1e6).toFixed(1) + ' M';
+  if (Math.abs(v) >= 1e3) return (v/1e3).toFixed(0) + ' k';
+  return Math.round(v).toString();
+}
+
+// ══════════════════════════════════════════════
+//  SLIDERS
+// ══════════════════════════════════════════════
+function buildSliders() {
+  const grid = document.getElementById('slidersGrid');
+  SLIDER_DEFS.forEach(s => {
+    const div = document.createElement('div');
+    div.className = 'slider-item';
+    div.innerHTML = `
+      <div class="slider-header">
+        <span class="slider-label">${s.label}</span>
+        <span class="slider-value" id="val-${s.id}">${s.fmt(DEFAULT[s.id])}</span>
+      </div>
+      <input type="range" id="slider-${s.id}"
+        min="${s.min}" max="${s.max}" step="${s.step}" value="${DEFAULT[s.id]}">
+      <div class="slider-ends"><span>${s.minL}</span><span>${s.maxL}</span></div>`;
+    grid.appendChild(div);
+
+    document.getElementById(`slider-${s.id}`).addEventListener('input', e => {
+      document.getElementById(`val-${s.id}`).textContent = s.fmt(e.target.value);
+      clearActive();
+      updateAll();
+    });
+  });
+}
+
+function getParams() {
+  const p = {};
+  SLIDER_DEFS.forEach(s => { p[s.id] = parseFloat(document.getElementById(`slider-${s.id}`).value); });
+  return p;
+}
+
+function applyPreset(name) {
+  const pr = PRESETS[name];
+  SLIDER_DEFS.forEach(s => {
+    document.getElementById(`slider-${s.id}`).value = pr[s.id];
+    document.getElementById(`val-${s.id}`).textContent = s.fmt(pr[s.id]);
+  });
+  clearActive();
+  const btn = document.getElementById(`btn-${name}`);
+  if (btn) btn.classList.add('active');
+  updateAll();
+}
+
+function clearActive() {
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+}
+
+// ══════════════════════════════════════════════
+//  KPIs
+// ══════════════════════════════════════════════
+const KPI_DEFS = [
+  { id:'ca7',      label:'CA HCTECH — An 7',               hl:false },
+  { id:'cumNet',   label:'Résultat net cumulé 7 ans',       hl:true  },
+  { id:'parc',     label:'Parc de machines — An 7',         hl:false },
+  { id:'tresoMin', label:'Trésorerie min (84 mois)',         hl:false },
+  { id:'stGain',   label:'Gain station / mois (An 1)',       hl:false },
+  { id:'mchMgn',   label:'Marge / machine / an (An 1)',      hl:false },
+  { id:'tri',      label:'TRI Nessim (Option 1)',            hl:true  },
+  { id:'pb',       label:'Remb. Nessim capital + prime 20%', hl:false },
+];
+
+function buildKpis() {
+  const el = document.getElementById('simKpis');
+  KPI_DEFS.forEach(k => {
+    const d = document.createElement('div');
+    d.className = 'sim-kpi' + (k.hl ? ' highlight' : '');
+    d.innerHTML = `<div class="sk-val" id="kpi-${k.id}">—</div><div class="sk-lbl">${k.label}</div>`;
+    el.appendChild(d);
+  });
+}
+
+function updateKpis(r) {
+  document.getElementById('kpi-ca7').textContent     = fmtDT(r.ya[7].rev);
+  document.getElementById('kpi-cumNet').textContent  = fmtDT(r.cumNet[6]);
+  document.getElementById('kpi-parc').textContent    = r.ya[7].parc + ' machines';
+  document.getElementById('kpi-tresoMin').textContent= fmtDT(r.minCash);
+  document.getElementById('kpi-stGain').textContent  = fmtDT(r.stGain);
+  document.getElementById('kpi-mchMgn').textContent  = fmtDT(r.mchMgn);
+  document.getElementById('kpi-tri').textContent     = Math.round(r.nIRR * 100) + ' %';
+  document.getElementById('kpi-pb').textContent      = 'fin An ' + r.nPB;
+}
+
+// ══════════════════════════════════════════════
+//  CHARTS
+// ══════════════════════════════════════════════
+const charts = {};
+
+function initCharts() {
+  const z7 = Array(7).fill(0);
+  const tickOpts = { callback: fmtAxis };
+  const yGrid = { color: '#e8f0ea' };
+
+  charts.pnl = new Chart(document.getElementById('chartPnL'), {
+    type: 'bar',
+    data: { labels: YEARS, datasets: [
+      { label:'CA HCTECH', data:[...z7], backgroundColor: G2, borderRadius:5 },
+      { label:'Résultat net', data:[...z7], backgroundColor: G, borderRadius:5 }
+    ]},
+    options: { plugins:{ legend:{ position:'bottom' } },
+      scales:{ y:{ grid:yGrid, ticks:tickOpts } } }
+  });
+
+  charts.cumul = new Chart(document.getElementById('chartCumul'), {
+    type: 'line',
+    data: { labels: YEARS, datasets: [{
+      label:'Net cumulé', data:[...z7],
+      borderColor:G, backgroundColor:'rgba(26,122,74,.10)',
+      pointBackgroundColor:G2, pointRadius:6, fill:true, tension:.35
+    }]},
+    options: { plugins:{ legend:{ display:false } },
+      scales:{ y:{ grid:yGrid, ticks:tickOpts } } }
+  });
+
+  charts.treso = new Chart(document.getElementById('chartTreso'), {
+    type: 'line',
+    data: { labels: YEARS, datasets: [{
+      label:'Trésorerie après distribution', data:[...z7],
+      borderColor:BL, backgroundColor:'rgba(41,128,185,.10)',
+      pointBackgroundColor:BL, pointRadius:6, fill:true, tension:.35
+    }]},
+    options: { plugins:{ legend:{ display:false } },
+      scales:{ y:{ grid:yGrid, ticks:tickOpts } } }
+  });
+
+  charts.div = new Chart(document.getElementById('chartDiv'), {
+    type: 'bar',
+    data: { labels:['Nessim (40 %)','Ali (25 %)','Lamine (25 %)','Nazeh (10 %)'],
+      datasets:[{ label:'Dividendes 7 ans', data:[0,0,0,0],
+        backgroundColor:[G, G2, G2, BL], borderRadius:6 }]},
+    options: { plugins:{ legend:{ display:false },
+        tooltip:{ callbacks:{ label: ctx => ' ' + fmtDT(ctx.raw) } } },
+      scales:{ y:{ grid:yGrid, ticks:tickOpts } } }
+  });
+}
+
+function updateCharts(r) {
+  charts.pnl.data.datasets[0].data = Array.from({length:7}, (_,i) => r.ya[i+1].rev);
+  charts.pnl.data.datasets[1].data = Array.from({length:7}, (_,i) => r.ya[i+1].net);
+  charts.pnl.update();
+
+  charts.cumul.data.datasets[0].data = r.cumNet;
+  charts.cumul.update();
+
+  charts.treso.data.datasets[0].data = Array.from({length:7}, (_,i) => r.cAfter[i+1]);
+  charts.treso.update();
+
+  const nd = [0,0,0,0];
+  for (let y = 1; y <= 7; y++) {
+    nd[0] += r.DIV[y].nessim;
+    nd[1] += r.DIV[y].ali;
+    nd[2] += r.DIV[y].lamine;
+    nd[3] += r.DIV[y].nazeh;
+  }
+  charts.div.data.datasets[0].data = nd;
+  charts.div.update();
+}
+
+// ══════════════════════════════════════════════
+//  TABLE
+// ══════════════════════════════════════════════
+const ROWS = [
+  { key:'ca',      label:'CA HCTECH (60 %)',               cls:'tr-bold',      fn:(a,y) => a[y].rev       },
+  { key:'opex',    label:'(−) OPEX machines',              cls:'',             fn:(a,y) => -a[y].opex     },
+  { key:'lea',     label:'(−) Leasing machines',           cls:'',             fn:(a,y) => -a[y].lea      },
+  { key:'payroll', label:'(−) Masse salariale',            cls:'',             fn:(a,y) => -a[y].payroll  },
+  { key:'rent',    label:'(−) Loyer',                      cls:'',             fn:(a,y) => -a[y].rent     },
+  { key:'ovh',     label:'(−) Frais généraux',             cls:'',             fn:(a,y) => -a[y].ovh      },
+  { key:'veh',     label:'(−) Leasing véhicule',           cls:'',             fn:(a,y) => -a[y].veh      },
+  { key:'ebitda',  label:"Résultat d'exploitation",         cls:'tr-highlight', fn:(a,y) => a[y].ebitda   },
+  { key:'tax',     label:'(−) Impôt (IS 25 % + CSS 3 %)',  cls:'',             fn:(a,y) => -a[y].tax      },
+  { key:'net',     label:'Résultat net',                   cls:'tr-highlight', fn:(a,y) => a[y].net       },
+  { key:'cumnet',  label:'Résultat net cumulé',            cls:'tr-bold',      fn:null                    },
+  { key:'treso',   label:"Trésorerie fin d'année",         cls:'',             fn:null                    },
+  { key:'divtot',  label:'Dividendes distribués',          cls:'',             fn:null                    },
+  { key:'tresoaft',label:'Trésorerie après distribution',  cls:'tr-blue',      fn:null                    },
+];
+
+function buildTable() {
+  const t = document.getElementById('simTable');
+  t.innerHTML = '';
+  // Header
+  const hdr = t.insertRow();
+  hdr.innerHTML = `<th style="min-width:230px;text-align:left">Poste</th>` +
+    YEARS.map(y => `<th style="text-align:right">${y}</th>`).join('');
+  // Rows
+  ROWS.forEach(row => {
+    const tr = t.insertRow();
+    if (row.cls) tr.className = row.cls;
+    tr.innerHTML = `<td>${row.label}</td>` +
+      Array.from({length:7}, (_,i) =>
+        `<td class="td-num" data-row="${row.key}" data-y="${i+1}">—</td>`).join('');
+  });
+}
+
+function updateTable(r) {
+  let cum = 0;
+  for (let y = 1; y <= 7; y++) {
+    ROWS.forEach(row => {
+      const el = document.querySelector(`[data-row="${row.key}"][data-y="${y}"]`);
+      if (!el) return;
+      if (row.fn) {
+        el.textContent = fmtDT(row.fn(r.ya, y));
+      } else if (row.key === 'cumnet') {
+        el.textContent = fmtDT(r.cumNet[y - 1]);
+      } else if (row.key === 'treso') {
+        el.textContent = fmtDT(r.cEOY[y]);
+      } else if (row.key === 'divtot') {
+        el.textContent = fmtDT(r.divTot[y]);
+      } else if (row.key === 'tresoaft') {
+        el.textContent = fmtDT(r.cAfter[y]);
+      }
+    });
+  }
+}
+
+// ══════════════════════════════════════════════
+//  UPDATE LOOP
+// ══════════════════════════════════════════════
+function updateAll() {
+  const result = runModel(getParams());
+  updateKpis(result);
+  updateCharts(result);
+  updateTable(result);
+}
+
+// ══════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════
+buildSliders();
+buildKpis();
+buildTable();
+initCharts();
+updateAll();
+</script>
+</body>
+</html>

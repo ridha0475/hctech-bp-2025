@@ -51,13 +51,6 @@
 
    **Accès :** https://ridha0475.github.io/hctech-bp-2025/ — Concurrence : https://ridha0475.github.io/hctech-bp-2025/concurrence.html
 
-### 5. **[RESUME_HCTECH.md](RESUME_HCTECH.md)** — Résumé initial (legacy)
-   - Vue d'ensemble du projet original
-   - Données produit et team
-   - Première synthèse financière
-
-   **Pour :** Référence historique, onboarding rapidement.
-
 ---
 
 ## 🎯 Pitch 60 secondes
