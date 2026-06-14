@@ -258,7 +258,7 @@ rows=[
  ("Salaire fondateur an 1",SAL_FOUNDER0,"DT/mois","Lamine & Ali"),
  ("Croissance salaire fondateur",SAL_FOUNDER_GROWTH,"%/an","Plafonné à 6 000 DT/mois"),
  ("Plafond salaire fondateur",SAL_FOUNDER_CAP,"DT/mois","Décision actionnaires"),
- ("Salaire technicien an 1",SAL_TECH0,"DT/mois","+6 %/an, 1 pour 50 machines"),
+ ("Salaire technicien an 1",SAL_TECH0,"DT/mois","+7 %/an, 1 pour 48 machines"),
  ("Loyer bureau+atelier an 1",RENT0,"DT/mois","+6 %/an"),
  ("Frais généraux an 1",OVERHEAD0,"DT/mois","Compta, assur., banque, carburant… (+6 %/an)"),
  ("Leasing véhicule / mois",VEH_PMT,"DT","70 000 DT @ 12 %/5 ans"),
