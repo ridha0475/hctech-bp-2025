@@ -57,8 +57,8 @@
 |---|---|---|
 | **Rendement** | 5–7/1000 L | 2/1000 L |
 | **Essence récupérée/jour (station 12k L)** | 60–84 L | 24 L |
-| **Revenu brut station/an** | 48–67 k DT | 19–30 k DT |
-| **Revenu station/mois** | 1 200 DT | 500 DT |
+| **Valeur brute récupérée/an** | 55–77 k DT | ~22 k DT |
+| **Revenu net station/mois (part 40 %)** | 1 843–2 581 DT | ~500 DT |
 | **Frein commercial** | Zéro CapEx | 107 k DT à investir |
 | **Durée cycle vente** | 4–6 mois | 12–18 mois |
 | **Présence Afrique** | Exclusive (GEKO partner) | Aucune |

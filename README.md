@@ -1,20 +1,23 @@
-# HCTECH — Business Plan 2025
-### Récupération de vapeurs d'essence — Modèle Revenue Share
+# HCTECH — Business Plan 7 ans
+### Récupération de vapeurs d'essence — Revenue Share 60/40 · Machines en leasing
 
-**Bienvenue.** Ce repo contient le Business Plan complet et l'analyse stratégique de HCTECH, startup tunisienne qui commercialise le système **ECO-RENTABLE** pour stations-service en Afrique du Nord et continents.
+**Bienvenue.** Ce repo contient le Business Plan complet et l'analyse stratégique de HCTECH, startup tunisienne qui déploie le système **ECO-RENTABLE** pour stations-service en Afrique du Nord et continents. Modèle : la machine est financée en leasing et s'autofinance par ses revenus ; HCTECH et la station partagent les recettes 60/40.
 
 ---
 
 ## 📄 Documents inclus
 
-### 1. **[BP_HCTECH_2025_RevenueShare.md](BP_HCTECH_2025_RevenueShare.md)** — Business Plan complet
-   - Executive summary
-   - Description du problème et de la solution
-   - Modèle économique (70/30 revenue share)
-   - Marché tunisien et africain
-   - Projections financières 5 ans (P&L, cash-flow)
-   - Équipe et stratégie commerciale
-   - Financement requis : ~420 k DT Y1
+### 1. **[BP_HCTECH_7ans.xlsx](BP_HCTECH_7ans.xlsx)** — Modèle financier complet (Excel)
+   - 8 feuilles : Synthèse · Hypothèses (sourcées) · Déploiement · Compte de résultat · Trésorerie · Économie par machine · Actionnariat · Dividendes
+   - Projections 7 ans, partage 60/40, machines en leasing
+   - Politique de dividendes Option 1 (priorité Nessim)
+   - Scripts Python réexécutables dans `model/`
+
+   **Pour :** Investisseurs, due diligence financière, comité de direction.
+
+### 1bis. **[BP_HCTECH_2025_RevenueShare.md](BP_HCTECH_2025_RevenueShare.md)** — Business Plan rédigé
+   - Executive summary, problème/solution, marché, équipe, stratégie
+   - *Note : version narrative — les chiffres financiers de référence sont dans l'Excel et le site.*
 
    **Pour :** Investisseurs, décideurs, associés cherchant vue d'ensemble.
 
@@ -61,11 +64,11 @@
 
 > **HCTECH commercialise une machine qui récupère l'essence perdue par volatilisation dans les stations-service.**
 >
-> ✅ **Le problème :** 3–7 litres perdus par 1000 litres vendus = 50 k DT/an de perte, + pollution COV majeure.  
+> ✅ **Le problème :** 3–7 litres perdus par 1000 litres vendus = dizaines de k DT/an de perte, + pollution COV majeure.  
 > ✅ **La solution :** Machine condensation frigorifique (GEKO, Corée) qui liquéfie les vapeurs et les réinjecte dans la cuve.  
-> ✅ **Le modèle :** Revenue share 70/30. La station ne paie rien, gagne 1 200 DT/mois. HCTECH finance et gère.  
+> ✅ **Le modèle :** Revenue share 60/40 + leasing. La station ne paie rien, gagne ~1 843 DT/mois. Chaque machine s'autofinance.  
 > ✅ **Le marché :** 900 stations Tunisie, exclusivité Afrique. Zéro régulation actuellement (opportunité pré-market).  
-> ✅ **Les chiffres :** CA Y5 = 4,6 M DT. Résultat net Y5 = 1,6 M DT. ROI investors = Y4–Y5.  
+> ✅ **Les chiffres :** Rentable dès l'An 1. CA An 7 = 7,96 M DT. Résultat net cumulé 7 ans = ~11,9 M DT.  
 > ✅ **Concurrence :** Zéro concurrent direct en Afrique avec ce modèle. VR Refiner seul rival, rendement 2,5× inférieur.
 
 ---
@@ -74,50 +77,57 @@
 
 | Métrique | Valeur | Horizon |
 |---|---|---|
-| **Financement requis** | 420 000 DT | Y1 |
-| **Parc cumulé Y5** | 175 machines | Y5 |
-| **CA HCTECH Y5** | 4,6 M DT | Y5 |
-| **Résultat net Y5** | 1,6 M DT | Y5 |
-| **Seuil rentabilité** | Y3 (50 machines) | Y3 |
-| **Marge/machine/an** | +15 778 DT | Scénario réaliste |
-| **Gain station/mois** | +1 199 DT | Sans investissement |
+| **Capital social (Nessim)** | 300 000 DT | An 1 |
+| **Financement machines** | Leasing 100 % (~12 %/7 ans) | — |
+| **Parc cumulé An 7** | 196 machines | An 7 |
+| **CA HCTECH An 7** | 7,96 M DT | An 7 |
+| **Résultat net cumulé** | ~11,9 M DT | 7 ans |
+| **Rentabilité** | Dès l'An 1 (+133 k DT) | An 1 |
+| **Marge/machine/an** | +19 468 DT | Scénario réaliste |
+| **Gain station/mois** | +1 843 DT | Sans investissement |
 | **Rendement technique** | 5/1000 L | Scénario retenu |
-| **Durée contrat** | 7 ans | Aligné amortissement |
+| **Trésorerie minimale** | +278 k DT | 84 mois |
 
 ---
 
-## 🏗️ Structure de financement proposée
+## 🏗️ Structure de financement
 
 ```
-420 000 DT total Y1
-├─ 84 000 DT (20 %) : Fonds propres associés + investisseurs existants
-└─ 336 000 DT (80 %) : Emprunt MLT bancaire (7 ans @ 10 %)
-    └─ Couvert par revenus dès Y3
+Capital social : 300 000 DT — apporté 100 % par Nessim Mami (40 % des parts)
+  └─ Sert de fonds de roulement (trésorerie min +278 k DT sur 84 mois)
+
+Machines : LEASING 100 % (~12 %/7 ans, ≈ 12 271 DT/an/machine)
+  └─ Chaque machine s'autofinance : sa part de 60 % (33 178 DT/an) couvre
+     largement le loyer + la maintenance → marge +19 468 DT/machine/an
+
+Zéro emprunt bancaire.
 ```
 
 ---
 
-## 📊 Plan de déploiement
+## 📊 Plan de déploiement (14 machines à M3, +14 tous les 6 mois)
 
 | Année | Machines nouvelles | Parc total | Statut |
 |---|---|---|---|
-| **Y1** | 5 | 5 | Pilotes 3 enseignes, validation modèle |
-| **Y2** | 15 | 20 | Accord-cadre SAGES, 2 enseignes supplémentaires |
-| **Y3** | 30 | 50 | Extension réseau, seuil rentabilité opérationnel |
-| **Y4** | 50 | 100 | Industrialisation Tunisie, amorce Afrique |
-| **Y5** | 75 | 175 | Saturation Tunisie (~33 % marché adressable), Golfe |
+| **An 1** | 28 | 28 | Pilotes + 1ère vague, rentable |
+| **An 2** | 28 | 56 | Montée en charge, capital Nessim remboursé |
+| **An 3** | 28 | 84 | Accords-cadres enseignes |
+| **An 4** | 28 | 112 | Industrialisation |
+| **An 5** | 28 | 140 | Densification réseau |
+| **An 6** | 28 | 168 | Leadership national |
+| **An 7** | 28 | 196 | ~36 % marché adressable, préparation Afrique |
 
 ---
 
 ## 👥 L'équipe
 
-| Nom | Rôle | Profil |
-|---|---|---|
-| **Ali Ben Hamoud** | Co-gérant, Directeur Technique | Ingénieur pétrochimie (Chine), relation GEKO |
-| **Mohamed Ali Belajouza** | CEO & CDO | Gestion & réseau pétrolier Tunisie/Afrique |
-| **Nazeh Ben Ammar** | Investisseur, Relations stratégiques | Réseau institutionnel tunisien |
-| **Nessim Mami** | Investisseur, Développement international | Réseau Afrique & Golfe |
-| **Mohamed Ridha Belajouza** | Consultant, Conseil stratégique | Structuration BP, modélisation, positioning |
+| Nom | Rôle | Parts | Profil |
+|---|---|---|---|
+| **Ali Ben Hamoud** | Co-gérant, Directeur Technique | 25 % | Ingénieur pétrochimie (Chine), relation GEKO |
+| **Mohamed Lamine Belajouza** | CEO & CDO | 25 % | Gestion & réseau pétrolier Tunisie/Afrique |
+| **Nessim Mami** | Investisseur (apporte 100 % du capital) | 40 % | Réseau Afrique & Golfe |
+| **Nazeh Ben Ammar** | Investisseur, Relations stratégiques | 10 % | Réseau institutionnel tunisien |
+| **Mohamed Ridha Belajouza** | Consultant, Conseil stratégique | — | Structuration BP, modélisation, positioning |
 
 ---
 
