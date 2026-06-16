@@ -378,15 +378,14 @@
       <table>
         <thead><tr><th>Actionnaire</th><th>% parts</th><th>Apport</th><th>Dividendes 7 ans</th><th>Nature</th></tr></thead>
         <tbody>
-          <tr><td><strong>Nessim Mami</strong></td><td>40 %</td><td>300 000 DT (cash)</td><td><strong>3,56 M DT</strong></td><td>Investisseur — porte 100 % du capital</td></tr>
+          <tr><td><strong>Nessim Mami</strong></td><td>50 %</td><td>300 000 DT (cash)</td><td><strong>4,36 M DT</strong></td><td>Investisseur — porte 100 % du capital</td></tr>
           <tr><td><strong>Ali Ben Hamoud</strong></td><td>25 %</td><td>Industrie</td><td>2,00 M DT</td><td>Directeur Technique (relation GEKO)</td></tr>
           <tr><td><strong>Mohamed Lamine Belajouza</strong></td><td>25 %</td><td>Industrie</td><td>2,00 M DT</td><td>CEO (réseau pétrolier)</td></tr>
-          <tr><td><strong>Nazeh Ben Ammar</strong></td><td>10 %</td><td>Industrie</td><td>0,80 M DT</td><td>Relations stratégiques</td></tr>
         </tbody>
       </table>
     </div>
     <div class="comment">
-      Nessim finance la totalité du capital pour 40 % des parts ; les 60 % restants rémunèrent les apports en industrie (exclusivité GEKO, réseau pétrolier, gestion), valorisés ~450 k DT pre-money. À formaliser dans le pacte d'actionnaires.
+      Nessim finance la totalité du capital pour 50 % des parts ; les 50 % restants rémunèrent les apports en industrie d'Ali Ben Hamoud et Mohamed Lamine Belajouza (exclusivité GEKO, réseau pétrolier, gestion), valorisés ~300 k DT pre-money. À formaliser dans le pacte d'actionnaires.
     </div>
 
     <h3>Politique de dividendes — priorité Nessim</h3>
@@ -398,12 +397,12 @@
       </div>
       <div class="card">
         <div class="card-icon">📈</div>
-        <h4>TRI ~82 %</h4>
-        <p>Sur 7 ans, Nessim perçoit 3,56 M DT — soit <strong>11,9× son capital initial</strong>, pour un taux de rendement interne d'environ 82 %.</p>
+        <h4>TRI ~90 %</h4>
+        <p>Sur 7 ans, Nessim perçoit 4,36 M DT — soit <strong>14,5× son capital initial</strong>, pour un taux de rendement interne d'environ 90 %.</p>
       </div>
       <div class="card">
         <div class="card-icon">🤝</div>
-        <h4>Puis partage 40/10/25/25</h4>
+        <h4>Puis partage 50/25/25</h4>
         <p>Une fois Nessim remboursé, tous les associés partagent au pro-rata. 70 % du résultat est distribué, 30 % conservé en réserve (fonds propres solides pour le leasing).</p>
       </div>
       <div class="card">
@@ -523,14 +522,8 @@
       <div class="team-card">
         <div class="team-avatar">🌍</div>
         <h4>Nessim Mami</h4>
-        <div class="role">Investisseur — Capital & International · 40 %</div>
+        <div class="role">Investisseur — Capital & International · 50 %</div>
         <p>Apporte 100 % du capital social. Réseau Afrique et Golfe. Accélérateur du déploiement sur les marchés africains et dans les pays du Golfe (Oman, Qatar, EAU).</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">🤝</div>
-        <h4>Nazeh Ben Ammar</h4>
-        <div class="role">Investisseur — Relations stratégiques · 10 %</div>
-        <p>Réseau institutionnel tunisien. Facilitation des accès aux décideurs des enseignes pétrolières et des partenaires financiers.</p>
       </div>
       <div class="team-card">
         <div class="team-avatar">📊</div>
@@ -678,9 +671,9 @@ new Chart(document.getElementById('chartStructure'), {
 // 7. Dividendes par actionnaire
 new Chart(document.getElementById('chartDiv'), {
   type:'bar',
-  data:{labels:['Nessim (40 %)','Ali (25 %)','Lamine (25 %)','Nazeh (10 %)'],
-    datasets:[{label:'Dividendes 7 ans',data:[3556144,1997590,1997590,799036],
-      backgroundColor:[GREEN,GREEN2,GREEN2,BLUE],borderRadius:6}]},
+  data:{labels:['Nessim (50 %)','Ali (25 %)','Lamine (25 %)'],
+    datasets:[{label:'Dividendes 7 ans',data:[4355179,1997590,1997590],
+      backgroundColor:[GREEN,GREEN2,GREEN2],borderRadius:6}]},
   options:{plugins:{legend:{display:false},
     tooltip:{callbacks:{label:ctx=>' '+(ctx.raw/1000000).toFixed(2)+' M DT'}}},
     scales:{y:{grid:{color:'#e8f0ea'},ticks:{callback:v=>(v/1000000).toFixed(1)+' M'}}}}

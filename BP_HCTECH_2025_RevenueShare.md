@@ -64,11 +64,10 @@ Le COVID-19 interrompt le développement. Le partenaire technologique se restruc
 |---|---|---|---|
 | **Ali Ben Hamoud** | Co-gérant, Directeur Technique | 25 % | Ingénieur pétrochimie, mandarin courant, relation GEKO |
 | **Mohamed Lamine Belajouza** | CEO & CDO | 25 % | Gestion, réseau pétrolier tunisien et africain |
-| **Nessim Mami** | Investisseur — apporte 100 % du capital | 40 % | Réseau Afrique & Golfe |
-| **Nazeh Ben Ammar** | Investisseur, Relations stratégiques | 10 % | Réseau institutionnel tunisien |
+| **Nessim Mami** | Investisseur — apporte 100 % du capital | 50 % | Réseau Afrique & Golfe |
 | **Mohamed Ridha Belajouza** | Consultant — Conseil stratégique | — | Structuration BP, modélisation financière, positionnement |
 
-> **Nessim Mami** apporte la totalité du capital social (300 000 DT) en numéraire pour 40 % des parts. Les 60 % restants rémunèrent les apports en industrie des autres associés (exclusivité GEKO, réseau pétrolier, gestion), valorisés ~450 k DT pre-money — à formaliser dans le pacte d'actionnaires.
+> **Nessim Mami** apporte la totalité du capital social (300 000 DT) en numéraire pour 50 % des parts. Les 50 % restants rémunèrent les apports en industrie d'Ali Ben Hamoud et Mohamed Lamine Belajouza (exclusivité GEKO, réseau pétrolier, gestion), valorisés ~300 k DT pre-money — à formaliser dans le pacte d'actionnaires.
 
 ### Partenaire technologique
 
@@ -325,7 +324,7 @@ Prise de contact (déjà effectué pour 3 enseignes)
 ### Structure de financement
 
 ```
-Capital social : 300 000 DT — apporté 100 % par Nessim Mami (40 % des parts)
+Capital social : 300 000 DT — apporté 100 % par Nessim Mami (50 % des parts)
   └─ Fonds de roulement uniquement (trésorerie min +278 k sur 84 mois)
 
 Machines : LEASING 100 % (~12 %/7 ans, ≈ 12 271 DT/an/machine)
@@ -343,15 +342,14 @@ Véhicule utilitaire : leasing 70 000 DT (12 %/5 ans, ~18 685 DT/an)
 Nessim portant 100 % du capital, il est remboursé en priorité absolue :
 
 1. **Phase prioritaire** : 100 % des dividendes vont à Nessim jusqu'à ce qu'il récupère son **capital + une prime de risque de 20 %** (360 k DT), atteint **dès la fin de l'An 2**.
-2. **Phase pro-rata** : ensuite, distribution au pro-rata des parts (40/10/25/25).
+2. **Phase pro-rata** : ensuite, distribution au pro-rata des parts (50/25/25).
 3. **Payout** : 70 % du résultat net distribué, 30 % conservé en réserve (fonds propres solides pour le leasing).
 
 | Actionnaire | Part | Dividendes cumulés 7 ans |
 |---|---|---|
-| **Nessim Mami** | 40 % | **3,56 M DT** (11,9× son capital, TRI ~82 %) |
+| **Nessim Mami** | 50 % | **4,36 M DT** (14,5× son capital, TRI ~90 %) |
 | **Ali Ben Hamoud** | 25 % | 2,00 M DT |
 | **Mohamed Lamine Belajouza** | 25 % | 2,00 M DT |
-| **Nazeh Ben Ammar** | 10 % | 0,80 M DT |
 | **Total distribué** | | **8,35 M DT** |
 
 *Trésorerie conservée après distributions en An 7 : ~7,9 M DT.*
@@ -388,7 +386,7 @@ HCTECH dispose d'un **produit validé, d'un marché identifié, de contacts éta
 
 Le modèle reste conservateur : projections sur le scénario médian (5/1000), prix du carburant prudent (+4,5 %/an), expansion africaine non incluse. La viabilité est maintenue même dans le scénario pessimiste (3/1000), où chaque machine demeure positive.
 
-Avec un capital de seulement 300 000 DT, le plan génère **~11,9 M DT de résultat net cumulé sur 7 ans**, rembourse l'investisseur principal dès l'An 2 (TRI ~82 %), et installe HCTECH comme leader incontesté de la récupération des COV en station-service en Tunisie, avant toute concurrence.
+Avec un capital de seulement 300 000 DT, le plan génère **~11,9 M DT de résultat net cumulé sur 7 ans**, rembourse l'investisseur principal dès l'An 2 (TRI ~90 %), et installe HCTECH comme leader incontesté de la récupération des COV en station-service en Tunisie, avant toute concurrence.
 
 ---
 

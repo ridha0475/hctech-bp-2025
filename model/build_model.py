@@ -70,9 +70,9 @@ DIVIDEND_PAYOUT = 0.0      # bonus/dividendes actionnaires (à déterminer) — 
 TARGET_BATCH = 14
 DEPLOY_MONTHS = list(range(3, MONTHS + 1, 6))
 
-# Cap table
-SHARES = {'Nessim Mami': 0.40, 'Nazeh Ben Ammar': 0.10, 'Ali Ben Hamoud': 0.25, 'Lamine': 0.25}
-CASH_CONTRIB = {'Nessim Mami': 300000, 'Nazeh Ben Ammar': 0, 'Ali Ben Hamoud': 0, 'Lamine': 0}
+# Cap table (sortie de Nazeh — ses parts cédées à Nessim et Lamine, juin 2026)
+SHARES = {'Nessim Mami': 0.50, 'Ali Ben Hamoud': 0.25, 'Lamine': 0.25}
+CASH_CONTRIB = {'Nessim Mami': 300000, 'Ali Ben Hamoud': 0, 'Lamine': 0}
 
 # ════════════════════════ HELPERS ════════════════════════
 def year_of(m): return (m - 1)//12 + 1
@@ -391,16 +391,16 @@ ws.cell(row=r,column=4).number_format=DTFMT2
 for cc in range(1,6):
     ws.cell(row=r,column=cc).font=Font(bold=True); ws.cell(row=r,column=cc).fill=PatternFill("solid",fgColor=LIGHT)
 ws.append([])
-ws.append(["Note : Nessim finance 100 % du capital (300 k) pour 40 %. Les parts des autres associés"])
+ws.append(["Note : Nessim finance 100 % du capital (300 k) pour 50 %. Les parts d'Ali et Lamine"])
 ws.append(["correspondent à des apports en industrie/nature (exclusivité GEKO, réseau pétrolier, gestion)"])
-ws.append(["valorisés ~450 k DT pre-money. À formaliser dans le pacte d'actionnaires."])
+ws.append(["valorisés ~300 k DT pre-money. À formaliser dans le pacte d'actionnaires."])
 ws.column_dimensions["A"].width=22; ws.column_dimensions["B"].width=10
 ws.column_dimensions["C"].width=14; ws.column_dimensions["D"].width=22; ws.column_dimensions["E"].width=46
 
 # ---- Sheet 8: Dividendes ----
 ws=wb.create_sheet("Dividendes")
 title(ws,"Dividendes — Option 1 (Nessim prioritaire)",
-      "Nessim encaisse 100% jusqu'à capital + prime 20% (360k), puis pro-rata 40/10/25/25 · payout 70%")
+      "Nessim encaisse 100% jusqu'à capital + prime 20% (360k), puis pro-rata 50/25/25 · payout 70%")
 ws.append([]); ws.append([])
 ws.append(["Actionnaire"]+[f"An {y}" for y in range(1,8)]+["TOTAL 7 ans"])
 for i in range(1,10): style_header(ws.cell(row=3,column=i))
@@ -414,10 +414,9 @@ def div_row(name, label, fill=None):
         for cc in range(1,10):
             ws.cell(row=r,column=cc).fill=PatternFill("solid",fgColor=fill)
             ws.cell(row=r,column=cc).font=Font(bold=True)
-div_row("Nessim Mami","Nessim Mami (40 %)", fill=LIGHT)
+div_row("Nessim Mami","Nessim Mami (50 %)", fill=LIGHT)
 div_row("Ali Ben Hamoud","Ali Ben Hamoud (25 %)")
 div_row("Lamine","Lamine (25 %)")
-div_row("Nazeh Ben Ammar","Nazeh Ben Ammar (10 %)")
 ws.append(["TOTAL distribué"]+[DIV_TOTAL[y] for y in range(1,8)]+[sum(DIV_TOTAL.values())]); r=ws.max_row
 for cc in range(1,10):
     ws.cell(row=r,column=cc).font=Font(bold=True); ws.cell(row=r,column=cc).number_format=DTFMT2

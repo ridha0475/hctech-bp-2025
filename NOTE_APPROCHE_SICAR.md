@@ -30,8 +30,7 @@ C'est le cœur de la proposition. Une prise de participation par un **organisme 
 **HCTECH** est une SARL/SA tunisienne déjà constituée (capital social **300 000 DT**), portée par une équipe complémentaire :
 - **Ali Ben Hamoud** (DT, 25 %) — ingénieur pétrochimie formé en Chine, mandarin courant, relation directe avec le fabricant GEKO ;
 - **Mohamed Lamine Belajouza** (CEO & CDO, 25 %) — réseau pétrolier tunisien (SNDP, Total, OLA) ;
-- **Nessim Mami** (40 %) — a apporté 100 % du capital, réseaux Afrique et Golfe ;
-- **Nazeh Ben Ammar** (10 %) — réseau institutionnel.
+- **Nessim Mami** (50 %) — a apporté 100 % du capital, réseaux Afrique et Golfe.
 
 **Le produit (ECO-RENTABLE)** s'installe en circuit fermé sur les cuves : il aspire les vapeurs d'essence (COV, cancérogènes), les liquéfie par condensation frigorifique et **réinjecte l'essence dans la cuve**. Zéro rejet, ≥ 10 ans de durée de vie, certifié ATEX/ISO, piloté par application temps réel. **L'essence récupérée = la pollution évitée = la source de revenus.** Impact et rentabilité se confondent.
 

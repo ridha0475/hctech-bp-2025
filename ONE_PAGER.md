@@ -21,7 +21,7 @@
 
 | Métrique | Valeur |
 |---|---|
-| **Capital social (Nessim)** | 300 000 DT (40 % des parts) |
+| **Capital social (Nessim)** | 300 000 DT (50 % des parts) |
 | **Financement machines** | Leasing 100 % (~12 %/7 ans) — zéro emprunt bancaire |
 | **Marge nette / machine / an** | +19 468 DT (scénario réaliste 5/1000) |
 | **Gain station / mois** | +1 843 DT (0 investissement) |
@@ -68,10 +68,9 @@ An 7 : 196 machines → ~36 % marché adressable, préparation Afrique (phase 2)
 
 | Actionnaire | Part | Dividendes 7 ans |
 |---|---|---|
-| **Nessim Mami** | 40 % | **3,56 M DT** (11,9× son capital, TRI ~82 %) |
+| **Nessim Mami** | 50 % | **4,36 M DT** (14,5× son capital, TRI ~90 %) |
 | **Ali Ben Hamoud** | 25 % | 2,00 M DT |
 | **Mohamed Lamine Belajouza** | 25 % | 2,00 M DT |
-| **Nazeh Ben Ammar** | 10 % | 0,80 M DT |
 
 > Nessim, qui porte 100 % du capital, est **remboursé en priorité absolue (capital + prime 20 %) dès la fin de l'An 2**, avant tout partage. Puis pro-rata. 70 % du résultat distribué, 30 % en réserve.
 
@@ -119,7 +118,7 @@ Chaque machine est bénéficiaire dès le 1er mois.
 
 **Pour qui ?** Fonds impact (ESG + rentabilité) · sociétés de leasing · entreprises pétrolières (integration play).
 
-**Horizon attrait :** Rentable dès l'An 1 · capital remboursé An 2 · TRI ~82 % · marché vierge Afrique (faible competitive risk).
+**Horizon attrait :** Rentable dès l'An 1 · capital remboursé An 2 · TRI ~90 % · marché vierge Afrique (faible competitive risk).
 
 ---
 

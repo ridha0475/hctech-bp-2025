@@ -335,11 +335,11 @@ function runModel(p) {
   }
 
   // ── Dividendes (Option 1 : Nessim prioritaire jusqu'à 360 k, puis pro-rata) ──
-  const SH = { nessim:0.40, ali:0.25, lamine:0.25, nazeh:0.10 };
+  const SH = { nessim:0.50, ali:0.25, lamine:0.25 };
   const DIV = {}, divTot = {};
   let rec_pref = 0;
   for (let y = 1; y <= 7; y++) {
-    DIV[y] = { nessim:0, ali:0, lamine:0, nazeh:0 };
+    DIV[y] = { nessim:0, ali:0, lamine:0 };
     let pool = py * ya[y].net;
     if (rec_pref < PREF_TARGET) {
       const pay = Math.min(pool, PREF_TARGET - rec_pref);
@@ -348,8 +348,7 @@ function runModel(p) {
     DIV[y].nessim  += pool * SH.nessim;
     DIV[y].ali     += pool * SH.ali;
     DIV[y].lamine  += pool * SH.lamine;
-    DIV[y].nazeh   += pool * SH.nazeh;
-    divTot[y] = DIV[y].nessim + DIV[y].ali + DIV[y].lamine + DIV[y].nazeh;
+    divTot[y] = DIV[y].nessim + DIV[y].ali + DIV[y].lamine;
   }
 
   // Trésorerie après distribution (dividende de l'exercice N versé en N+1)
@@ -533,9 +532,9 @@ function initCharts() {
 
   charts.div = new Chart(document.getElementById('chartDiv'), {
     type: 'bar',
-    data: { labels:['Nessim (40 %)','Ali (25 %)','Lamine (25 %)','Nazeh (10 %)'],
-      datasets:[{ label:'Dividendes 7 ans', data:[0,0,0,0],
-        backgroundColor:[G, G2, G2, BL], borderRadius:6 }]},
+    data: { labels:['Nessim (50 %)','Ali (25 %)','Lamine (25 %)'],
+      datasets:[{ label:'Dividendes 7 ans', data:[0,0,0],
+        backgroundColor:[G, G2, G2], borderRadius:6 }]},
     options: { plugins:{ legend:{ display:false },
         tooltip:{ callbacks:{ label: ctx => ' ' + fmtDT(ctx.raw) } } },
       scales:{ y:{ grid:yGrid, ticks:tickOpts } } }
@@ -553,12 +552,11 @@ function updateCharts(r) {
   charts.treso.data.datasets[0].data = Array.from({length:7}, (_,i) => r.cAfter[i+1]);
   charts.treso.update();
 
-  const nd = [0,0,0,0];
+  const nd = [0,0,0];
   for (let y = 1; y <= 7; y++) {
     nd[0] += r.DIV[y].nessim;
     nd[1] += r.DIV[y].ali;
     nd[2] += r.DIV[y].lamine;
-    nd[3] += r.DIV[y].nazeh;
   }
   charts.div.data.datasets[0].data = nd;
   charts.div.update();
