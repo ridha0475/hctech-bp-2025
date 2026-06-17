@@ -8,3 +8,9 @@ package-lock.json
 
 # Documents confidentiels — repo privé séparé (CIN, adresses, notes de négociation)
 confidentiel/
+
+# State local ruflo / claude-flow (caches + bases SQLite d'embeddings) — jamais en public, se régénère
+.claude-flow/
+.swarm/
+.claude/memory.db
+ruvector.db
