@@ -21,15 +21,15 @@
 
 | Métrique | Valeur |
 |---|---|
-| **Capital social (Nessim)** | 300 000 DT (50 % des parts) |
-| **Financement machines** | Leasing 100 % (~12 %/7 ans) — zéro emprunt bancaire |
-| **Marge nette / machine / an** | +19 468 DT (scénario réaliste 5/1000) |
+| **Capital social (Nessim)** | 300 000 DT (45 % des parts) |
+| **Financement machines** | Leasing 100 % (~12 %/5 ans) — zéro emprunt bancaire |
+| **Marge nette / machine / an** | +16 276 DT (scénario réaliste 5/1000) |
 | **Gain station / mois** | +1 843 DT (0 investissement) |
 | **Parc An 7** | 196 machines |
 | **CA HCTECH An 7** | 7,96 M DT |
-| **Résultat net An 7** | 3,67 M DT |
-| **Résultat net cumulé 7 ans** | ~11,9 M DT |
-| **Rentabilité** | Dès l'An 1 (+133 k DT) |
+| **Résultat net An 7** | 3,74 M DT |
+| **Résultat net cumulé 7 ans** | ~11,0 M DT |
+| **Rentabilité** | Dès l'An 1 (+96 k DT) |
 | **Trésorerie minimale (84 mois)** | +278 k DT (jamais à découvert) |
 
 ---
@@ -68,9 +68,10 @@ An 7 : 196 machines → ~36 % marché adressable, préparation Afrique (phase 2)
 
 | Actionnaire | Part | Dividendes 7 ans |
 |---|---|---|
-| **Nessim Mami** | 50 % | **4,36 M DT** (14,5× son capital, TRI ~90 %) |
-| **Ali Ben Hamoud** | 25 % | 2,00 M DT |
-| **Mohamed Lamine Belajouza** | 25 % | 2,00 M DT |
+| **Nessim Mami** | 45 % | **3,66 M DT** (12,2× son capital, TRI ~78 %) |
+| **Ali Ben Hamoud** | 25 % | 1,83 M DT |
+| **Mohamed Lamine Belajouza** | 25 % | 1,83 M DT |
+| **Nazeh Ben Ammar** | 5 % | 0,37 M DT |
 
 > Nessim, qui porte 100 % du capital, est **remboursé en priorité absolue (capital + prime 20 %) dès la fin de l'An 2**, avant tout partage. Puis pro-rata. 70 % du résultat distribué, 30 % en réserve.
 
@@ -82,8 +83,8 @@ An 7 : 196 machines → ~36 % marché adressable, préparation Afrique (phase 2)
 |---|---|---|
 | VR Refiner arrive | 30 % | Rendement 2,5× meilleur, modèle revenue share unique |
 | Défaillance GEKO | Moyenne | Stock tampon, contrat pénalité, 2e fournisseur An 3 |
-| Refus leasing | Faible | Chaque machine couvre 1,6× son loyer — dossier solvable |
-| Récup < 3/1000 | Faible | Même à 3/1000, marge positive (+6 196 DT/machine) |
+| Refus leasing | Faible | La part HCTECH couvre 2,1× le loyer — dossier solvable |
+| Récup < 3/1000 | Faible | Même à 3/1000, marge positive (+3 004 DT/machine) |
 
 ---
 
@@ -92,9 +93,9 @@ An 7 : 196 machines → ~36 % marché adressable, préparation Afrique (phase 2)
 ```
 Valeur brute récupérée / machine / an : 55 297 DT
 ├─ Part HCTECH (60 %)        : 33 178 DT/an
-├─ Leasing machine (12%/7a)  : -12 271 DT/an
+├─ Leasing machine (12%/5a)  : -15 463 DT/an
 ├─ Maintenance + internet    : -1 440 DT/an
-└─ MARGE NETTE               : +19 468 DT/an ✅
+└─ MARGE NETTE               : +16 276 DT/an ✅
 
 Part station (40 %) : 22 119 DT/an = ~1 843 DT/mois (0 investissement)
 Chaque machine est bénéficiaire dès le 1er mois.
@@ -118,7 +119,7 @@ Chaque machine est bénéficiaire dès le 1er mois.
 
 **Pour qui ?** Fonds impact (ESG + rentabilité) · sociétés de leasing · entreprises pétrolières (integration play).
 
-**Horizon attrait :** Rentable dès l'An 1 · capital remboursé An 2 · TRI ~90 % · marché vierge Afrique (faible competitive risk).
+**Horizon attrait :** Rentable dès l'An 1 · capital remboursé An 2 · TRI ~78 % · marché vierge Afrique (faible competitive risk).
 
 ---
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Politiques de dividendes — priorité à Nessim (100 % du capital, 50 % des parts)."""
+"""Politiques de dividendes — priorité à Nessim (100 % du capital, 45 % des parts)."""
 import importlib.util, sys
 
 # importer build_model pour récupérer les résultats nets et la cap table

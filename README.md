@@ -61,7 +61,7 @@
 > ✅ **La solution :** Machine condensation frigorifique (GEKO, Corée) qui liquéfie les vapeurs et les réinjecte dans la cuve.  
 > ✅ **Le modèle :** Revenue share 60/40 + leasing. La station ne paie rien, gagne ~1 843 DT/mois. Chaque machine s'autofinance.  
 > ✅ **Le marché :** 900 stations Tunisie, exclusivité Afrique. Zéro régulation actuellement (opportunité pré-market).  
-> ✅ **Les chiffres :** Rentable dès l'An 1. CA An 7 = 7,96 M DT. Résultat net cumulé 7 ans = ~11,9 M DT.  
+> ✅ **Les chiffres :** Rentable dès l'An 1. CA An 7 = 7,96 M DT. Résultat net cumulé 7 ans = ~11,0 M DT.  
 > ✅ **Concurrence :** Zéro concurrent direct en Afrique avec ce modèle. VR Refiner seul rival, rendement 2,5× inférieur.
 
 ---
@@ -71,12 +71,12 @@
 | Métrique | Valeur | Horizon |
 |---|---|---|
 | **Capital social (Nessim)** | 300 000 DT | An 1 |
-| **Financement machines** | Leasing 100 % (~12 %/7 ans) | — |
+| **Financement machines** | Leasing 100 % (~12 %/5 ans) | — |
 | **Parc cumulé An 7** | 196 machines | An 7 |
 | **CA HCTECH An 7** | 7,96 M DT | An 7 |
-| **Résultat net cumulé** | ~11,9 M DT | 7 ans |
-| **Rentabilité** | Dès l'An 1 (+133 k DT) | An 1 |
-| **Marge/machine/an** | +19 468 DT | Scénario réaliste |
+| **Résultat net cumulé** | ~11,0 M DT | 7 ans |
+| **Rentabilité** | Dès l'An 1 (+96 k DT) | An 1 |
+| **Marge/machine/an** | +16 276 DT | Scénario réaliste |
 | **Gain station/mois** | +1 843 DT | Sans investissement |
 | **Rendement technique** | 5/1000 L | Scénario retenu |
 | **Trésorerie minimale** | +278 k DT | 84 mois |
@@ -86,12 +86,12 @@
 ## 🏗️ Structure de financement
 
 ```
-Capital social : 300 000 DT — apporté 100 % par Nessim Mami (50 % des parts)
+Capital social : 300 000 DT — apporté 100 % par Nessim Mami (45 % des parts)
   └─ Sert de fonds de roulement (trésorerie min +278 k DT sur 84 mois)
 
-Machines : LEASING 100 % (~12 %/7 ans, ≈ 12 271 DT/an/machine)
+Machines : LEASING 100 % (~12 %/5 ans, ≈ 15 463 DT/an/machine)
   └─ Chaque machine s'autofinance : sa part de 60 % (33 178 DT/an) couvre
-     largement le loyer + la maintenance → marge +19 468 DT/machine/an
+     largement le loyer + la maintenance → marge +16 276 DT/machine/an
 
 Zéro emprunt bancaire.
 ```
@@ -118,7 +118,8 @@ Zéro emprunt bancaire.
 |---|---|---|---|
 | **Ali Ben Hamoud** | Co-gérant, Directeur Technique | 25 % | Ingénieur pétrochimie (Chine), relation GEKO |
 | **Mohamed Lamine Belajouza** | CEO & CDO | 25 % | Gestion & réseau pétrolier Tunisie/Afrique |
-| **Nessim Mami** | Investisseur (apporte 100 % du capital) | 50 % | Réseau Afrique & Golfe |
+| **Nessim Mami** | Investisseur (apporte 100 % du capital) | 45 % | Réseau Afrique & Golfe |
+| **Nazeh Ben Ammar** | Conseiller de Nessim | 5 % | Réseau institutionnel tunisien |
 | **Mohamed Ridha Belajouza** | Consultant, Conseil stratégique | — | Structuration BP, modélisation, positioning |
 
 ---

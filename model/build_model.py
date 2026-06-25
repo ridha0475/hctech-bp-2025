@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 HCTECH — Modèle financier 7 ans — MACHINES EN LEASING.
-Chaque machine est financée à 100 % par leasing (~12 %/7 ans) et s'autofinance
+Chaque machine est financée à 100 % par leasing (~12 %/5 ans) et s'autofinance
 par ses propres revenus. Capital social (300 k, Nessim) = fonds de roulement.
 Génère : simulation mensuelle -> agrégats annuels -> classeur Excel investisseur.
 """
@@ -21,7 +21,7 @@ MACHINE_HT = MACHINE_DT + IMPORT_FEES + INSTALL          # 57 928
 
 # Leasing machines
 LEASE_RATE = 0.12
-LEASE_YEARS = 7
+LEASE_YEARS = 5          # règle Tunisie : leasing équipement sur 5 ans
 LEASE_N = LEASE_YEARS * 12
 MACHINE_LEASE_MONTH = MACHINE_HT * (LEASE_RATE/12) / (1 - (1 + LEASE_RATE/12)**(-LEASE_N))
 MACHINE_LEASE_YEAR = MACHINE_LEASE_MONTH * 12
@@ -70,9 +70,9 @@ DIVIDEND_PAYOUT = 0.0      # bonus/dividendes actionnaires (à déterminer) — 
 TARGET_BATCH = 14
 DEPLOY_MONTHS = list(range(3, MONTHS + 1, 6))
 
-# Cap table (sortie de Nazeh — ses parts cédées à Nessim et Lamine, juin 2026)
-SHARES = {'Nessim Mami': 0.50, 'Ali Ben Hamoud': 0.25, 'Lamine': 0.25}
-CASH_CONTRIB = {'Nessim Mami': 300000, 'Ali Ben Hamoud': 0, 'Lamine': 0}
+# Cap table (Nazeh ramené à 5 % ; cède 20 % → 15 pts Nessim + 5 pts Lamine, juin 2026)
+SHARES = {'Nessim Mami': 0.45, 'Ali Ben Hamoud': 0.25, 'Lamine': 0.25, 'Nazeh Ben Ammar': 0.05}
+CASH_CONTRIB = {'Nessim Mami': 300000, 'Ali Ben Hamoud': 0, 'Lamine': 0, 'Nazeh Ben Ammar': 0}
 
 # ════════════════════════ HELPERS ════════════════════════
 def year_of(m): return (m - 1)//12 + 1
@@ -89,6 +89,8 @@ def machine_rev_month(y):
 def simulate():
     deploy = {dm: TARGET_BATCH for dm in DEPLOY_MONTHS}     # leasing -> plan = cible
     def mis_at(mo): return sum(n for dm,n in deploy.items() if dm <= mo)
+    # machines encore en cours de leasing : chaque vague paie pendant LEASE_N mois depuis sa pose
+    def leasing_at(mo): return sum(n for dm,n in deploy.items() if dm <= mo and mo - dm < LEASE_N)
 
     cash = 0.0
     tax_due_next = 0.0
@@ -109,7 +111,7 @@ def simulate():
         gross_pay = 2*founder_salary_y(y) + techs*tech_unit_y(y)
         payroll = gross_pay*(1+EMP_CHARGES)
         veh = VEH_PMT if m <= VEH_MONTHS else 0.0
-        mlease = mis * MACHINE_LEASE_MONTH
+        mlease = leasing_at(m) * MACHINE_LEASE_MONTH
         rentm = rent_y(y); ovh = overhead_y(y)
 
         tax_cash = 0.0
@@ -354,7 +356,7 @@ unit=[
  ("Valeur brute récupérée",f"{L_MACHINE_YEAR*FUEL_P0:,.0f} DT/an","× 2,525 DT"),
  ("Part HCTECH (60 %)",f"{L_MACHINE_YEAR*FUEL_P0*HCTECH_SHARE:,.0f} DT/an",""),
  ("Part station (40 %)",f"{L_MACHINE_YEAR*FUEL_P0*STATION_SHARE:,.0f} DT/an",f"≈ {L_MACHINE_YEAR*FUEL_P0*STATION_SHARE/12:,.0f} DT/mois"),
- ("(−) Leasing machine",f"-{MACHINE_LEASE_YEAR:,.0f} DT/an","57 928 @ 12 %/7 ans"),
+ ("(−) Leasing machine",f"-{MACHINE_LEASE_YEAR:,.0f} DT/an","57 928 @ 12 %/5 ans (pdt 5 ans, puis 0)"),
  ("(−) Maintenance + internet",f"-{OPEX_MACHINE_MONTH*12:,.0f} DT/an",""),
  ("= Marge nette / machine",f"{L_MACHINE_YEAR*FUEL_P0*HCTECH_SHARE - MACHINE_LEASE_YEAR - OPEX_MACHINE_MONTH*12:,.0f} DT/an","avant frais de structure partagés"),
 ]
@@ -391,16 +393,16 @@ ws.cell(row=r,column=4).number_format=DTFMT2
 for cc in range(1,6):
     ws.cell(row=r,column=cc).font=Font(bold=True); ws.cell(row=r,column=cc).fill=PatternFill("solid",fgColor=LIGHT)
 ws.append([])
-ws.append(["Note : Nessim finance 100 % du capital (300 k) pour 50 %. Les parts d'Ali et Lamine"])
-ws.append(["correspondent à des apports en industrie/nature (exclusivité GEKO, réseau pétrolier, gestion)"])
-ws.append(["valorisés ~300 k DT pre-money. À formaliser dans le pacte d'actionnaires."])
+ws.append(["Note : Nessim finance 100 % du capital (300 k) pour 45 %. Les parts d'Ali, Lamine et Nazeh"])
+ws.append(["correspondent à des apports en industrie/nature (exclusivité GEKO, réseau pétrolier, réseau institutionnel, gestion)"])
+ws.append(["valorisés ~367 k DT pre-money. À formaliser dans le pacte d'actionnaires."])
 ws.column_dimensions["A"].width=22; ws.column_dimensions["B"].width=10
 ws.column_dimensions["C"].width=14; ws.column_dimensions["D"].width=22; ws.column_dimensions["E"].width=46
 
 # ---- Sheet 8: Dividendes ----
 ws=wb.create_sheet("Dividendes")
 title(ws,"Dividendes — Option 1 (Nessim prioritaire)",
-      "Nessim encaisse 100% jusqu'à capital + prime 20% (360k), puis pro-rata 50/25/25 · payout 70%")
+      "Nessim encaisse 100% jusqu'à capital + prime 20% (360k), puis pro-rata 45/25/25/5 · payout 70%")
 ws.append([]); ws.append([])
 ws.append(["Actionnaire"]+[f"An {y}" for y in range(1,8)]+["TOTAL 7 ans"])
 for i in range(1,10): style_header(ws.cell(row=3,column=i))
@@ -414,9 +416,10 @@ def div_row(name, label, fill=None):
         for cc in range(1,10):
             ws.cell(row=r,column=cc).fill=PatternFill("solid",fgColor=fill)
             ws.cell(row=r,column=cc).font=Font(bold=True)
-div_row("Nessim Mami","Nessim Mami (50 %)", fill=LIGHT)
+div_row("Nessim Mami","Nessim Mami (45 %)", fill=LIGHT)
 div_row("Ali Ben Hamoud","Ali Ben Hamoud (25 %)")
 div_row("Lamine","Lamine (25 %)")
+div_row("Nazeh Ben Ammar","Nazeh Ben Ammar (5 %)")
 ws.append(["TOTAL distribué"]+[DIV_TOTAL[y] for y in range(1,8)]+[sum(DIV_TOTAL.values())]); r=ws.max_row
 for cc in range(1,10):
     ws.cell(row=r,column=cc).font=Font(bold=True); ws.cell(row=r,column=cc).number_format=DTFMT2

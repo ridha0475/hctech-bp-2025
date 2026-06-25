@@ -30,7 +30,7 @@ HCTECH déploie le système **ECO-RENTABLE** — un équipement qui récupère e
 
 **Les deux piliers du modèle :**
 1. **Revenue Share 60/40** — HCTECH finance, installe et maintient la machine, perçoit **60 % des revenus** générés et reverse **40 % à la station**, qui n'investit rien.
-2. **Leasing des machines** — chaque machine est financée à 100 % par leasing (≈ 12 %/7 ans). Sa part de 60 % couvre largement le loyer et la maintenance : **chaque machine s'autofinance dès le premier mois**. Le capital social ne sert qu'au fonds de roulement.
+2. **Leasing des machines** — chaque machine est financée à 100 % par leasing (≈ 12 %/5 ans). Sa part de 60 % couvre largement le loyer et la maintenance : **chaque machine s'autofinance dès le premier mois**. Le capital social ne sert qu'au fonds de roulement.
 
 Ce double choix supprime à la fois le frein d'adoption côté station (zéro investissement) et le frein de financement côté HCTECH (pas besoin d'immobiliser le capital pour acheter le parc). La société est **rentable dès l'An 1**.
 
@@ -43,8 +43,8 @@ Ce double choix supprime à la fois le frein d'adoption côté station (zéro in
 | Gain mensuel de la station (sans investissement) | ~1 843 DT |
 | Parc cible à 7 ans | 196 machines |
 | CA HCTECH An 7 | ~7,96 M DT |
-| Résultat net cumulé sur 7 ans | ~11,9 M DT |
-| Rentabilité | Dès l'An 1 (+133 k DT) |
+| Résultat net cumulé sur 7 ans | ~11,0 M DT |
+| Rentabilité | Dès l'An 1 (+96 k DT) |
 | Capital social requis | 300 000 DT (zéro emprunt bancaire) |
 | Trésorerie minimale sur 84 mois | +278 k DT (jamais à découvert) |
 
@@ -64,10 +64,11 @@ Le COVID-19 interrompt le développement. Le partenaire technologique se restruc
 |---|---|---|---|
 | **Ali Ben Hamoud** | Co-gérant, Directeur Technique | 25 % | Ingénieur pétrochimie, mandarin courant, relation GEKO |
 | **Mohamed Lamine Belajouza** | CEO & CDO | 25 % | Gestion, réseau pétrolier tunisien et africain |
-| **Nessim Mami** | Investisseur — apporte 100 % du capital | 50 % | Réseau Afrique & Golfe |
+| **Nessim Mami** | Investisseur — apporte 100 % du capital | 45 % | Réseau Afrique & Golfe |
+| **Nazeh Ben Ammar** | Conseiller de Nessim | 5 % | Réseau institutionnel tunisien |
 | **Mohamed Ridha Belajouza** | Consultant — Conseil stratégique | — | Structuration BP, modélisation financière, positionnement |
 
-> **Nessim Mami** apporte la totalité du capital social (300 000 DT) en numéraire pour 50 % des parts. Les 50 % restants rémunèrent les apports en industrie d'Ali Ben Hamoud et Mohamed Lamine Belajouza (exclusivité GEKO, réseau pétrolier, gestion), valorisés ~300 k DT pre-money — à formaliser dans le pacte d'actionnaires.
+> **Nessim Mami** apporte la totalité du capital social (300 000 DT) en numéraire pour 45 % des parts. Les 55 % restants rémunèrent les apports en industrie d'Ali Ben Hamoud, Mohamed Lamine Belajouza et Nazeh Ben Ammar (exclusivité GEKO, réseau pétrolier, réseau institutionnel, gestion), valorisés ~367 k DT pre-money — à formaliser dans le pacte d'actionnaires.
 
 ### Partenaire technologique
 
@@ -144,34 +145,34 @@ HCTECH 60%  |  Station 40%
 
 ### Le leasing : chaque machine s'autofinance
 
-Au lieu d'immobiliser ~58 000 DT par machine, HCTECH la finance par leasing (≈ 12 %/7 ans). Le loyer est couvert dès le premier mois par la part de 60 %.
+Au lieu d'immobiliser ~58 000 DT par machine, HCTECH la finance par leasing (≈ 12 %/5 ans). Le loyer est couvert dès le premier mois par la part de 60 %.
 
 | Paramètre (par machine, an 1) | Valeur |
 |---|---|
 | Coût machine all-in HT (18 000 $ × 2,95 + import 2,5 % + install. 3 500) | 57 928 DT |
-| Leasing machine (12 %/7 ans) | 12 271 DT/an |
+| Leasing machine (12 %/5 ans) | 15 463 DT/an |
 | Maintenance + internet (120 DT/mois) | 1 440 DT/an |
-| **Charges totales HCTECH / machine / an** | **13 711 DT/an** |
+| **Charges totales HCTECH / machine / an** | **16 903 DT/an** |
 | Valeur brute récupérée / machine (réaliste 5/1000) | 55 297 DT/an |
 | Part HCTECH @ 60 % | 33 178 DT/an |
-| **Marge nette HCTECH / machine / an** | **+19 468 DT/an** |
+| **Marge nette HCTECH / machine / an** | **+16 276 DT/an** |
 | Part station @ 40 % | 22 119 DT/an (**1 843 DT/mois**) |
 
-> La part HCTECH (33 178 DT) couvre **1,6 fois** le loyer de leasing : le dossier de financement est solvable, et chaque machine est bénéficiaire immédiatement.
+> La part HCTECH (33 178 DT) couvre **2,1 fois** le loyer de leasing : le dossier de financement est solvable, et chaque machine est bénéficiaire immédiatement.
 
 ### Sensibilité aux scénarios de récupération
 
 | Scénario | Taux | Part HCTECH (60 %) | Marge nette HCTECH | Part station / mois |
 |---|---|---|---|---|
-| Pessimiste | 3/1000 | 19 907 DT | **+6 196 DT/an** | 1 106 DT |
-| **Réaliste (retenu)** | **5/1000** | **33 178 DT** | **+19 468 DT/an** | **1 843 DT** |
-| Optimiste | 7/1000 | 46 450 DT | **+32 739 DT/an** | 2 581 DT |
+| Pessimiste | 3/1000 | 19 907 DT | **+3 004 DT/an** | 1 106 DT |
+| **Réaliste (retenu)** | **5/1000** | **33 178 DT** | **+16 276 DT/an** | **1 843 DT** |
+| Optimiste | 7/1000 | 46 450 DT | **+29 547 DT/an** | 2 581 DT |
 
-> **Même dans le pire scénario (3/1000), chaque machine reste positive** (+6 196 DT après leasing et maintenance). Le prix de l'essence augmente par ailleurs d'environ +4,6 %/an en moyenne (tendance 10 ans), ce qui amplifie mécaniquement les revenus chaque année.
+> **Même dans le pire scénario (3/1000), chaque machine reste positive** (+3 004 DT après leasing et maintenance). Le prix de l'essence augmente par ailleurs d'environ +4,6 %/an en moyenne (tendance 10 ans), ce qui amplifie mécaniquement les revenus chaque année.
 
 ### Contrat type avec la station
 
-- **Durée :** 7 ans (alignée sur le leasing de la machine)
+- **Durée :** 7 ans (la machine est financée par un leasing de 5 ans et opère ≥ 10 ans)
 - **Engagement station :** accès à la cuve, consommation électrique (4 kW), signalement des anomalies
 - **Engagement HCTECH :** installation, maintenance, remplacement en cas de panne, rapport mensuel des quantités récupérées
 - **Partage :** basé sur les données de l'application connectée (traçabilité totale)
@@ -275,7 +276,7 @@ Prise de contact (déjà effectué pour 3 enseignes)
 | Split HCTECH / Station | 60 % / 40 % | — |
 | Taux de change USD/DT | 2,95 | BCT juin 2026 |
 | Coût machine all-in HT | 57 928 DT | 18 000 $ + import 2,5 % + install. 3 500 |
-| Leasing machine | 12 %/7 ans (12 271 DT/an) | Marché tunisien |
+| Leasing machine | 12 %/5 ans (15 463 DT/an) | Marché tunisien |
 | Charges patronales | 21 % | CNSS 17,07 + TFP 2 + FOPROLOS 1 + acc. |
 | IS + CSS | 25 % + 3 % | LF 2025/2026 (services) |
 
@@ -324,11 +325,11 @@ Prise de contact (déjà effectué pour 3 enseignes)
 ### Structure de financement
 
 ```
-Capital social : 300 000 DT — apporté 100 % par Nessim Mami (50 % des parts)
+Capital social : 300 000 DT — apporté 100 % par Nessim Mami (45 % des parts)
   └─ Fonds de roulement uniquement (trésorerie min +278 k sur 84 mois)
 
-Machines : LEASING 100 % (~12 %/7 ans, ≈ 12 271 DT/an/machine)
-  └─ Autofinancé : la part de 60 % (33 178 DT/an) couvre 1,6× le loyer
+Machines : LEASING 100 % (~12 %/5 ans, ≈ 15 463 DT/an/machine)
+  └─ Autofinancé : la part de 60 % (33 178 DT/an) couvre 2,1× le loyer
 
 Véhicule utilitaire : leasing 70 000 DT (12 %/5 ans, ~18 685 DT/an)
 
@@ -342,24 +343,25 @@ Véhicule utilitaire : leasing 70 000 DT (12 %/5 ans, ~18 685 DT/an)
 Nessim portant 100 % du capital, il est remboursé en priorité absolue :
 
 1. **Phase prioritaire** : 100 % des dividendes vont à Nessim jusqu'à ce qu'il récupère son **capital + une prime de risque de 20 %** (360 k DT), atteint **dès la fin de l'An 2**.
-2. **Phase pro-rata** : ensuite, distribution au pro-rata des parts (50/25/25).
+2. **Phase pro-rata** : ensuite, distribution au pro-rata des parts (45/25/25/5).
 3. **Payout** : 70 % du résultat net distribué, 30 % conservé en réserve (fonds propres solides pour le leasing).
 
 | Actionnaire | Part | Dividendes cumulés 7 ans |
 |---|---|---|
-| **Nessim Mami** | 50 % | **4,36 M DT** (14,5× son capital, TRI ~90 %) |
-| **Ali Ben Hamoud** | 25 % | 2,00 M DT |
-| **Mohamed Lamine Belajouza** | 25 % | 2,00 M DT |
-| **Total distribué** | | **8,35 M DT** |
+| **Nessim Mami** | 45 % | **3,66 M DT** (12,2× son capital, TRI ~78 %) |
+| **Ali Ben Hamoud** | 25 % | 1,83 M DT |
+| **Mohamed Lamine Belajouza** | 25 % | 1,83 M DT |
+| **Nazeh Ben Ammar** | 5 % | 0,37 M DT |
+| **Total distribué** | | **7,69 M DT** |
 
-*Trésorerie conservée après distributions en An 7 : ~7,9 M DT.*
+*Trésorerie conservée après distributions en An 7 : ~7,7 M DT.*
 
 ### Indicateurs de viabilité
 
 | Indicateur | Valeur |
 |---|---|
-| Marge nette / machine (réaliste) | +19 468 DT/an |
-| Couverture du leasing par la part HCTECH | 1,6× |
+| Marge nette / machine (réaliste) | +16 276 DT/an |
+| Couverture du leasing par la part HCTECH | 2,1× |
 | Rentabilité | Dès l'An 1 |
 | Capital Nessim remboursé | Fin An 2 |
 | Marge de sécurité (résiste si taux = 3/1000) | Oui — chaque machine reste positive |
@@ -370,10 +372,10 @@ Nessim portant 100 % du capital, il est remboursé en priorité absolue :
 
 | Risque | Probabilité | Impact | Mitigant |
 |---|---|---|---|
-| **Taux de récupération < 3/1000** | Faible | Moyen | Prototype validé 3-7/1000. Même à 3/1000, marge positive (+6 196 DT/machine). Contrat indexé sur mesures réelles. |
+| **Taux de récupération < 3/1000** | Faible | Moyen | Prototype validé 3-7/1000. Même à 3/1000, marge positive (+3 004 DT/machine). Contrat indexé sur mesures réelles. |
 | **Dépendance à GEKO (fournisseur unique)** | Moyenne | Très élevé | Stock tampon 2-3 machines. Contrat d'exclusivité avec pénalités. Second fournisseur exploré dès An 3. |
-| **Refus de financement leasing** | Faible | Moyen | Chaque machine couvre 1,6× son loyer — dossier solvable. Contrats revenue share = garantie de flux. 30 % des bénéfices en réserve. |
-| **Hausse du taux de leasing** | Moyenne | Faible | Taux verrouillé à la signature de chaque contrat. La marge de +19 468 DT/machine absorbe plusieurs points. |
+| **Refus de financement leasing** | Faible | Moyen | Chaque machine couvre 2,1× son loyer — dossier solvable. Contrats revenue share = garantie de flux. 30 % des bénéfices en réserve. |
+| **Hausse du taux de leasing** | Moyenne | Faible | Taux verrouillé à la signature de chaque contrat. La marge de +16 276 DT/machine absorbe plusieurs points. |
 | **Chute du prix du carburant** | Très faible | Moyen | Prix administrés en hausse tendancielle (+4,6 %/an). Clause d'indexation dans les contrats. |
 | **Résistance commerciale des enseignes** | Moyenne | Moyen | Le revenue share supprime le frein principal. Contacts établis à 80 %. |
 | **Réglementation défavorable** | Très faible | Moyen | La tendance mondiale est inverse. Une norme d'obligation serait un accélérateur. |
@@ -386,7 +388,7 @@ HCTECH dispose d'un **produit validé, d'un marché identifié, de contacts éta
 
 Le modèle reste conservateur : projections sur le scénario médian (5/1000), prix du carburant prudent (+4,5 %/an), expansion africaine non incluse. La viabilité est maintenue même dans le scénario pessimiste (3/1000), où chaque machine demeure positive.
 
-Avec un capital de seulement 300 000 DT, le plan génère **~11,9 M DT de résultat net cumulé sur 7 ans**, rembourse l'investisseur principal dès l'An 2 (TRI ~90 %), et installe HCTECH comme leader incontesté de la récupération des COV en station-service en Tunisie, avant toute concurrence.
+Avec un capital de seulement 300 000 DT, le plan génère **~11,0 M DT de résultat net cumulé sur 7 ans**, rembourse l'investisseur principal dès l'An 2 (TRI ~78 %), et installe HCTECH comme leader incontesté de la récupération des COV en station-service en Tunisie, avant toute concurrence.
 
 ---
 

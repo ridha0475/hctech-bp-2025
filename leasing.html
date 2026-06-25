@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HCTech — Dossier de financement leasing</title>
+<meta name="description" content="HCTech récupère les vapeurs d'essence en station-service. Machines financées par leasing, rentables dès la première année. Dossier pour sociétés de leasing.">
+<link rel="icon" href="assets/logo-hctech-nav.png">
+<style>
+  :root{
+    --green:#159457; --green-d:#0f7a47; --green-l:#2ecc71;
+    --navy:#15294f; --blue:#2563eb; --ink:#1f2937; --muted:#64748b;
+    --bg:#f6f9fc; --card:#ffffff; --line:#e6edf5;
+    --shadow:0 10px 30px rgba(21,41,79,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  a{color:var(--green-d);text-decoration:none}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);
+         backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .nav img{height:34px}
+  .nav .links{display:flex;gap:22px;font-size:.92rem;font-weight:600}
+  .nav .links a{color:var(--navy)}
+  .nav .links a:hover{color:var(--green)}
+  @media(max-width:680px){.nav .links{display:none}}
+
+  /* Hero */
+  .hero{background:linear-gradient(135deg,#0f7a47 0%,#159457 45%,#1aa86a 100%);color:#fff;
+        padding:74px 0 90px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;top:-80px;width:380px;height:380px;
+        background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);border-radius:50%}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);
+        padding:6px 14px;border-radius:30px;font-size:.8rem;font-weight:600;letter-spacing:.4px;margin-bottom:18px}
+  .hero h1{font-size:2.55rem;line-height:1.15;font-weight:800;max-width:760px;margin-bottom:16px}
+  .hero p{font-size:1.12rem;max-width:660px;color:rgba(255,255,255,.92)}
+  .hero .cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:11px;
+        font-weight:700;font-size:.95rem;transition:.18s;cursor:pointer}
+  .btn-w{background:#fff;color:var(--green-d)}
+  .btn-w:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.18)}
+  .btn-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.6)}
+  .btn-o:hover{background:rgba(255,255,255,.12)}
+
+  /* Metrics band */
+  .metrics{margin-top:-52px;position:relative;z-index:5}
+  .mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:760px){.mgrid{grid-template-columns:repeat(2,1fr)}}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:20px;
+        box-shadow:var(--shadow);text-align:center}
+  .metric .v{font-size:1.7rem;font-weight:800;color:var(--navy)}
+  .metric .l{font-size:.82rem;color:var(--muted);margin-top:4px}
+
+  /* Sections */
+  section.block{padding:58px 0}
+  .eyebrow{color:var(--green);font-weight:700;font-size:.82rem;letter-spacing:1.2px;text-transform:uppercase}
+  h2{font-size:1.85rem;font-weight:800;color:var(--navy);margin:8px 0 10px}
+  .lead{color:var(--muted);max-width:720px;font-size:1.05rem}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  @media(max-width:820px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+  .card .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;
+        background:#e8f7ef;margin-bottom:14px}
+  .card h3{font-size:1.12rem;color:var(--navy);margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.96rem}
+
+  /* Leasing highlight */
+  .leasing{background:linear-gradient(135deg,#15294f,#1d3a6e);color:#fff;border-radius:22px;
+        padding:44px;box-shadow:var(--shadow)}
+  .leasing h2{color:#fff}
+  .leasing .lead{color:rgba(255,255,255,.85)}
+  .lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+  @media(max-width:760px){.lgrid{grid-template-columns:1fr}}
+  .lstat .v{font-size:2rem;font-weight:800;color:#5ee0a0}
+  .lstat .l{color:rgba(255,255,255,.82);font-size:.92rem;margin-top:2px}
+
+  /* Machine economics */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:30px;
+        border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
+  @media(max-width:760px){.flow{grid-template-columns:repeat(2,1fr)}}
+  .step{padding:22px;text-align:center;border-right:1px solid var(--line)}
+  .step:last-child{border-right:none}
+  .step .v{font-size:1.5rem;font-weight:800}
+  .step.pos .v{color:var(--green)}
+  .step.neg .v{color:#cf4d4d}
+  .step .l{font-size:.82rem;color:var(--muted);margin-top:4px}
+
+  /* Downloads */
+  .dl{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  @media(max-width:820px){.dl{grid-template-columns:1fr}}
+  .dlcard{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;
+        padding:24px;box-shadow:var(--shadow);transition:.18s}
+  .dlcard:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(21,41,79,.13);border-color:#bfe6cf}
+  .dlcard .ico{font-size:1.7rem}
+  .dlcard h3{color:var(--navy);margin:10px 0 6px;font-size:1.08rem}
+  .dlcard p{color:var(--muted);font-size:.9rem}
+  .dlcard .go{margin-top:12px;color:var(--green-d);font-weight:700;font-size:.9rem}
+
+  /* Team */
+  .team{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+  @media(max-width:760px){.team{grid-template-columns:repeat(2,1fr)}}
+  .tcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
+  .tcard .n{font-weight:700;color:var(--navy)}
+  .tcard .r{font-size:.82rem;color:var(--muted);margin-top:3px}
+  .tcard .p{display:inline-block;margin-top:8px;background:#e8f7ef;color:var(--green-d);
+        font-weight:700;font-size:.78rem;padding:2px 10px;border-radius:20px}
+
+  footer{background:#0e1f3c;color:#cdd7e6;padding:40px 0;margin-top:30px;font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer strong{color:#fff}
+  .conf{font-size:.8rem;color:#8aa0bf;margin-top:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <img src="assets/logo-hctech.png" alt="HCTech">
+    <div class="links">
+      <a href="#modele">Le modèle</a>
+      <a href="#leasing">Pour le bailleur</a>
+      <a href="#chiffres">Chiffres</a>
+      <a href="#dossier">Dossier</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <span class="tag">Greentech · Station-service · Financement par leasing</span>
+    <h1>Récupérer les vapeurs d'essence, et en faire un actif rentable.</h1>
+    <p>HCTech installe gratuitement des machines de récupération de vapeurs d'essence dans les stations-service
+       et partage les revenus 60 / 40. Chaque machine est <strong>financée par leasing</strong> et
+       <strong>s'autofinance dès le premier mois</strong> — zéro emprunt bancaire.</p>
+    <div class="cta">
+      <a class="btn btn-w" href="HCTECH_BP_Leasing.xlsx">⬇ Dossier financier (Excel)</a>
+      <a class="btn btn-o" href="simulateur.html">▶ Simulateur interactif</a>
+    </div>
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="wrap metrics">
+  <div class="mgrid">
+    <div class="metric"><div class="v">196</div><div class="l">machines à l'An 7</div></div>
+    <div class="metric"><div class="v">2,1×</div><div class="l">couverture du loyer / machine</div></div>
+    <div class="metric"><div class="v">0 DT</div><div class="l">dette bancaire</div></div>
+    <div class="metric"><div class="v">An 1</div><div class="l">rentable dès la 1ʳᵉ année</div></div>
+  </div>
+</div>
+
+<!-- MODELE -->
+<section class="block" id="modele">
+  <div class="wrap">
+    <div class="eyebrow">Le modèle</div>
+    <h2>Un modèle simple, deux leviers</h2>
+    <p class="lead">La station n'investit rien. HCTech finance la machine en leasing, l'installe, la maintient,
+       et partage les recettes générées par l'essence récupérée.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">⛽</div>
+        <h3>Revenue share 60 / 40</h3>
+        <p>HCTech perçoit 60 % de la valeur de l'essence récupérée ; la station touche 40 % sans débourser
+           un dinar. Une proposition de valeur immédiate pour l'enseigne.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🏦</div>
+        <h3>Financement 100 % leasing</h3>
+        <p>Chaque machine (≈ 58 000 DT) est financée par un leasing sur 5 ans. Le capital social ne sert
+           qu'au fonds de roulement — pas d'immobilisation de trésorerie.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📈</div>
+        <h3>Croissance autofinancée</h3>
+        <p>Comme chaque machine couvre largement son loyer, le déploiement n'est plus limité par la trésorerie :
+           14 machines tous les 6 mois, jusqu'à 196 en 7 ans.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEASING (pour le bailleur) -->
+<section class="block" id="leasing">
+  <div class="wrap">
+    <div class="leasing">
+      <div class="eyebrow" style="color:#5ee0a0">Pour la société de leasing</div>
+      <h2>Un risque maîtrisé, des loyers largement couverts</h2>
+      <p class="lead">Le service du leasing est couvert plusieurs fois par les flux d'exploitation, chaque année,
+         sans aucune dette bancaire concurrente.</p>
+      <div class="lgrid">
+        <div class="lstat"><div class="v">2,1×</div><div class="l">La part HCTech d'une machine (33 178 DT/an)
+           couvre 2,1× son loyer (15 463 DT/an).</div></div>
+        <div class="lstat"><div class="v">1,5× – 3,4×</div><div class="l">DSCR : l'exploitation couvre le service
+           du leasing de 1,5× (année basse) à 3,4× (An 7).</div></div>
+        <div class="lstat"><div class="v">+278 k DT</div><div class="l">Trésorerie minimale sur 84 mois —
+           toujours positive, capital de 300 k en fonds de roulement.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECONOMIE MACHINE -->
+<section class="block">
+  <div class="wrap">
+    <div class="eyebrow">Économie d'une machine</div>
+    <h2>Chaque machine s'autofinance</h2>
+    <p class="lead">Scénario réaliste (5/1000), par machine et par an. Après 5 ans, le loyer tombe à zéro et
+       la marge bondit.</p>
+    <div class="flow">
+      <div class="step pos"><div class="v">33 178</div><div class="l">Part HCTech (60 %)</div></div>
+      <div class="step neg"><div class="v">−15 463</div><div class="l">Loyer leasing (5 ans)</div></div>
+      <div class="step neg"><div class="v">−1 440</div><div class="l">Maintenance + internet</div></div>
+      <div class="step pos"><div class="v">+16 276</div><div class="l">Marge nette / an</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHIFFRES -->
+<section class="block" id="chiffres">
+  <div class="wrap">
+    <div class="eyebrow">Trajectoire financière</div>
+    <h2>Les chiffres clés (7 ans)</h2>
+    <p class="lead">Projections sur le scénario réaliste central, machines en leasing 5 ans, partage 60/40.</p>
+    <div class="mgrid" style="margin-top:28px">
+      <div class="metric"><div class="v">7,96 M</div><div class="l">CA HCTech à l'An 7 (DT)</div></div>
+      <div class="metric"><div class="v">5,19 M</div><div class="l">EBITDA An 7 — marge 65 % (DT)</div></div>
+      <div class="metric"><div class="v">11,0 M</div><div class="l">résultat net cumulé 7 ans (DT)</div></div>
+      <div class="metric"><div class="v">47 %</div><div class="l">marge nette à l'An 7</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOSSIER / TELECHARGEMENTS -->
+<section class="block" id="dossier">
+  <div class="wrap">
+    <div class="eyebrow">Le dossier</div>
+    <h2>Tout est documenté et chiffré</h2>
+    <p class="lead">Un classeur Excel à formules vivantes (états financiers prévisionnels normés, ratios,
+       capacité de remboursement), un simulateur en ligne et le business plan détaillé.</p>
+    <div class="dl">
+      <a class="dlcard" href="HCTECH_BP_Leasing.xlsx">
+        <div class="ico">📊</div>
+        <h3>Dossier financier (Excel)</h3>
+        <p>État de résultat, bilan, flux de trésorerie, ratios (EBITDA, DSCR, ROE) et capacité de
+           remboursement. Toutes les hypothèses sont modifiables.</p>
+        <div class="go">Télécharger le classeur →</div>
+      </a>
+      <a class="dlcard" href="simulateur.html">
+        <div class="ico">🎚️</div>
+        <h3>Simulateur interactif</h3>
+        <p>Faites varier le taux de récupération, le prix de l'essence, le taux de leasing… et voyez les
+           résultats se recalculer en direct.</p>
+        <div class="go">Ouvrir le simulateur →</div>
+      </a>
+      <a class="dlcard" href="index.html">
+        <div class="ico">📄</div>
+        <h3>Business plan détaillé</h3>
+        <p>Le marché, la technologie, le déploiement, la concurrence et le plan financier complet sur 7 ans.</p>
+        <div class="go">Lire le BP →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE -->
+<section class="block">
+  <div class="wrap">
+    <div class="eyebrow">L'équipe</div>
+    <h2>Une équipe qui exécute</h2>
+    <div class="team">
+      <div class="tcard"><div class="n">Ali Ben Hamoud</div><div class="r">Directeur Technique · ingénieur pétrochimie, relation GEKO</div><span class="p">25 %</span></div>
+      <div class="tcard"><div class="n">Mohamed Lamine Belajouza</div><div class="r">CEO · réseau pétrolier & financement</div><span class="p">25 %</span></div>
+      <div class="tcard"><div class="n">Nessim Mami</div><div class="r">Investisseur · porte 100 % du capital</div><span class="p">45 %</span></div>
+      <div class="tcard"><div class="n">Nazeh Ben Ammar</div><div class="r">Conseiller · réseau institutionnel</div><span class="p">5 %</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong>HCTech SARL</strong> — Récupération de vapeurs d'essence en station-service<br>
+      RNE : 1953633L · Ariana, Tunisie
+      <div class="conf">Document confidentiel — réservé aux établissements de leasing et partenaires financiers identifiés.</div>
+    </div>
+    <div style="text-align:right">
+      Dossier préparé par<br><strong>Mohamed Ridha Belajouza</strong><br>
+      <span class="conf">Consultant & conseiller stratégique</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

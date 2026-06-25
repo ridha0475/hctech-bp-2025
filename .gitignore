@@ -14,3 +14,7 @@ confidentiel/
 .swarm/
 .claude/memory.db
 ruvector.db
+
+# Fichiers temporaires Office (verrous ~$...) 
+~$*
+*.tmp

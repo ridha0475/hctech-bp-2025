@@ -275,12 +275,14 @@ function runModel(p) {
   const MDT    = MACHINE_USD * USD_TND;
   const MHT    = MDT + MDT * 0.025 + INSTALL;         // machine tout compris HT
 
-  const LN     = 84;                                  // 7 × 12 mois leasing
+  const LN     = 60;                                  // 5 × 12 mois leasing (règle Tunisie)
   const lr     = lR / 12;
   const MLEA_M = MHT * lr / (1 - Math.pow(1 + lr, -LN));  // mensualité leasing machine
   const MLEA_Y = MLEA_M * 12;
 
   function misAt(mo)     { return DEPLOY_MONTHS.filter(d => d <= mo).length * batch; }
+  // machines encore en leasing : chaque vague paie LN mois depuis sa pose, puis 0
+  function leasingAt(mo) { return DEPLOY_MONTHS.filter(d => d <= mo && mo - d < LN).length * batch; }
   function yearOf(m)     { return Math.floor((m - 1) / 12) + 1; }
   function fuelY(y)      { return fP0 * Math.pow(1 + fG, y - 1); }
   function founderY(y)   { return Math.min(SAL_F0 * Math.pow(1 + SAL_F_G, y - 1), fCap); }
@@ -306,7 +308,7 @@ function runModel(p) {
     const opex = mis * OPEX_M;
     const pay  = (2 * founderY(y) + tch * techY(y)) * (1 + EMP_CHG);
     const veh  = m <= VEH_MO ? VEH_PMT : 0;
-    const lea  = mis * MLEA_M;
+    const lea  = leasingAt(m) * MLEA_M;
     const rent = rentY(y);
     const ovh  = ovhY(y);
 
@@ -335,11 +337,11 @@ function runModel(p) {
   }
 
   // ── Dividendes (Option 1 : Nessim prioritaire jusqu'à 360 k, puis pro-rata) ──
-  const SH = { nessim:0.50, ali:0.25, lamine:0.25 };
+  const SH = { nessim:0.45, ali:0.25, lamine:0.25, nazeh:0.05 };
   const DIV = {}, divTot = {};
   let rec_pref = 0;
   for (let y = 1; y <= 7; y++) {
-    DIV[y] = { nessim:0, ali:0, lamine:0 };
+    DIV[y] = { nessim:0, ali:0, lamine:0, nazeh:0 };
     let pool = py * ya[y].net;
     if (rec_pref < PREF_TARGET) {
       const pay = Math.min(pool, PREF_TARGET - rec_pref);
@@ -348,7 +350,8 @@ function runModel(p) {
     DIV[y].nessim  += pool * SH.nessim;
     DIV[y].ali     += pool * SH.ali;
     DIV[y].lamine  += pool * SH.lamine;
-    divTot[y] = DIV[y].nessim + DIV[y].ali + DIV[y].lamine;
+    DIV[y].nazeh   += pool * SH.nazeh;
+    divTot[y] = DIV[y].nessim + DIV[y].ali + DIV[y].lamine + DIV[y].nazeh;
   }
 
   // Trésorerie après distribution (dividende de l'exercice N versé en N+1)
@@ -532,9 +535,9 @@ function initCharts() {
 
   charts.div = new Chart(document.getElementById('chartDiv'), {
     type: 'bar',
-    data: { labels:['Nessim (50 %)','Ali (25 %)','Lamine (25 %)'],
-      datasets:[{ label:'Dividendes 7 ans', data:[0,0,0],
-        backgroundColor:[G, G2, G2], borderRadius:6 }]},
+    data: { labels:['Nessim (45 %)','Ali (25 %)','Lamine (25 %)','Nazeh (5 %)'],
+      datasets:[{ label:'Dividendes 7 ans', data:[0,0,0,0],
+        backgroundColor:[G, G2, G2, BL], borderRadius:6 }]},
     options: { plugins:{ legend:{ display:false },
         tooltip:{ callbacks:{ label: ctx => ' ' + fmtDT(ctx.raw) } } },
       scales:{ y:{ grid:yGrid, ticks:tickOpts } } }
@@ -552,11 +555,12 @@ function updateCharts(r) {
   charts.treso.data.datasets[0].data = Array.from({length:7}, (_,i) => r.cAfter[i+1]);
   charts.treso.update();
 
-  const nd = [0,0,0];
+  const nd = [0,0,0,0];
   for (let y = 1; y <= 7; y++) {
     nd[0] += r.DIV[y].nessim;
     nd[1] += r.DIV[y].ali;
     nd[2] += r.DIV[y].lamine;
+    nd[3] += r.DIV[y].nazeh;
   }
   charts.div.data.datasets[0].data = nd;
   charts.div.update();
