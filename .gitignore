@@ -9,6 +9,13 @@ package-lock.json
 # Documents confidentiels — repo privé séparé (CIN, adresses, notes de négociation)
 confidentiel/
 
+# Livrables BP 12 ans — CONFIDENTIELS (cap table nominative) → repo privé hctech-confidentiel uniquement
+HCTECH_BP_Leasing_12ans.xlsx
+NOTE_SYNTHESE_BAILLEUR_12ans.md
+model/build_bp_12ans.py
+model/verify_12ans.py
+BP_HCTECH_12ans_v2.xlsx
+
 # State local ruflo / claude-flow (caches + bases SQLite d'embeddings) — jamais en public, se régénère
 .claude-flow/
 .swarm/

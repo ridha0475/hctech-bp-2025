@@ -7,11 +7,10 @@
 
 ## 📄 Documents inclus
 
-### 1. **[BP_HCTECH_7ans.xlsx](BP_HCTECH_7ans.xlsx)** — Modèle financier complet (Excel)
-   - 8 feuilles : Synthèse · Hypothèses (sourcées) · Déploiement · Compte de résultat · Trésorerie · Économie par machine · Actionnariat · Dividendes
-   - Projections 7 ans, partage 60/40, machines en leasing
-   - Politique de dividendes Option 1 (priorité Nessim)
-   - Scripts Python réexécutables dans `model/`
+### 1. Modèle financier complet (Excel) — *dossier confidentiel*
+   - Classeur à formules vivantes : états financiers normés (résultat, bilan, flux), ratios (EBITDA, DSCR, ROE), capacité de remboursement leasing, dividendes
+   - Projections, partage 60/40, machines en leasing, priorité de remboursement de l'investisseur
+   - Réservé aux partenaires financiers identifiés — **disponible sur demande** (non publié).
 
    **Pour :** Investisseurs, due diligence financière, comité de direction.
 
