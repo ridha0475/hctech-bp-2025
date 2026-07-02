@@ -16,6 +16,12 @@ model/build_bp_12ans.py
 model/verify_12ans.py
 BP_HCTECH_12ans_v2.xlsx
 
+# Scénario SICAR — CONFIDENTIEL (cap table nominative, termes de négociation) → repo privé uniquement
+HCTECH_BP_SICAR_12ans.xlsx
+NOTE_SCENARIO_SICAR.md
+model/build_bp_sicar_12ans.py
+model/verify_sicar_12ans.py
+
 # State local ruflo / claude-flow (caches + bases SQLite d'embeddings) — jamais en public, se régénère
 .claude-flow/
 .swarm/
