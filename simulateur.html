@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HCTECH — Simulateur Financier 7 ans</title>
+<title>HCTECH — Simulateur Financier 12 ans</title>
 <link rel="icon" href="assets/logo-hctech-nav.png">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="style.css">
@@ -106,6 +106,8 @@ input[type=range] { width: 100%; accent-color: var(--green); cursor: pointer; ma
   <a href="index.html" class="nav-brand"><img src="assets/logo-hctech-nav.png" alt="HC TECH"></a>
   <div class="nav-links">
     <a href="index.html">← Business Plan</a>
+    <a href="animation-vapeurs.html">🎬 Animation</a>
+    <a href="comparaison.html">⚖️ Scénarios</a>
     <a href="concurrence.html">🥊 Concurrence</a>
     <a href="simulateur.html" class="active">📊 Simulateur</a>
   </div>
@@ -113,9 +115,9 @@ input[type=range] { width: 100%; accent-color: var(--green); cursor: pointer; ma
 
 <!-- ══ HERO ══ -->
 <header class="hero sim-hero">
-  <div class="hero-badge">Simulateur Interactif — Modèle 7 ans</div>
+  <div class="hero-badge">Simulateur Interactif — Modèle 12 ans · scénario leasing</div>
   <h1>Ajustez les hypothèses,<br>voyez l'impact <span>en temps réel</span></h1>
-  <p>Le modèle financier complet recalculé instantanément — glissez un curseur, tous les KPIs et graphiques s'adaptent.</p>
+  <p>Le modèle financier leasing complet (144 mois) recalculé instantanément — glissez un curseur, tous les KPIs et graphiques s'adaptent. Pour le scénario SICAR, voir la <a href="comparaison.html" style="color:#fff;text-decoration:underline;font-weight:700">comparaison des scénarios</a>.</p>
 </header>
 
 <!-- ══ PRESET BAR ══ -->
@@ -154,7 +156,7 @@ input[type=range] { width: 100%; accent-color: var(--green); cursor: pointer; ma
       <canvas id="chartTreso" height="190"></canvas>
     </div>
     <div class="chart-card">
-      <h4>Dividendes totaux 7 ans — par actionnaire (DT)</h4>
+      <h4>Dividendes totaux 12 ans — par actionnaire (DT)</h4>
       <canvas id="chartDiv" height="190"></canvas>
     </div>
   </div>
@@ -171,7 +173,7 @@ input[type=range] { width: 100%; accent-color: var(--green); cursor: pointer; ma
 </div>
 
 <footer>
-  HCTECH — Simulateur financier interactif — Modèle 7 ans · Revenue Share 60/40 · Machines en leasing<br>
+  HCTECH — Simulateur financier interactif — Modèle 12 ans · Revenue Share 60/40 · Machines en leasing<br>
   Préparé par <strong>Mohamed Ridha Belajouza</strong>, consultant et conseiller stratégique.
 </footer>
 
@@ -184,11 +186,15 @@ const MACHINE_USD = 18000;
 const INSTALL = 3500;
 const OPEX_M = 120;           // DT/machine/mois
 const EMP_CHG = 0.21;         // charges patronales
-const SAL_F0 = 2000;          // salaire fondateur An1
-const SAL_F_G = 0.50;         // croissance salaire fondateur
+const NY = 12;                // horizon (années)
+const NM = NY * 12;           // horizon (mois)
+const SAL_F1 = 2000;          // salaire fondateur — palier An 1
+const SAL_F2 = 4000;          // salaire fondateur — palier An 2
+const SAL_F_G = 0.03;         // croissance salaire fondateur (An 4+)
 const SAL_T0 = 1200;          // salaire technicien An1
 const SAL_T_G = 0.07;         // croissance salaire technicien
-const MPT = 48;               // machines par technicien
+const MPT = 50;               // machines par technicien
+const MAX_TECH = 3;           // plafond techniciens
 const RENT0 = 1200;
 const RENT_G = 0.06;
 const OVH0 = 2000;
@@ -197,7 +203,6 @@ const VEH_PRICE = 70000;
 const VEH_RATE = 0.12;
 const VEH_MO = 60;
 const TAX_RATE = 0.28;        // IS 25 % + CSS 3 %
-const MIN_TAX = 0.001;
 const CAPITAL = 300000;
 const PREF_TARGET = 360000;   // priorité Nessim : capital + prime 20 %
 const STA_L_DAY = 12000;      // litres/jour station cible
@@ -206,9 +211,9 @@ const STA_L_DAY = 12000;      // litres/jour station cible
 const _vr = VEH_RATE / 12;
 const VEH_PMT = VEH_PRICE * _vr / (1 - Math.pow(1 + _vr, -VEH_MO));
 
-// Déploiement : mois 3, 9, 15, …, 81
+// Déploiement : 14 vagues — mois 3, 9, 15, …, 81 (parc maintenu ensuite jusqu'à l'An 12)
 const DEPLOY_MONTHS = [];
-for (let m = 3; m <= 84; m += 6) DEPLOY_MONTHS.push(m);
+for (let m = 3; m <= 81; m += 6) DEPLOY_MONTHS.push(m);
 
 // ══════════════════════════════════════════════
 //  PARAMÈTRES DES CURSEURS
@@ -249,7 +254,7 @@ const SLIDER_DEFS = [
   { id:'batchSize',   label:'Machines par vague (tous les 6 mois)',
     min:7,    max:21,    step:1,    minL:'7 mach.', maxL:'21 mach.',
     fmt: v => `${v} machines` },
-  { id:'founderCap',  label:'Plafond salaire fondateur',
+  { id:'founderCap',  label:'Salaire fondateur — palier An 3+ (2k/4k puis +3 %/an)',
     min:4000, max:10000, step:500,  minL:'4 000 DT', maxL:'10 000 DT',
     fmt: v => `${Number(v).toLocaleString('fr-FR')} DT/mois` },
   { id:'payout',      label:'Payout dividendes (% résultat net)',
@@ -285,7 +290,7 @@ function runModel(p) {
   function leasingAt(mo) { return DEPLOY_MONTHS.filter(d => d <= mo && mo - d < LN).length * batch; }
   function yearOf(m)     { return Math.floor((m - 1) / 12) + 1; }
   function fuelY(y)      { return fP0 * Math.pow(1 + fG, y - 1); }
-  function founderY(y)   { return Math.min(SAL_F0 * Math.pow(1 + SAL_F_G, y - 1), fCap); }
+  function founderY(y)   { return y <= 1 ? SAL_F1 : (y === 2 ? SAL_F2 : fCap * Math.pow(1 + SAL_F_G, y - 3)); }
   function techY(y)      { return SAL_T0 * Math.pow(1 + SAL_T_G, y - 1); }
   function rentY(y)      { return RENT0 * Math.pow(1 + RENT_G, y - 1); }
   function ovhY(y)       { return OVH0  * Math.pow(1 + OVH_G,  y - 1); }
@@ -293,17 +298,17 @@ function runModel(p) {
 
   let cash = 0, taxNext = 0, minCash = Infinity;
   const ya = {};
-  for (let y = 1; y <= 7; y++)
+  for (let y = 1; y <= NY; y++)
     ya[y] = { rev:0, opex:0, payroll:0, rent:0, ovh:0, veh:0, lea:0, techs:1,
               new_m:0, parc:0, ebitda:0, tax:0, net:0 };
   const cEOY = {};
 
-  for (let m = 1; m <= 84; m++) {
+  for (let m = 1; m <= NM; m++) {
     const y = yearOf(m);
     if (m === 1) cash += CAPITAL;
 
     const mis  = misAt(m);
-    const tch  = Math.max(1, Math.ceil(mis / MPT));
+    const tch  = Math.min(MAX_TECH, Math.max(1, Math.ceil(mis / MPT)));
     const rev  = mis * revM(y);
     const opex = mis * OPEX_M;
     const pay  = (2 * founderY(y) + tch * techY(y)) * (1 + EMP_CHG);
@@ -325,7 +330,7 @@ function runModel(p) {
     if (m % 12 === 0) {
       const a = ya[y];
       const ebitda = a.rev - a.opex - a.payroll - a.rent - a.ovh - a.veh - a.lea;
-      const tax    = ebitda > 0 ? ebitda * TAX_RATE : MIN_TAX * a.rev;
+      const tax    = ebitda > 0 ? ebitda * TAX_RATE : 0;
       taxNext    = tax;
       a.ebitda   = ebitda;
       a.tax      = tax;
@@ -340,7 +345,7 @@ function runModel(p) {
   const SH = { nessim:0.45, ali:0.25, lamine:0.25, nazeh:0.05 };
   const DIV = {}, divTot = {};
   let rec_pref = 0;
-  for (let y = 1; y <= 7; y++) {
+  for (let y = 1; y <= NY; y++) {
     DIV[y] = { nessim:0, ali:0, lamine:0, nazeh:0 };
     let pool = py * ya[y].net;
     if (rec_pref < PREF_TARGET) {
@@ -357,13 +362,13 @@ function runModel(p) {
   // Trésorerie après distribution (dividende de l'exercice N versé en N+1)
   const cAfter = {};
   let cumPaid = 0;
-  for (let y = 1; y <= 7; y++) {
+  for (let y = 1; y <= NY; y++) {
     cAfter[y] = cEOY[y] - cumPaid;
     cumPaid   += divTot[y];
   }
 
   // TRI Nessim
-  const nFlows = [-CAPITAL, ...Array.from({length:7}, (_,i) => DIV[i+1].nessim)];
+  const nFlows = [-CAPITAL, ...Array.from({length:NY}, (_,i) => DIV[i+1].nessim)];
   let lo = -0.99, hi = 10;
   for (let i = 0; i < 200; i++) {
     const mid = (lo + hi) / 2;
@@ -373,8 +378,8 @@ function runModel(p) {
   const nIRR = (lo + hi) / 2;
 
   // Payback Nessim
-  let cumN = 0, nPB = 7;
-  for (let y = 1; y <= 7; y++) {
+  let cumN = 0, nPB = NY;
+  for (let y = 1; y <= NY; y++) {
     cumN += DIV[y].nessim;
     if (cumN >= CAPITAL) { nPB = y; break; }
   }
@@ -382,12 +387,12 @@ function runModel(p) {
   // Cumul net
   const cumNet = [];
   let cum = 0;
-  for (let y = 1; y <= 7; y++) { cum += ya[y].net; cumNet.push(cum); }
+  for (let y = 1; y <= NY; y++) { cum += ya[y].net; cumNet.push(cum); }
 
   // KPIs unitaires
   const stGain   = LD * (365 / 12) * fP0 * staS;
   const mchMgn   = LD * (365 / 12) * fP0 * htS * 12 - MLEA_Y - OPEX_M * 12;
-  const nTotal   = Array.from({length:7}, (_,i) => DIV[i+1].nessim).reduce((a,b)=>a+b,0);
+  const nTotal   = Array.from({length:NY}, (_,i) => DIV[i+1].nessim).reduce((a,b)=>a+b,0);
 
   return { ya, cEOY, cAfter, minCash, DIV, divTot, cumNet,
            nIRR, nPB, nTotal, stGain, mchMgn, MHT, MLEA_Y };
@@ -397,7 +402,7 @@ function runModel(p) {
 //  UTILS
 // ══════════════════════════════════════════════
 const G  = '#1a7a4a', G2 = '#2ecc71', BL = '#2980b9', AM = '#f39c12', PU = '#9b59b6';
-const YEARS = ['An1','An2','An3','An4','An5','An6','An7'];
+const YEARS = Array.from({length:12}, (_,i) => 'An' + (i+1));
 
 function fmtDT(v) {
   return new Intl.NumberFormat('fr-FR', { maximumFractionDigits:0 }).format(Math.round(v)) + ' DT';
@@ -460,10 +465,10 @@ function clearActive() {
 //  KPIs
 // ══════════════════════════════════════════════
 const KPI_DEFS = [
-  { id:'ca7',      label:'CA HCTECH — An 7',               hl:false },
-  { id:'cumNet',   label:'Résultat net cumulé 7 ans',       hl:true  },
-  { id:'parc',     label:'Parc de machines — An 7',         hl:false },
-  { id:'tresoMin', label:'Trésorerie min (84 mois)',         hl:false },
+  { id:'ca12',     label:'CA HCTECH — An 12',              hl:false },
+  { id:'cumNet',   label:'Résultat net cumulé 12 ans',      hl:true  },
+  { id:'parc',     label:'Parc de machines — An 12',        hl:false },
+  { id:'tresoMin', label:'Trésorerie min (144 mois)',        hl:false },
   { id:'stGain',   label:'Gain station / mois (An 1)',       hl:false },
   { id:'mchMgn',   label:'Marge / machine / an (An 1)',      hl:false },
   { id:'tri',      label:'TRI Nessim (Option 1)',            hl:true  },
@@ -481,9 +486,9 @@ function buildKpis() {
 }
 
 function updateKpis(r) {
-  document.getElementById('kpi-ca7').textContent     = fmtDT(r.ya[7].rev);
-  document.getElementById('kpi-cumNet').textContent  = fmtDT(r.cumNet[6]);
-  document.getElementById('kpi-parc').textContent    = r.ya[7].parc + ' machines';
+  document.getElementById('kpi-ca12').textContent    = fmtDT(r.ya[12].rev);
+  document.getElementById('kpi-cumNet').textContent  = fmtDT(r.cumNet[11]);
+  document.getElementById('kpi-parc').textContent    = r.ya[12].parc + ' machines';
   document.getElementById('kpi-tresoMin').textContent= fmtDT(r.minCash);
   document.getElementById('kpi-stGain').textContent  = fmtDT(r.stGain);
   document.getElementById('kpi-mchMgn').textContent  = fmtDT(r.mchMgn);
@@ -497,7 +502,7 @@ function updateKpis(r) {
 const charts = {};
 
 function initCharts() {
-  const z7 = Array(7).fill(0);
+  const z7 = Array(12).fill(0);
   const tickOpts = { callback: fmtAxis };
   const yGrid = { color: '#e8f0ea' };
 
@@ -536,7 +541,7 @@ function initCharts() {
   charts.div = new Chart(document.getElementById('chartDiv'), {
     type: 'bar',
     data: { labels:['Nessim (45 %)','Ali (25 %)','Lamine (25 %)','Nazeh (5 %)'],
-      datasets:[{ label:'Dividendes 7 ans', data:[0,0,0,0],
+      datasets:[{ label:'Dividendes 12 ans', data:[0,0,0,0],
         backgroundColor:[G, G2, G2, BL], borderRadius:6 }]},
     options: { plugins:{ legend:{ display:false },
         tooltip:{ callbacks:{ label: ctx => ' ' + fmtDT(ctx.raw) } } },
@@ -545,18 +550,18 @@ function initCharts() {
 }
 
 function updateCharts(r) {
-  charts.pnl.data.datasets[0].data = Array.from({length:7}, (_,i) => r.ya[i+1].rev);
-  charts.pnl.data.datasets[1].data = Array.from({length:7}, (_,i) => r.ya[i+1].net);
+  charts.pnl.data.datasets[0].data = Array.from({length:12}, (_,i) => r.ya[i+1].rev);
+  charts.pnl.data.datasets[1].data = Array.from({length:12}, (_,i) => r.ya[i+1].net);
   charts.pnl.update();
 
   charts.cumul.data.datasets[0].data = r.cumNet;
   charts.cumul.update();
 
-  charts.treso.data.datasets[0].data = Array.from({length:7}, (_,i) => r.cAfter[i+1]);
+  charts.treso.data.datasets[0].data = Array.from({length:12}, (_,i) => r.cAfter[i+1]);
   charts.treso.update();
 
   const nd = [0,0,0,0];
-  for (let y = 1; y <= 7; y++) {
+  for (let y = 1; y <= 12; y++) {
     nd[0] += r.DIV[y].nessim;
     nd[1] += r.DIV[y].ali;
     nd[2] += r.DIV[y].lamine;
@@ -598,14 +603,14 @@ function buildTable() {
     const tr = t.insertRow();
     if (row.cls) tr.className = row.cls;
     tr.innerHTML = `<td>${row.label}</td>` +
-      Array.from({length:7}, (_,i) =>
+      Array.from({length:12}, (_,i) =>
         `<td class="td-num" data-row="${row.key}" data-y="${i+1}">—</td>`).join('');
   });
 }
 
 function updateTable(r) {
   let cum = 0;
-  for (let y = 1; y <= 7; y++) {
+  for (let y = 1; y <= 12; y++) {
     ROWS.forEach(row => {
       const el = document.querySelector(`[data-row="${row.key}"][data-y="${y}"]`);
       if (!el) return;

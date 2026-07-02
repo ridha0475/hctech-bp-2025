@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HCTECH — Comparaison des scénarios de financement (Leasing vs SICAR)</title>
+<meta name="description" content="Comparaison chiffrée des deux scénarios de financement du plan HCTECH sur 12 ans : leasing des machines vs achat financé par une SICAR avec label Startup Act.">
+<link rel="icon" href="assets/logo-hctech-nav.png">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="index.html" class="nav-brand"><img src="assets/logo-hctech-nav.png" alt="HC TECH"></a>
+  <div class="nav-links">
+    <a href="index.html">Business Plan</a>
+    <a href="index.html#financier">Finances</a>
+    <a href="animation-vapeurs.html">🎬 Animation</a>
+    <a href="simulateur.html">📊 Simulateur</a>
+    <a href="comparaison.html" class="active">⚖️ Scénarios</a>
+    <a href="concurrence.html" class="nav-cta">🥊 Concurrence</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<header class="page-hero">
+  <div class="container">
+    <div class="hero-badge">Business Plan 12 ans — Comparaison des scénarios</div>
+    <h1>Leasing ou SICAR : <span>deux chemins, un même moteur</span></h1>
+    <p>Le cœur économique ne change pas — revenue share 60/40, 196 machines à l'An 7, un chiffre d'affaires identique de 76,4 M DT sur 12 ans. Ce qui change, c'est le financement des machines : location auprès d'un crédit-bailleur, ou achat en pleine propriété porté par un fonds de capital-investissement (SICAR). Les deux plans sont modélisés mois par mois sur 144 mois.</p>
+  </div>
+</header>
+
+<!-- ══ KPI STRIP ══ -->
+<section>
+  <div class="container">
+    <div class="stat-strip">
+      <div class="stat-pill"><div class="stat-val">76,4 M DT</div><div class="stat-lbl">CA cumulé 12 ans — identique dans les 2 scénarios</div></div>
+      <div class="stat-pill"><div class="stat-val">39,7 M</div><div class="stat-lbl">Net cumulé — Leasing (IS 28 %)</div></div>
+      <div class="stat-pill"><div class="stat-val">51,7 M</div><div class="stat-lbl">Net cumulé — SICAR + Startup Act</div></div>
+      <div class="stat-pill"><div class="stat-val">0 DT</div><div class="stat-lbl">Dette bancaire — dans les 2 scénarios</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 1. LES DEUX MONTAGES ══ -->
+<section>
+  <div class="container">
+    <div class="section-tag">01 — Les deux montages</div>
+    <h2>Ce qui change, ce qui ne change pas</h2>
+    <p class="lead">Mêmes machines, mêmes stations, mêmes revenus. La différence est purement financière et fiscale : qui finance les machines, à qui elles appartiennent, et quel régime d'impôt s'applique.</p>
+
+    <div class="cards" style="grid-template-columns:repeat(2,1fr)">
+      <div class="card">
+        <div class="card-icon">🔑</div>
+        <h4>Scénario A — Leasing</h4>
+        <p><strong>Les machines sont louées</strong> auprès d'un crédit-bailleur (≈ 12 %/an sur 5 ans), hors bilan, loyers en charges. Aucune levée de fonds : le capital de 300 k DT suffit. L'actionnariat reste inchangé (45/25/25/5). Base fiscale prudente : IS 25 % + CSS 3 % dès l'An 1.</p>
+        <p style="margin-top:.6rem"><span class="tag-blue">Interlocuteur : société de leasing</span></p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏛️</div>
+        <h4>Scénario B — SICAR</h4>
+        <p><strong>Les machines sont achetées</strong> en pleine propriété (immobilisées, amorties sur 10 ans). Une SICAR libère <strong>3,24 M DT par tranches</strong> calées sur les 4 premières vagues (An 1–2) ; dès l'An 3 les vagues suivantes sont autofinancées. Le fonds prend une participation minoritaire temporaire, avec sortie par rétrocession aux fondateurs. Sa présence au capital appuie le label <strong>Startup Act</strong> (exonération d'IS pendant le label).</p>
+        <p style="margin-top:.6rem"><span class="tag-green">Interlocuteur : fonds de capital-risque (SICAR)</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2. TABLEAU COMPARATIF ══ -->
+<section>
+  <div class="container">
+    <div class="section-tag">02 — Face à face</div>
+    <h2>Comparaison chiffrée sur 12 ans</h2>
+    <p class="lead">Tous les chiffres sortent des deux modèles mensuels (144 mois), construits sur les mêmes hypothèses d'exploitation : récupération 5/1000, essence +4,5 %/an, 14 machines tous les 6 mois.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Indicateur (12 ans)</th><th>Scénario A — Leasing</th><th>Scénario B — SICAR</th></tr></thead>
+        <tbody>
+          <tr><td>Chiffre d'affaires cumulé</td><td>76,4 M DT</td><td>76,4 M DT <span class="tag-green">identique</span></td></tr>
+          <tr><td>Propriété des machines</td><td>Louées (hors bilan)</td><td>Achetées — immobilisations, amorties sur 10 ans</td></tr>
+          <tr><td>Financement externe mobilisé</td><td>Encours leasing (pic ~4,7 M DT, s'éteint à l'An 12)</td><td>3,24 M DT en capital (tranches An 1–2)</td></tr>
+          <tr><td>Loyers de leasing machines payés</td><td>15,2 M DT (dont 3,8 M d'intérêts)</td><td>0 DT</td></tr>
+          <tr><td>EBITDA cumulé</td><td>55,1 M DT</td><td>70,2 M DT (pas de loyers)</td></tr>
+          <tr><td>Régime fiscal</td><td>IS 28 % dès l'An 1 (base prudente)</td><td>Exonération Startup Act pendant le label, puis IS 28 %</td></tr>
+          <tr><td>Impôt sur les sociétés cumulé</td><td>15,4 M DT</td><td>9,2 M DT</td></tr>
+          <tr class="highlight-row"><td><strong>Résultat net cumulé</strong></td><td><strong>39,7 M DT</strong></td><td><strong>51,7 M DT</strong></td></tr>
+          <tr><td>Dividendes distribués (payout 70 %)</td><td>27,8 M DT</td><td>36,2 M DT (dont quote-part du fonds jusqu'à sa sortie)</td></tr>
+          <tr><td>Trésorerie minimale (144 mois)</td><td>+278 k DT</td><td>+278 k DT</td></tr>
+          <tr><td>Dette bancaire</td><td>0</td><td>0</td></tr>
+          <tr><td>Actionnariat</td><td>Inchangé (45/25/25/5)</td><td>Dilution minoritaire temporaire, retour à 100 % fondateurs à la sortie du fonds</td></tr>
+          <tr><td>Point clé pour le partenaire financier</td><td>DSCR de 1,49× (année basse) à 55× (An 12)</td><td>Autofinancement dès l'An 3 ; payback machine 1,83 an</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comment">
+      L'écart de résultat net (+12 M DT en faveur du scénario SICAR) vient de deux effets cumulés : la disparition des loyers de leasing (l'EBITDA gagne 15,1 M) et l'exonération d'IS du label Startup Act (−6,2 M d'impôt), nets de l'amortissement des machines achetées. En contrepartie, le scénario SICAR partage les dividendes avec le fonds jusqu'à sa sortie et implique une gouvernance partagée temporaire — les conditions de sortie (calendrier, prix de rétrocession) relèvent de la négociation avec le fonds.
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. GRAPHIQUES ══ -->
+<section>
+  <div class="container">
+    <div class="section-tag">03 — Visualisations</div>
+    <h2>Les deux trajectoires en images</h2>
+
+    <div class="chart-grid">
+      <div class="chart-box">
+        <h4>Résultat net cumulé (DT)</h4>
+        <div class="chart-note">L'écart se creuse pendant l'exonération Startup Act, puis se stabilise.</div>
+        <canvas id="chartCumul"></canvas>
+      </div>
+      <div class="chart-box">
+        <h4>Résultat net annuel (DT)</h4>
+        <div class="chart-note">An 9 : fin du label → retour de l'IS dans le scénario SICAR.</div>
+        <canvas id="chartNet"></canvas>
+      </div>
+      <div class="chart-box">
+        <h4>Impôt sur les sociétés par an (DT)</h4>
+        <div class="chart-note">15,4 M (leasing) vs 9,2 M (SICAR) cumulés sur 12 ans.</div>
+        <canvas id="chartIS"></canvas>
+      </div>
+      <div class="chart-box">
+        <h4>Scénario SICAR : capex vs tranches du fonds (DT)</h4>
+        <div class="chart-note">Dès l'An 3, les nouvelles vagues sont payées par l'exploitation.</div>
+        <canvas id="chartCapex"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. LECTURE ══ -->
+<section>
+  <div class="container">
+    <div class="section-tag">04 — Lecture</div>
+    <h2>Forces et contreparties de chaque montage</h2>
+
+    <div class="cards" style="grid-template-columns:repeat(2,1fr)">
+      <div class="card">
+        <div class="card-icon">🔑</div>
+        <h4>Leasing — simplicité et contrôle</h4>
+        <p><strong>Forces :</strong> aucune dilution, gouvernance inchangée, dossier prêt à instruire par un bailleur, risque étalé (le loyer suit la machine). <br><strong>Contreparties :</strong> 15,2 M DT de loyers sur 12 ans (dont 3,8 M d'intérêts), IS plein dès l'An 1, engagements de location suivis hors bilan pendant la montée du parc.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏛️</div>
+        <h4>SICAR — puissance fiscale et bilan</h4>
+        <p><strong>Forces :</strong> EBITDA supérieur (pas de loyers), exonération d'IS pendant le label Startup Act, machines à l'actif (bilan renforcé), autofinancement dès l'An 3. <br><strong>Contreparties :</strong> dilution minoritaire temporaire, reporting et gouvernance partagée avec le fonds, conditions de sortie à négocier (rétrocession aux fondateurs), label à obtenir.</p>
+      </div>
+    </div>
+
+    <div class="comment" style="margin-top:2rem">
+      Les deux scénarios sont finançables et rentables dès l'An 1, avec la même trésorerie minimale (+278 k DT) et zéro dette bancaire. Le choix dépend du partenaire financier retenu et de l'arbitrage des associés entre <strong>simplicité</strong> (leasing) et <strong>optimisation fiscale + bilan</strong> (SICAR). Les deux pistes sont menées en parallèle — la première qui aboutit déclenche la vague 1.
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <h2>Les deux dossiers complets sont disponibles</h2>
+  <p>Chaque scénario dispose de son classeur Excel à formules vivantes : états financiers prévisionnels normés (SCE), bilan équilibré, flux de trésorerie mensuels, ratios et analyse de sensibilité (pessimiste / base / optimiste). Communication sur demande aux partenaires financiers identifiés.</p>
+  <a href="mailto:mr.belajouza@gmail.com?subject=HCTECH — Dossier de financement" class="btn">📩 Demander un dossier</a>
+  <a href="index.html" class="btn-ghost">← Retour au Business Plan</a>
+</section>
+
+<footer>
+  HCTECH — Business Plan 12 ans — Document confidentiel réservé aux associés et partenaires financiers identifiés.<br>
+  Préparé par <strong>Mohamed Ridha Belajouza</strong>, consultant et conseiller stratégique.
+</footer>
+
+<!-- ══ CHARTS JS ══ -->
+<script>
+const GREEN='#1a7a4a', GREEN2='#2ecc71', BLUE='#2980b9', AMBER='#f39c12', GREY='#b0c4ba', RED='#e74c3c';
+const years = ['An1','An2','An3','An4','An5','An6','An7','An8','An9','An10','An11','An12'];
+
+const netLea = [95938,422885,807955,1302648,1863295,2706350,3747774,4544299,5131670,5731367,6343937,6969952];
+const netSic = [291191,1016045,1821625,2779460,3828897,5018009,6302234,7088378,5379273,5667241,6036204,6467271];
+const cumLea = [95938,518823,1326778,2629426,4492721,7199071,10946845,15491144,20622814,26354180,32698118,39668069];
+const cumSic = [291191,1307236,3128862,5908322,9737219,14755228,21057463,28145840,33525114,39192354,45228559,51695829];
+const isLea  = [37309,164455,314205,506585,724615,1052469,1457468,1767227,1995649,2228865,2467087,2710537];
+const isSic  = [0,0,0,0,0,0,0,0,2091940,2203927,2347413,2515050];
+const capex  = [1621970,1621970,1621970,1621970,1621970,1621970,1621970,0,0,0,0,0];
+const tranch = [1621970,1621970,0,0,0,0,0,0,0,0,0,0];
+
+new Chart(document.getElementById('chartCumul'), {
+  type:'line',
+  data:{labels:years,datasets:[
+    {label:'Leasing (IS 28 %)',data:cumLea,borderColor:BLUE,backgroundColor:'rgba(41,128,185,.08)',
+     pointBackgroundColor:BLUE,pointRadius:4,fill:true,tension:.35},
+    {label:'SICAR + Startup Act',data:cumSic,borderColor:GREEN,backgroundColor:'rgba(26,122,74,.10)',
+     pointBackgroundColor:GREEN2,pointRadius:4,fill:true,tension:.35}]},
+  options:{plugins:{legend:{position:'bottom'}},
+    scales:{y:{grid:{color:'#e8f0ea'},ticks:{callback:v=>(v/1000000).toFixed(0)+' M'}}}}
+});
+
+new Chart(document.getElementById('chartNet'), {
+  type:'bar',
+  data:{labels:years,datasets:[
+    {label:'Leasing',data:netLea,backgroundColor:BLUE,borderRadius:4},
+    {label:'SICAR',data:netSic,backgroundColor:GREEN2,borderRadius:4}]},
+  options:{plugins:{legend:{position:'bottom'}},
+    scales:{y:{grid:{color:'#e8f0ea'},ticks:{callback:v=>(v/1000000).toFixed(1)+' M'}}}}
+});
+
+new Chart(document.getElementById('chartIS'), {
+  type:'bar',
+  data:{labels:years,datasets:[
+    {label:'Leasing (IS 28 %)',data:isLea,backgroundColor:BLUE,borderRadius:4},
+    {label:'SICAR (exonéré pendant le label)',data:isSic,backgroundColor:RED,borderRadius:4}]},
+  options:{plugins:{legend:{position:'bottom'}},
+    scales:{y:{grid:{color:'#e8f0ea'},ticks:{callback:v=>(v/1000000).toFixed(1)+' M'}}}}
+});
+
+new Chart(document.getElementById('chartCapex'), {
+  type:'bar',
+  data:{labels:years,datasets:[
+    {label:'Capex machines',data:capex,backgroundColor:GREY,borderRadius:4},
+    {label:'Tranches SICAR',data:tranch,backgroundColor:GREEN2,borderRadius:4}]},
+  options:{plugins:{legend:{position:'bottom'}},
+    scales:{y:{grid:{color:'#e8f0ea'},ticks:{callback:v=>(v/1000000).toFixed(1)+' M'}}}}
+});
+</script>
+</body>
+</html>
